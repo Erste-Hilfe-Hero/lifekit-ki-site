@@ -75,6 +75,16 @@ jobs:
           NYRATHEN_KEY_ALIAS: ${{ secrets.NYRATHEN_KEY_ALIAS }}
           NYRATHEN_KEY_PASSWORD: ${{ secrets.NYRATHEN_KEY_PASSWORD }}
         run: node tools/build-mobile.mjs android-bundle
+      - name: Verify signed AAB (jarsigner)
+        env:
+          KEYSTORE: ${{ runner.temp }}/nyrathen-release.jks
+          STORE_PASSWORD: ${{ secrets.NYRATHEN_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.NYRATHEN_KEY_ALIAS }}
+        run: |
+          jarsigner -verify -verbose -certs \
+            -keystore "$KEYSTORE" \
+            -storepass "$STORE_PASSWORD" \
+            native/android/app/build/outputs/bundle/release/app-release.aab
       - name: Hash AAB
         run: sha256sum native/android/app/build/outputs/bundle/release/app-release.aab > Nyrathen-Android-AAB.sha256
       - uses: actions/upload-artifact@v4

@@ -128,10 +128,13 @@ public final class StoreBridge implements PurchasesUpdatedListener {
         String requestId = request.optString("requestId", ""), productId = request.optString("productId", "");
         ProductDetails details = products.get(productId); ProductDetails.OneTimePurchaseOfferDetails offer = details == null ? null : firstOffer(details);
         if (details == null || offer == null) { emitError(requestId, "Produkt ist für dieses Google-Play-Konto nicht verfügbar."); return; }
+        String accountId = request.optString("accountId", "");
+        if (accountId.isBlank()) { emitError(requestId, "Account-ID für Kauf erforderlich."); return; }
+        
         pendingPurchase = request;
         BillingFlowParams.ProductDetailsParams pd = BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(details).setOfferToken(offer.getOfferToken()).build();
         BillingFlowParams.Builder flow = BillingFlowParams.newBuilder().setProductDetailsParamsList(java.util.Collections.singletonList(pd));
-        String accountId = request.optString("accountId", ""); if (!accountId.isBlank()) flow.setObfuscatedAccountId(hash(accountId));
+        flow.setObfuscatedAccountId(hash(accountId));
         BillingResult result = billing.launchBillingFlow(activity, flow.build());
         if (result.getResponseCode() != BillingClient.BillingResponseCode.OK) { pendingPurchase = null; emitError(requestId, "Google Play konnte den Kauf nicht starten."); }
     }

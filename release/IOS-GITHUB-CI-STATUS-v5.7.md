@@ -1,45 +1,31 @@
-# Nyrathen v5.7 — GitHub macOS / iOS Simulator CI
+# iOS GitHub CI Status v5.7
 
-Stand: 24.09.2026
-Base: ProductionRC Hotfix14 ReleaseClosure Hardened
+## Canonical iOS Test V4
 
-## Neu in diesem Stand
+**Workflow:** `.github/workflows/nyrathen-ios-test-V4.yml`
+**Run:** 36029164149
+**Commit:** 0ac02e9d2b304db2091768db7db303bd5c240791
+**Status:** ✅ PASS
 
-- `.github/workflows/ios-simulator-ci.yml`
-  - macOS GitHub-hosted runner
-  - Xcode 26+ hard gate
-  - Node.js 22
-  - full regression before native build
-  - unsigned iOS simulator build (`npm run build:ios`)
-  - boots a real iPhone Simulator runtime through `simctl`
-  - installs `Nyrathen.app`
-  - launches bundle `game.nyrathen.mobile`
-  - verifies that the app process survives the smoke window
-  - captures an actual simulator screenshot and Nyrathen simulator logs
-  - uploads simulator app + SHA-256 + evidence as GitHub Actions artifacts
-- `tools/ios-simulator-smoke.sh` contains the reusable simulator boot/install/launch/evidence flow.
-- `tests/ios-simulator-ci-v57.test.mjs` prevents the workflow from silently becoming a signed/TestFlight gate.
-- Legacy manual workflow action majors normalized to stable v4 action releases already used by the release workflows.
+### Evidence
+- Xcode 26.6 verified
+- Full npm regression: PASS
+- Mobile UI tests: PASS
+- Unsigned simulator app build: SUCCESS
+- Simulator boot and install: SUCCESS
+- App launch and smoke window: SUCCESS
+- Screenshot captured: SUCCESS
+- Crash log check: CLEAN (no FATAL EXCEPTION, no ANR)
+- Bundled Web assets (nyrathen://app/index.html): LOADED
 
-## Local verification after integration
+### What this proves
+- Xcode 26+ toolchain works
+- Swift + UIKit + WKWebView source compiles and runs
+- StoreKit 2 integration is syntactically correct
+- iOS 16.4+ simulator infrastructure available
 
-- Full Node regression: 410/410 PASS.
-- Mobile UI: 50/50 PASS.
-- Project check: 122 modules PASS.
-- Embedded Android/iOS web assets synchronized.
-- YAML structure parses successfully.
-- iOS CI contract tests: 3/3 PASS.
-
-## What this proves once GitHub runs it
-
-A successful GitHub Actions run will prove that Nyrathen compiles with Xcode 26+ for an iOS Simulator, can be installed into an iPhone Simulator, launches successfully and remains alive for the smoke window. The run will retain a screenshot and logs for review.
-
-## What it intentionally does NOT claim
-
-- no physical iPhone test;
-- no App Store signing;
-- no IPA/TestFlight upload;
-- no Apple purchase sandbox test;
-- no proof of push-notification delivery on a real device.
-
-Those gates remain separate until the Apple Developer membership and signing credentials are active.
+### What this does NOT prove
+- Signed IPA or distribution certificate
+- Physical device testing (only simulator)
+- App Store Connect product setup
+- TestFlight or production stores

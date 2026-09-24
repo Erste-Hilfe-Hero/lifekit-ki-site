@@ -34,6 +34,14 @@ The gameplay/account-progression runtime remains Hotfix 14:
 
 No gameplay balance value was changed in this closure pass.
 
+### Native Build Evidence (v5.7)
+
+Canonical CI runs recorded:
+- Android AUTO V8: run 36035507949, commit 04ee69a6904c5d7f67d55aecdbe7fb6fc7ed75b6 → debug APK build/install/launch/crash-smoke PASS
+- iOS Test V4: run 36029164149, commit 0ac02e9d2b304db2091768db7db303bd5c240791 → simulator build/install/launch PASS
+
+These prove toolchain availability and standard build configuration only. They do not prove signed stores, physical devices, or published products.
+
 ## Remaining external evidence
 
 - 6h endurance completion (currently running).
