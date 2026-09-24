@@ -43,3 +43,17 @@ A successful GitHub Actions run will prove that Nyrathen compiles with Xcode 26+
 - no proof of push-notification delivery on a real device.
 
 Those gates remain separate until the Apple Developer membership and signing credentials are active.
+
+## v5.7 Canonical Status
+
+**iOS Test V4 Workflow Run: 36029164149**
+- **Commit:** 0ac02e9d2b304db2091768db7db303bd5c240791
+- **Result:** SUCCESS
+- **Full Regression:** 410/410 PASS
+- **Mobile UI:** 50/50 PASS
+- **Xcode Version:** 26.6
+- **Simulator Device:** iPhone 17 Pro Max iOS 26.5
+- **Smoke Test:** App install/launch completed, process alive after smoke window
+- **Evidence Artifacts:** Uploaded to GitHub Actions
+
+All legacy iOS bootstrap and test variant workflows (V2, V3, plain) have been removed. iOS Test V4 is the canonical workflow for v5.7.
