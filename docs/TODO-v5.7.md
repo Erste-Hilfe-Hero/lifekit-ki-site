@@ -113,7 +113,7 @@ Basis: v5.7.0 — Build `c386de46dd81`, 396/396 Regression, 50/50 Mobile-UI, 114
 - [x] vollständige Regression grün;
 - [x] Mobile UI vollständig grün;
 - [x] Echtgeld-Shop lokal technisch vollständig;
-- [ ] native Billing-Bridges kompilieren; **EXTERN/BUILD-HOST:** hier fehlen Android SDK/API 36 sowie macOS/Xcode 26.
+- [x] native Billing-Bridges kompilieren: Android AUTO V8 (`.github/workflows/nyrathen-android-auto-v8.yml`, run 36035507949, commit `04ee69a6904c5d7f67d55aecdbe7fb6fc7ed75b6`, 410/410 Tests, API36-Emulator install/launch/crash-smoke) und iOS Test V4 (`.github/workflows/nyrathen-ios-test-V4.yml`, run 36029164149, commit `0ac02e9d2b304db2091768db7db303bd5c240791`, 410/410 Tests, Mobile UI 50/50, Xcode 26.6, iPhone 17 Pro Max iOS 26.5 Simulator install/launch) sind auf GitHub-hosted Runnern grün. Signierte Builds, physische Geräte, Store-Veröffentlichung und Käufe bleiben offene externe Gates.
 - [x] serverseitige Receipt-Verifikation fail-closed;
 - [x] keine Pay-to-Win-/Lootbox-Produkte;
 - [x] Shop und Haupt-UI visuell klar nicht-generisch;
@@ -160,6 +160,8 @@ Basis: v5.7.0 — Build `c386de46dd81`, 396/396 Regression, 50/50 Mobile-UI, 114
 - [ ] 6–24h ununterbrochener Endurance-Soak auf dauerhaftem Runner. **EXTERN/ENDURANCE.**
 - [ ] Rechtsverbindliche Publisher-/Firmenangaben, Support-E-Mail und Postanschrift einsetzen. **EXTERN/PUBLISHER.**
 - [ ] Öffentliche Privacy/Terms/Support/Delete-Account/Impressum-Seiten nach Einsetzen echter Publisherdaten aktivieren. **EXTERN/PUBLISHER.**
+- [x] Unsigniertes Android-Debug-APK auf gehostetem GitHub-Actions-Runner via Android AUTO V8 gebaut und auf API36-Emulator install/launch/crash-smoke-getestet (run 36035507949).
+- [x] Unsignierte iOS-Simulator-App auf gehostetem GitHub-Actions-macOS-Runner via iOS Test V4 gebaut und auf iPhone 17 Pro Max / iOS 26.5 Simulator install/launch-getestet (run 36029164149).
 - [ ] Signiertes Android AAB/APK auf SDK-36-Buildhost erzeugen und Real-Device testen. **EXTERN/BUILD-HOST/DEVICE.**
 - [ ] Signiertes iOS Archive/IPA auf macOS/Xcode 26 erzeugen und Real-Device testen. **EXTERN/BUILD-HOST/DEVICE.**
 - [ ] 13 Produkte, Preise und Territorien in App Store Connect / Play Console anlegen. **EXTERN/STORE-CONSOLE.**

@@ -1,22 +1,24 @@
 # Nyrathen v5.7 — GitHub macOS / iOS Simulator CI
 
-Stand: 24.09.2026
+Stand: 24.09.2026 (aktualisiert: v5.7 canonical native CI cleanup)
 Base: ProductionRC Hotfix14 ReleaseClosure Hardened
 
-## Neu in diesem Stand
+## Canonical workflow — verified SUCCESS
 
-- `.github/workflows/ios-simulator-ci.yml`
-  - macOS GitHub-hosted runner
-  - Xcode 26+ hard gate
-  - Node.js 22
-  - full regression before native build
-  - unsigned iOS simulator build (`npm run build:ios`)
-  - boots a real iPhone Simulator runtime through `simctl`
-  - installs `Nyrathen.app`
-  - launches bundle `game.nyrathen.mobile`
-  - verifies that the app process survives the smoke window
-  - captures an actual simulator screenshot and Nyrathen simulator logs
-  - uploads simulator app + SHA-256 + evidence as GitHub Actions artifacts
+- Workflow: `.github/workflows/nyrathen-ios-test-V4.yml` ("Nyrathen iOS Test ONLY", V4)
+- Run: **36029164149 — SUCCESS**
+- Commit: `0ac02e9d2b304db2091768db7db303bd5c240791`
+- Runner: macOS GitHub-hosted, Xcode **26.6**
+- Simulator: **iPhone 17 Pro Max, iOS 26.5**
+- Test coverage: **410/410** full regression, **Mobile UI 50/50**
+- Native Billing-Bridges compilation: **complete** (unsigned iOS simulator build via `npm run build:ios`)
+- Simulator install/launch verified via `tools/ios-simulator-smoke.sh` (`simctl install`, `simctl launch`, process-alive smoke window)
+- Evidence uploaded as GitHub Actions artifact `nyrathen-ios-test-evidence`: simulator app zip + SHA-256, screenshot, Xcode version, simulator list, commit hash
+
+All earlier iOS workflow variants (`nyrathen-bootstrap-ios*.yml`, `nyrathen-ios-test.yml`, `nyrathen-ios-test-V2.yml`, `nyrathen-ios-test-V3.yml`) have been removed from `.github/workflows/` in favor of this single canonical V4 workflow. See `docs/CANONICAL-CI-WORKFLOWS-v5.7.md` for rationale.
+
+## What was verified
+
 - `tools/ios-simulator-smoke.sh` contains the reusable simulator boot/install/launch/evidence flow.
 - `tests/ios-simulator-ci-v57.test.mjs` prevents the workflow from silently becoming a signed/TestFlight gate.
 - Legacy manual workflow action majors normalized to stable v4 action releases already used by the release workflows.

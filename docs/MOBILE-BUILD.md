@@ -83,4 +83,15 @@ Die Gradle-Signing-Konfiguration und die Archive-Befehle sind Quellcode, nicht d
 
 Die GitHub-Actions-Datei `.github/workflows/mobile-store-release.yml` wird ausschließlich manuell per `workflow_dispatch` gestartet. Sie validiert Produktions-/Legal-URLs und kann mit eigenen Secrets ein signiertes Android-AAB beziehungsweise iOS-IPA erzeugen. Es wurde in dieser Unterhaltung kein externer Workflow gestartet und keine Signing-Credential gespeichert.
 
+## Kanonische native CI-Workflows (v5.7)
+
+Die einzigen verbindlichen, verifizierten nativen CI-Workflows für v5.7 sind:
+
+- **Android:** `.github/workflows/nyrathen-android-auto-v8.yml` — „Nyrathen Android AUTO V8". Verifiziert: run 36035507949, SUCCESS, commit `04ee69a6904c5d7f67d55aecdbe7fb6fc7ed75b6`, 410/410 Tests, API36-Emulator install/launch/crash-smoke.
+- **iOS:** `.github/workflows/nyrathen-ios-test-V4.yml` — „Nyrathen iOS Test ONLY" (V4). Verifiziert: run 36029164149, SUCCESS, commit `0ac02e9d2b304db2091768db7db303bd5c240791`, 410/410 Tests, Mobile UI 50/50, Xcode 26.6, iPhone 17 Pro Max / iOS 26.5 Simulator install/launch.
+
+Alle älteren Android-Varianten (`*-auto-v6.yml`, `*-auto-v7.yml`, `*-auto.yml`, ältere `*-android-test*.yml`-Varianten) und älteren iOS-Varianten (`*-ios-bootstrap*.yml`, `*-ios-test-V2.yml`, `*-ios-test-V3.yml`, `*-ios-plain*.yml`) wurden aus `.github/workflows/` entfernt. Details und Begründung stehen in `docs/CANONICAL-CI-WORKFLOWS-v5.7.md`.
+
+Diese Workflows bauen ausschließlich unsignierte Debug-/Simulator-Artefakte auf gehosteten GitHub-Actions-Runnern. Signierte Builds, physische Geräte, Store-Veröffentlichung und In-App-Käufe bleiben offene externe Gates.
+
 Primärreferenzen, abgerufen am 22.09.2026: Android-Builds https://developer.android.com/build/building-cmdline ; Android-WebView-Ressourcen https://developer.android.com/develop/ui/views/layout/webapps/load-local-content ; Apple-Verteilung https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases ; manuelle Workflows https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows . Diese Quellen belegen die Werkzeugverträge, keinen Build dieses Spiels.
