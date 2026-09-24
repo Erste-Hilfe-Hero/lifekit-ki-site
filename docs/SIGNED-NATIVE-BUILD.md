@@ -25,6 +25,16 @@ Erforderliche Secrets:
 
 Die Pipeline prüft vor dem iOS-Build ausdrücklich Xcode 26+ und erstellt anschließend einen temporären macOS-Keychain, importiert Zertifikat und Provisioning Profile, baut ein Xcode-Archiv und exportiert `Nyrathen.ipa`. Zertifikate/Profiles werden nur im temporären Runner verwendet.
 
+## CI-evidenziierte Builds (v5.7)
+
+Android AUTO V8 (API 36): GitHub Actions run 36035507949 mit commit 04ee69a6904c5d7f67d55aecdbe7fb6fc7ed75b6 hat einen Debug-APK erfolgreich gebaut, auf einem Gerät installiert und die Spiellogik und native Store-Bridge bei Crash-Smoke-Tests validiert.
+
+iOS Test V4 (Xcode 26.6): GitHub Actions run 36029164149 mit commit 0ac02e9d2b304db2091768db7db303bd5c240791 hat ein Xcode-Archiv erfolgreich in einem Simulator gebaut und gestartet.
+
+Signierte AAB/IPA: Siehe unten unter "Nicht automatisiert".
+
+---
+
 ## Nicht automatisiert
 
 Die Pipeline lädt absichtlich nichts automatisch in App Store Connect oder Google Play hoch. So bleibt der letzte irreversible Store-Schritt unter manueller Kontrolle. Erst nach echten Geräte-/Closed-Test-Ergebnissen soll hochgeladen werden.

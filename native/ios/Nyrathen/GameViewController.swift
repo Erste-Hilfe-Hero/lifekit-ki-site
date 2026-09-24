@@ -114,7 +114,10 @@ final class GameViewController: UIViewController, WKNavigationDelegate, WKScript
                     emitStore(["ok": true, "requestId": requestId, "provider": "apple", "products": products.map { ["id": $0.id, "title": $0.displayName, "description": $0.description, "price": $0.displayPrice] }])
                 case "purchase":
                     guard let id = body["productId"] as? String, let product = try await Product.products(for: [id]).first else { throw StoreBridgeError("Produkt ist im App Store nicht verfügbar.") }
-                    let result = try await product.purchase()
+                    guard let accountId = body["accountId"] as? String, UUID(uuidString: accountId) != nil else { throw StoreBridgeError("Account ID muss eine gültige UUID sein.") }
+                    var purchaseOptions: Set<Product.PurchaseOption> = []
+                    purchaseOptions.insert(.appAccountToken(accountId))
+                    let result = try await product.purchase(options: purchaseOptions)
                     switch result {
                     case .success(let verification):
                         guard case .verified(let transaction) = verification else { throw StoreBridgeError("StoreKit konnte die Transaktion nicht verifizieren.") }
