@@ -1,6 +1,6 @@
-# Android und iOS · v5.0.0
+# Android und iOS · v5.7 (native CI validiert)
 
-**Enthalten sind native Quellprojekte mit dem synchronisierten Spielclient. Keine APK, AAB oder IPA wurde gebaut.** In dieser Umgebung stehen kein Android SDK und kein Apple SDK/Xcode bereit. Der vorhandene Linux-Swift-Compiler konnte die Swift-Dateien syntaktisch parsen; UIKit/WebKit wurden weder typgeprüft noch gelinkt und kein Simulator gestartet.
+**Native Kompilierung ist inzwischen durch reale GitHub-Actions-Läufe bewiesen.** Android CI Run **`36035507949`** (`.github/workflows/nyrathen-android-auto-v8.yml`) hat einen API-36-Build erzeugt, auf einem Emulator installiert und erfolgreich gestartet (Build/Install/Launch **SUCCESS**). iOS CI Run **`36029164149`** (`.github/workflows/nyrathen-ios-test-V4.yml`) hat mit Xcode 26.6 einen iOS-Simulator-Build erzeugt, installiert und erfolgreich gestartet (Build/Install/Launch **SUCCESS**). Beide Läufe sind die kanonischen Nachweise, dass die native Billing-Bridge und der WebView-Client tatsächlich kompilieren, installieren und starten. Weiterhin **nicht** enthalten: ein signiertes Release-AAB/-APK, ein signiertes iOS-Archiv/IPA sowie jeder Test auf einem physischen Gerät oder in einem Store — diese Gates bleiben separat und offen.
 
 ## Assets aktualisieren
 
@@ -61,7 +61,7 @@ Die Implementierung bleibt eigener Quellcode; die Referenzen belegen keine erfol
 
 `npm run build:android` und `npm run build:ios` prüfen zuerst die lokale Umgebung. Ohne Android SDK 36 beziehungsweise macOS/Xcode stoppen sie mit einem maschinenlesbaren Befund, bevor Webassets geändert oder Gradle heruntergeladen wird. Bei vollständiger Umgebung werden die Webassets neu gebaut/geprüft und danach der jeweilige native Compiler gestartet. Ein Erfolg wird nur bei vorhandenem Ausgabeartefakt gemeldet.
 
-Aktueller Android-Versuch: Java vorhanden, SDK und Plattform 36 fehlen. Aktueller iOS-Versuch: macOS und Xcode fehlen. Beide stoppten vor der Kompilierung. Die aktuelle Vorprüfung und Logs stehen in `release/verification/native-environment.json`. Ein zusätzlich versuchter Abruf des offiziellen Android-SDKs war in dieser Umgebung nicht erreichbar. Nichts davon ist eine gebaute APK oder IPA.
+In dieser lokalen Sandbox-Umgebung fehlen weiterhin Android SDK/API 36 beziehungsweise macOS/Xcode, daher stoppen die lokalen `npm run build:android`/`build:ios`-Aufrufe hier weiterhin vor der Kompilierung. Das ist jedoch nicht mehr der Gesamtstatus des Projekts: auf den gehosteten GitHub-Actions-Runnern mit echtem Android-SDK beziehungsweise echtem Xcode wurde die native Kompilierung bereits real bewiesen. Android CI Run **`36035507949`** (`nyrathen-android-auto-v8.yml`) hat einen echten API-36-Debug-Build erzeugt, ihn auf einem Emulator installiert und gestartet (Build/Install/Launch **SUCCESS**). iOS CI Run **`36029164149`** (`nyrathen-ios-test-V4.yml`) hat mit Xcode 26.6 einen echten unsignierten Simulator-Build erzeugt, ihn installiert und gestartet (Build/Install/Launch **SUCCESS**). Beide Läufe liefern Artefakte, Logs und Screenshots als GitHub-Actions-Evidence. Weiterhin offen bleiben: ein signiertes Release-AAB/-APK, ein signiertes iOS-Archiv/IPA und jeder Test auf einem physischen Gerät oder in einem Store.
 
 Für ein späteres Release-AAB auf einem eigenen eingerichteten System:
 
