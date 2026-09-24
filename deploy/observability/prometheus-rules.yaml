@@ -1,0 +1,43 @@
+groups:
+  - name: nyrathen-runtime
+    rules:
+      - alert: NyrathenWorkerDown
+        expr: up{job="nyrathen-game"} == 0
+        for: 2m
+        labels: {severity: page}
+        annotations: {summary: "Nyrathen GameServer worker is down"}
+      - alert: NyrathenTickLatencyHigh
+        expr: nyrathen_tick_delay_p99_ms > 180
+        for: 2m
+        labels: {severity: page}
+        annotations: {summary: "Nyrathen tick p99 exceeds 180ms"}
+      - alert: NyrathenHttp5xx
+        expr: rate(nyrathen_http_5xx_total[5m]) / clamp_min(rate(nyrathen_requests_total[5m]), 1) > 0.005
+        for: 5m
+        labels: {severity: page}
+        annotations: {summary: "Nyrathen HTTP 5xx rate above 0.5%"}
+      - alert: NyrathenReconnectSpike
+        expr: rate(nyrathen_sse_disconnects_total[5m]) / clamp_min(rate(nyrathen_sse_connections_total[5m]), 1) > 0.03
+        for: 5m
+        labels: {severity: warn}
+        annotations: {summary: "Nyrathen reconnect/disconnect rate elevated"}
+      - alert: NyrathenBackpressure
+        expr: rate(nyrathen_sse_backpressure_skips_total[5m]) > 1
+        for: 5m
+        labels: {severity: warn}
+        annotations: {summary: "Nyrathen SSE backpressure is sustained"}
+      - alert: NyrathenStorageFault
+        expr: nyrathen_storage_healthy == 0 or nyrathen_backup_error == 1
+        for: 1m
+        labels: {severity: page}
+        annotations: {summary: "Nyrathen persistent storage or backup fault"}
+      - alert: NyrathenBackupStale
+        expr: nyrathen_backup_age_seconds > 1800
+        for: 5m
+        labels: {severity: page}
+        annotations: {summary: "Nyrathen backup is older than 30 minutes"}
+      - alert: NyrathenMemoryHigh
+        expr: nyrathen_memory_rss_bytes > 805306368
+        for: 5m
+        labels: {severity: warn}
+        annotations: {summary: "Nyrathen worker RSS exceeds 768MiB"}

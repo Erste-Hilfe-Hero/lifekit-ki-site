@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "locales": [
+    {
+      "locale": "de",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "de",
+      "pageErrors": []
+    },
+    {
+      "locale": "en",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "en",
+      "pageErrors": []
+    },
+    {
+      "locale": "fr",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "fr",
+      "pageErrors": []
+    },
+    {
+      "locale": "es",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "es",
+      "pageErrors": []
+    },
+    {
+      "locale": "it",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "it",
+      "pageErrors": []
+    },
+    {
+      "locale": "pt",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "pt",
+      "pageErrors": []
+    },
+    {
+      "locale": "tr",
+      "ok": true,
+      "settings": true,
+      "class": true,
+      "ability": true,
+      "options": 7,
+      "current": "tr",
+      "pageErrors": []
+    }
+  ]
+}

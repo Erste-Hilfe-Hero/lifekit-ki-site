@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "package": "game.nyrathen.mobile",
+  "frozenFor": "5.7.0",
+  "products": [
+    {
+      "id": "nyr.shards.180",
+      "title": "180 Nyr-Splitter",
+      "kind": "currency",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "1,99 €"
+    },
+    {
+      "id": "nyr.shards.500",
+      "title": "500 Nyr-Splitter",
+      "kind": "currency",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "4,99 €"
+    },
+    {
+      "id": "nyr.shards.1100",
+      "title": "1.100 Nyr-Splitter",
+      "kind": "currency",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "9,99 €"
+    },
+    {
+      "id": "nyr.shards.2400",
+      "title": "2.400 Nyr-Splitter",
+      "kind": "currency",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "19,99 €"
+    },
+    {
+      "id": "nyr.shards.5200",
+      "title": "5.200 Nyr-Splitter",
+      "kind": "currency",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "39,99 €"
+    },
+    {
+      "id": "nyr.bundle.wanderer",
+      "title": "Wandererpaket",
+      "kind": "bundle",
+      "consumable": false,
+      "repeatable": false,
+      "priceHint": "6,99 €"
+    },
+    {
+      "id": "nyr.bundle.founder",
+      "title": "Gründerpaket",
+      "kind": "bundle",
+      "consumable": false,
+      "repeatable": false,
+      "priceHint": "24,99 €"
+    },
+    {
+      "id": "nyr.season.veil01",
+      "title": "Schleierpass · Saison I",
+      "kind": "season",
+      "consumable": false,
+      "repeatable": false,
+      "priceHint": "8,99 €"
+    },
+    {
+      "id": "nyr.account.slot",
+      "title": "Charakterplatz",
+      "kind": "account",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "4,99 €"
+    },
+    {
+      "id": "nyr.account.slots3",
+      "title": "Drei Charakterplätze",
+      "kind": "account",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "11,99 €"
+    },
+    {
+      "id": "nyr.account.vault",
+      "title": "Tresorflügel",
+      "kind": "account",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "3,99 €"
+    },
+    {
+      "id": "nyr.account.vault2",
+      "title": "Zwei Tresorflügel",
+      "kind": "account",
+      "consumable": true,
+      "repeatable": true,
+      "priceHint": "6,99 €"
+    },
+    {
+      "id": "nyr.collection.blackiron",
+      "title": "Schwarzeisen-Kollektion",
+      "kind": "cosmetic",
+      "consumable": false,
+      "repeatable": false,
+      "priceHint": "11,99 €"
+    }
+  ]
+}

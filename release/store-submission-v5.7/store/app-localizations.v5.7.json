@@ -1,0 +1,30 @@
+{
+  "de-DE": {
+    "name": "Nyrathen",
+    "subtitle": "Shards of the Veil",
+    "shortDescription": "Düsteres Koop-Pixel-Action-RPG",
+    "keywords": [
+      "Pixel RPG",
+      "Koop",
+      "Bullet Hell",
+      "Permadeath",
+      "Gilden",
+      "Dungeons"
+    ],
+    "description": "Nyrathen: Shards of the Veil ist ein mobiles Online-Action-RPG. Wähle aus 19 Klassen, kämpfe in gemeinsamen Realms, bezwinge 18 Dungeons und entwickle Charaktere, Tresor, Gilde und saisonalen Fortschritt. Permadeath bleibt Kern der Progression. Optionale Käufe umfassen Cosmetics, Saisoninhalte und Account-Komfort; es gibt keine Echtgeld-Lootboxen, bezahlte Wiederbelebung oder verkaufte Kampfkraft."
+  },
+  "en-US": {
+    "name": "Nyrathen",
+    "subtitle": "Shards of the Veil",
+    "shortDescription": "Dark co-op pixel action RPG",
+    "keywords": [
+      "Pixel RPG",
+      "Co-op",
+      "Bullet Hell",
+      "Permadeath",
+      "Guilds",
+      "Dungeons"
+    ],
+    "description": "Nyrathen: Shards of the Veil is a mobile online action RPG. Choose from 19 classes, fight through shared Realms, conquer 18 dungeons, and develop your characters, vault, guild, and seasonal progression. Permadeath remains a core part of progression. Optional purchases cover cosmetics, seasonal content, and account convenience; there are no paid loot boxes, paid revives, or combat power for sale."
+  }
+}

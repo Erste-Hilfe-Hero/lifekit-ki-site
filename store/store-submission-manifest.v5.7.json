@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 3,
+  "release": "5.7.0",
+  "build": "c386de46dd81",
+  "package": "game.nyrathen.mobile",
+  "productCount": 13,
+  "locales": [
+    "de-DE",
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "it-IT",
+    "pt-BR",
+    "tr-TR"
+  ],
+  "files": [
+    {
+      "path": "store/product-catalog.v5.7.json",
+      "sha256": "033aeb43c061d8a48937d141289fe01f3fbd7d8dbcf47ee7dd62971b380af192",
+      "bytes": 2582
+    },
+    {
+      "path": "store/apple-iap-metadata.v5.7.json",
+      "sha256": "9d23328c38532981ca2539809c45bd542e3df3701a7fba31719739ee93266dbd",
+      "bytes": 16237
+    },
+    {
+      "path": "store/google-one-time-products.v5.7.json",
+      "sha256": "e9867db70bad642da19d19bd256cee1d9c457e2654ee2b6dd0d7c39a0ecb98da",
+      "bytes": 16240
+    },
+    {
+      "path": "store/google-one-time-products.v5.7.csv",
+      "sha256": "7f804d0982d1b591f505033e035bddf362d53bbf283faead041ee6f55bb3d00a",
+      "bytes": 6201
+    },
+    {
+      "path": "store/app-localizations.v5.7.json",
+      "sha256": "5ffaf4d3d4e1f858d2bb26545894b0feffdfb90d249517f4b8e13455e3598e8f",
+      "bytes": 5205
+    },
+    {
+      "path": "store/STORE-LISTING-v5.7.md",
+      "sha256": "6d1577463cc1c2b33500d810b930ad6289fb96ef06e1ca022ccb8cefced88fa6",
+      "bytes": 1576
+    },
+    {
+      "path": "store/PRODUCTS-v5.7.md",
+      "sha256": "57230fd27dd791a54fe367c2fbcd6db684142d55412663f2fd7626e3de7ef635",
+      "bytes": 1790
+    },
+    {
+      "path": "store/APPLE-APP-PRIVACY-DRAFT.md",
+      "sha256": "fc069618bff9af46200afefda69d396cabeeab80d8b7117e053e3a1f5e0aa9ef",
+      "bytes": 1813
+    },
+    {
+      "path": "store/GOOGLE-PLAY-DATA-SAFETY-DRAFT.md",
+      "sha256": "81d40745a3ecd069001146693a92ec64d109884301979865f4f467cb3e6ad9ff",
+      "bytes": 1842
+    },
+    {
+      "path": "docs/APP-STORE-REVIEW-NOTES.md",
+      "sha256": "d175491e9e1a53fab37b06895566c49ece33a5e5c74cc04ddd07c4e88dacf809",
+      "bytes": 2345
+    },
+    {
+      "path": "docs/GOOGLE-PLAY-DATA-SAFETY.md",
+      "sha256": "81d40745a3ecd069001146693a92ec64d109884301979865f4f467cb3e6ad9ff",
+      "bytes": 1842
+    },
+    {
+      "path": "docs/LEGAL-RELEASE-CHECKLIST.md",
+      "sha256": "104af097cb116c063b1708cc1de0d1b19f17ae2bf5fd889e9324cbd1dfaf0045",
+      "bytes": 2138
+    },
+    {
+      "path": "store-compliance-site/privacy.html",
+      "sha256": "e91e987f37e59f432399a492e5b06466646ee229c17e84a1193fec715eaf50cf",
+      "bytes": 3109
+    },
+    {
+      "path": "store-compliance-site/terms.html",
+      "sha256": "55f4c8e55faba0abafc9087701692904d92a6823cb19b287a8cccffad549bea1",
+      "bytes": 2462
+    },
+    {
+      "path": "store-compliance-site/support.html",
+      "sha256": "5afaa37fb6aa4979eaf1860903e5dc3b4bcbe2b481320bda0d8103b2dabf3d9f",
+      "bytes": 1018
+    },
+    {
+      "path": "store-compliance-site/delete-account.html",
+      "sha256": "15dd7aa85bd4f3a25d1edcb6f2e6876e2cd1b58383d7d62fe9f92584e10bd34a",
+      "bytes": 1454
+    }
+  ],
+  "engineeringStatus": {
+    "runtimeLocalization": "complete-7-locales",
+    "productMetadata": "complete-7-locales",
+    "productContract": "complete",
+    "storePolicyPreflight": "pass",
+    "bilingualComplianceTemplates": "complete",
+    "failClosedRailwayLegalRoutes": "deployed-hotfix11",
+    "syntheticComplianceRender": "pass"
+  },
+  "externalGates": [
+    "Final legal publisher name/email/postal address/privacy contact",
+    "Activate public legal pages with real publisher identity",
+    "App Store Connect product creation/pricing/territories",
+    "Google Play Console product creation/pricing/territories",
+    "Apple Sandbox and Google license-test purchase evidence on real signed builds"
+  ]
+}

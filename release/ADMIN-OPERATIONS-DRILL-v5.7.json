@@ -1,0 +1,14 @@
+{
+  "at": "2026-09-24T13:00:00Z",
+  "passed": true,
+  "database": "synthetic-offline-drill",
+  "checks": {
+    "freshDbStatus": true,
+    "banAttributed": true,
+    "unbanAttributed": true,
+    "auditRows": 2,
+    "commerceReport": true,
+    "optionalTableTolerance": true
+  },
+  "note": "No production player data was used. Drill exercised the real tools/admin.mjs CLI against a synthetic ProfileStore database."
+}

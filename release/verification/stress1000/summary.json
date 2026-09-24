@@ -1,0 +1,77 @@
+{
+  "status": "partial-capacity-fail",
+  "sessionBurst": {
+    "status": "passed",
+    "clients": 1000,
+    "failures": 0,
+    "nodes": [
+      {
+        "file": "release/verification/stress1000/node1/load.json",
+        "clients": 250,
+        "created": 250,
+        "failures": 0,
+        "sessionLatencyMs": {
+          "p50": 915.41,
+          "p95": 1695.42,
+          "p99": 1698.49,
+          "max": 1699.21
+        },
+        "totalMs": 10187.99,
+        "rss": 145879040
+      },
+      {
+        "file": "release/verification/stress1000/node2/load.json",
+        "clients": 250,
+        "created": 250,
+        "failures": 0,
+        "sessionLatencyMs": {
+          "p50": 965.73,
+          "p95": 1617.91,
+          "p99": 1621.26,
+          "max": 1621.88
+        },
+        "totalMs": 10434.59,
+        "rss": 171663360
+      },
+      {
+        "file": "release/verification/stress1000/node3/load.json",
+        "clients": 250,
+        "created": 250,
+        "failures": 0,
+        "sessionLatencyMs": {
+          "p50": 919.41,
+          "p95": 1509.69,
+          "p99": 1514.6,
+          "max": 1515.3
+        },
+        "totalMs": 9861.28,
+        "rss": 160190464
+      },
+      {
+        "file": "release/verification/stress1000/node4/load.json",
+        "clients": 250,
+        "created": 250,
+        "failures": 0,
+        "sessionLatencyMs": {
+          "p50": 946.8,
+          "p95": 1668.18,
+          "p99": 1671.28,
+          "max": 1671.87
+        },
+        "totalMs": 10209.49,
+        "rss": 156712960
+      }
+    ]
+  },
+  "streaming": {
+    "clients100": "passed",
+    "clients250": "timeout >150s for requested 5s simulation",
+    "clients100Report": "release/verification/stress1000/single100/soak.json"
+  },
+  "regression": "305/305",
+  "focused": "31/31",
+  "fixed": [
+    "server maxConnections hard-coded 256 -> derived from MAX_SESSIONS",
+    "structuredClone for hot deep-copy helpers"
+  ]
+}

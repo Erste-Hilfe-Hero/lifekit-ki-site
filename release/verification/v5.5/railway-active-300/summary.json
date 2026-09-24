@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "provider": "Railway",
+  "project": "Nyrathen",
+  "environment": "production",
+  "projectId": "6eb56b81-1e89-4da3-9ed4-bcdb95a2c642",
+  "stateAuthority": {
+    "service": "nyrathen-state",
+    "deployment": "4216de0a-6480-403e-a196-bb94f2ab359d",
+    "status": "SUCCESS",
+    "public": false,
+    "persistentVolumeMB": 500
+  },
+  "gameServers": [
+    {
+      "service": "nyrathen-game-01",
+      "deployment": "b36e8c26-07bd-472b-848e-515f11541ef9",
+      "url": "https://nyrathen-game-01-production.up.railway.app"
+    },
+    {
+      "service": "nyrathen-game-02",
+      "deployment": "55c3065e-41b2-4a91-9597-9925bca16aa4",
+      "url": "https://nyrathen-game-02-production.up.railway.app"
+    },
+    {
+      "service": "nyrathen-game-03",
+      "deployment": "ae0d2484-ee7b-4ce8-9d75-25606003b6ea",
+      "url": "https://nyrathen-game-03-production.up.railway.app"
+    }
+  ],
+  "loadTest": {
+    "deployment": "f8f3fab7-fe5d-4a03-ba01-107a20cbe1bf",
+    "status": "SUCCESS",
+    "players": 300,
+    "clientsPerNode": 100,
+    "durationSeconds": 8,
+    "connected": 300,
+    "frames": 28355,
+    "eventLoopP99MaxMs": 35,
+    "sloMs": 180
+  },
+  "metrics": {
+    "state": {
+      "cpuMax": 0.24667146666666667,
+      "memoryMaxGB": 0.159244288
+    },
+    "game01": {
+      "cpuMax": 1.5558353,
+      "memoryMaxGB": 0.12806144
+    },
+    "game02": {
+      "cpuMax": 1.4386693333333334,
+      "memoryMaxGB": 0.169807872
+    },
+    "game03": {
+      "cpuMax": 1.3660157333333334,
+      "memoryMaxGB": 0.14503936
+    }
+  },
+  "at": "2026-09-23T08:25:07Z",
+  "note": "300 realtime SSE players are certified on three separate Railway GameServers. Free-plan resource limits prevent provisioning the 14-worker/5-node topology required for a real 1,000-active-player certification without upgrading."
+}

@@ -1,0 +1,21 @@
+{
+  "status": "failed",
+  "clients": 250,
+  "error": "Clients did not become ready",
+  "errors": [],
+  "samples": [],
+  "transport": {
+    "fullFrames": 807,
+    "deltaFrames": 27972,
+    "wireBytes": 54043744,
+    "referenceBytes": 735295607,
+    "inputTimeouts": 0
+  },
+  "totalSeconds": 72.9,
+  "limitations": [
+    "Single local Node process with local HTTP/SSE clients; not a mobile radio or TLS benchmark.",
+    "Application SSE bytes include data framing but exclude HTTP/TCP/TLS headers and input HTTP traffic.",
+    "Reference bytes are full snapshots of the same actual frames, not a separate legacy-server run.",
+    "Short soak, not production capacity certification or a physical device test."
+  ]
+}

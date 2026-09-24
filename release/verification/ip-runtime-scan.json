@@ -1,0 +1,19 @@
+{
+  "patterns": [
+    "Realm of the Mad God",
+    "RotMG",
+    "DECA",
+    "Oryx",
+    "Riftwake",
+    "iDilly/sharp"
+  ],
+  "directories": [
+    "client",
+    "server",
+    "shared",
+    "native",
+    "dist"
+  ],
+  "matches": 0,
+  "passed": true
+}

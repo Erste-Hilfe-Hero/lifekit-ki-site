@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "package": "game.nyrathen.mobile",
+  "productCount": 13,
+  "productIds": [
+    "nyr.account.slot",
+    "nyr.account.slots3",
+    "nyr.account.vault",
+    "nyr.account.vault2",
+    "nyr.bundle.founder",
+    "nyr.bundle.wanderer",
+    "nyr.collection.blackiron",
+    "nyr.season.veil01",
+    "nyr.shards.1100",
+    "nyr.shards.180",
+    "nyr.shards.2400",
+    "nyr.shards.500",
+    "nyr.shards.5200"
+  ],
+  "sha256": "c394a805720b162baa1f7cd7052619d26d5a40b5b7cbd8ac70dcd0d13ecc1da7"
+}

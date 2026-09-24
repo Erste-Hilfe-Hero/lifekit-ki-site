@@ -1,0 +1,71 @@
+{
+  "release": "5.7.0",
+  "buildNumber": 57,
+  "runtime": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+  "files": {
+    ".github/workflows/mobile-beta.yml": {
+      "bytes": 8087,
+      "sha256": "b6432f333f6ba4bbf94652ff1f6af951188d501fae5031d77c696cbabc8a159d"
+    },
+    "tools/beta-preflight.mjs": {
+      "bytes": 3372,
+      "sha256": "a36c16f1a57af0d90c22eade0bb3924deb5877ca2a3a02ca1a8330087ed0a88d"
+    },
+    "tests/beta-release.test.mjs": {
+      "bytes": 1818,
+      "sha256": "6992bbe35628df0990d8e09322e888243ab63043b710e28aca3c3a0c0db646a9"
+    },
+    "release/beta-v5.7/BETA-README.md": {
+      "bytes": 1662,
+      "sha256": "a19ce10d49480ffb15a25239502844593549918278b9fca93b4fd251d00c6cb2"
+    },
+    "release/beta-v5.7/BETA-STATUS.md": {
+      "bytes": 1435,
+      "sha256": "3a262c271b73b40ab4fba09cae222c88169846b7747dcf0e2beb4bbba4e6131e"
+    },
+    "release/beta-v5.7/TESTER-INSTRUCTIONS.md": {
+      "bytes": 1219,
+      "sha256": "86ed64af828a35262aaa4de7c25c5d8323bfb85d2b857e7813ac5ab0295c8c38"
+    },
+    "release/beta-v5.7/device-results.csv": {
+      "bytes": 141,
+      "sha256": "d5159c748e5ad24a8e68e9b9dc6f1e690359297d13afb005acd56db0932bca5f"
+    },
+    "docs/BETA-RUNBOOK-v5.7.md": {
+      "bytes": 2100,
+      "sha256": "79bf67d8cfd21585ee04ca1be78e081b8db3c8606290a74c26a8b171c5c6d650"
+    },
+    ".apple-actions/test-information.json": {
+      "bytes": 296,
+      "sha256": "46b8fb7fe4b0967516d0ff18719df6d844c88b9eb17c87e9df633395bd7058ae"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-de-DE": {
+      "bytes": 212,
+      "sha256": "ef33f5cd19299afe505f768c9ff945e6c7077e86afd55d4f6129a534b22c45c6"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-en-US": {
+      "bytes": 181,
+      "sha256": "f42509ca4c6f7b7a70b1fe4bf871d80f99afaaa95cc9b79f1c2a6936c8b51b85"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-fr-FR": {
+      "bytes": 211,
+      "sha256": "82402adb7b2c88acb786393f6e4f31d572eeb180f579b35976bbe765bd2530c8"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-es-ES": {
+      "bytes": 212,
+      "sha256": "eb0c7e124091b069560aeef20f8639858b47f7bcd0c5794acf616add58028a01"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-it-IT": {
+      "bytes": 190,
+      "sha256": "04d6e0315222188276090c870d4dd7529ecc35d43f33b53925b0ff3cc58ffe70"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-pt-BR": {
+      "bytes": 199,
+      "sha256": "b4c2d43c182613a5d4969d0f16b40bb2b9fe49735e6b8afe96b0df3ee9df68be"
+    },
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-tr-TR": {
+      "bytes": 194,
+      "sha256": "c359c8760f78fecc6617bd4b489024bb3c940b23dd5d7228e96df5338d571ba5"
+    }
+  }
+}

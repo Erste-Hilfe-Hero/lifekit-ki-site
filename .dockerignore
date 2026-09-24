@@ -1,0 +1,13 @@
+.data
+.git
+node_modules
+artifacts
+native
+*.zip
+*.log
+
+.env
+*.jks
+*.keystore
+*.p12
+*.mobileprovision

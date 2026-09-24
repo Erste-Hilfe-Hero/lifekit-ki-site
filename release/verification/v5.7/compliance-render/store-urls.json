@@ -1,0 +1,7 @@
+{
+  "privacy": "https://qa.nyrathen.test/privacy.html",
+  "terms": "https://qa.nyrathen.test/terms.html",
+  "support": "https://qa.nyrathen.test/support.html",
+  "deleteAccount": "https://qa.nyrathen.test/delete-account.html",
+  "server": "https://qa-api.nyrathen.test"
+}

@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "packageName": "game.nyrathen.mobile",
+  "products": [
+    {
+      "id": "nyr.shards.180",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "1,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "180 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "180 Nyr Shards",
+          "description": "Premium currency for optional content."
+        },
+        "fr-FR": {
+          "displayName": "180 Nyr Éclats",
+          "description": "Monnaie premium pour contenu optionnel."
+        },
+        "es-ES": {
+          "displayName": "180 Fragmentos Nyr",
+          "description": "Moneda premium para contenido opcional."
+        },
+        "it-IT": {
+          "displayName": "180 Schegge Nyr",
+          "description": "Valuta premium per contenuti opzionali."
+        },
+        "pt-BR": {
+          "displayName": "180 Fragmentos Nyr",
+          "description": "Moeda premium para conteúdo opcional."
+        },
+        "tr-TR": {
+          "displayName": "180 Nyr Parçası",
+          "description": "İsteğe bağlı içerik için premium para birimi."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.500",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "4,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "500 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "500 Nyr Shards",
+          "description": "Premium currency for optional content."
+        },
+        "fr-FR": {
+          "displayName": "500 Nyr Éclats",
+          "description": "Monnaie premium pour contenu optionnel."
+        },
+        "es-ES": {
+          "displayName": "500 Fragmentos Nyr",
+          "description": "Moneda premium para contenido opcional."
+        },
+        "it-IT": {
+          "displayName": "500 Schegge Nyr",
+          "description": "Valuta premium per contenuti opzionali."
+        },
+        "pt-BR": {
+          "displayName": "500 Fragmentos Nyr",
+          "description": "Moeda premium para conteúdo opcional."
+        },
+        "tr-TR": {
+          "displayName": "500 Nyr Parçası",
+          "description": "İsteğe bağlı içerik için premium para birimi."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.1100",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "9,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "1.100 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "1,100 Nyr Shards",
+          "description": "Premium currency for optional content."
+        },
+        "fr-FR": {
+          "displayName": "1 100 Nyr Éclats",
+          "description": "Monnaie premium pour contenu optionnel."
+        },
+        "es-ES": {
+          "displayName": "1.100 Fragmentos Nyr",
+          "description": "Moneda premium para contenido opcional."
+        },
+        "it-IT": {
+          "displayName": "1.100 Schegge Nyr",
+          "description": "Valuta premium per contenuti opzionali."
+        },
+        "pt-BR": {
+          "displayName": "1.100 Fragmentos Nyr",
+          "description": "Moeda premium para conteúdo opcional."
+        },
+        "tr-TR": {
+          "displayName": "1.100 Nyr Parçası",
+          "description": "İsteğe bağlı içerik için premium para birimi."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.2400",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "19,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "2.400 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "2,400 Nyr Shards",
+          "description": "Premium currency for optional content."
+        },
+        "fr-FR": {
+          "displayName": "2 400 Nyr Éclats",
+          "description": "Monnaie premium pour contenu optionnel."
+        },
+        "es-ES": {
+          "displayName": "2.400 Fragmentos Nyr",
+          "description": "Moneda premium para contenido opcional."
+        },
+        "it-IT": {
+          "displayName": "2.400 Schegge Nyr",
+          "description": "Valuta premium per contenuti opzionali."
+        },
+        "pt-BR": {
+          "displayName": "2.400 Fragmentos Nyr",
+          "description": "Moeda premium para conteúdo opcional."
+        },
+        "tr-TR": {
+          "displayName": "2.400 Nyr Parçası",
+          "description": "İsteğe bağlı içerik için premium para birimi."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.5200",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "39,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "5.200 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "5,200 Nyr Shards",
+          "description": "Premium currency for optional content."
+        },
+        "fr-FR": {
+          "displayName": "5 200 Nyr Éclats",
+          "description": "Monnaie premium pour contenu optionnel."
+        },
+        "es-ES": {
+          "displayName": "5.200 Fragmentos Nyr",
+          "description": "Moneda premium para contenido opcional."
+        },
+        "it-IT": {
+          "displayName": "5.200 Schegge Nyr",
+          "description": "Valuta premium per contenuti opzionali."
+        },
+        "pt-BR": {
+          "displayName": "5.200 Fragmentos Nyr",
+          "description": "Moeda premium para conteúdo opcional."
+        },
+        "tr-TR": {
+          "displayName": "5.200 Nyr Parçası",
+          "description": "İsteğe bağlı içerik için premium para birimi."
+        }
+      }
+    },
+    {
+      "id": "nyr.bundle.wanderer",
+      "kind": "bundle",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "6,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Wandererpaket",
+          "description": "Kosmetik & Account-Komfort, keine Kampfkraft."
+        },
+        "en-US": {
+          "displayName": "Wanderer Pack",
+          "description": "Cosmetics & account convenience, no power."
+        },
+        "fr-FR": {
+          "displayName": "Pack Voyageur",
+          "description": "Cosmétiques et confort, sans puissance."
+        },
+        "es-ES": {
+          "displayName": "Paquete Caminante",
+          "description": "Cosméticos y comodidad, sin poder."
+        },
+        "it-IT": {
+          "displayName": "Pacchetto Viandante",
+          "description": "Cosmetici e comodità, senza potere."
+        },
+        "pt-BR": {
+          "displayName": "Pacote Andarilho",
+          "description": "Cosméticos e conveniência, sem poder."
+        },
+        "tr-TR": {
+          "displayName": "Gezgin Paketi",
+          "description": "Kozmetik ve hesap kolaylığı; güç vermez."
+        }
+      }
+    },
+    {
+      "id": "nyr.bundle.founder",
+      "kind": "bundle",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "24,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Gründerpaket",
+          "description": "Kosmetik & Account-Komfort, keine Kampfkraft."
+        },
+        "en-US": {
+          "displayName": "Founder Pack",
+          "description": "Cosmetics & account convenience, no power."
+        },
+        "fr-FR": {
+          "displayName": "Pack Fondateur",
+          "description": "Cosmétiques et confort, sans puissance."
+        },
+        "es-ES": {
+          "displayName": "Paquete Fundador",
+          "description": "Cosméticos y comodidad, sin poder."
+        },
+        "it-IT": {
+          "displayName": "Pacchetto Fondatore",
+          "description": "Cosmetici e comodità, senza potere."
+        },
+        "pt-BR": {
+          "displayName": "Pacote Fundador",
+          "description": "Cosméticos e conveniência, sem poder."
+        },
+        "tr-TR": {
+          "displayName": "Kurucu Paketi",
+          "description": "Kozmetik ve hesap kolaylığı; güç vermez."
+        }
+      }
+    },
+    {
+      "id": "nyr.season.veil01",
+      "kind": "season",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "8,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Schleierpass · Saison I",
+          "description": "Kosmetischer Saisontrack ohne Kampfkraft."
+        },
+        "en-US": {
+          "displayName": "Veil Pass · Season I",
+          "description": "Cosmetic season track with no combat power."
+        },
+        "fr-FR": {
+          "displayName": "Passe du Voile · Saison I",
+          "description": "Piste cosmétique sans puissance de combat."
+        },
+        "es-ES": {
+          "displayName": "Pase del Velo · Temp. I",
+          "description": "Pista cosmética sin poder de combate."
+        },
+        "it-IT": {
+          "displayName": "Pass del Velo · Stag. I",
+          "description": "Percorso cosmetico senza potere."
+        },
+        "pt-BR": {
+          "displayName": "Passe do Véu · Temp. I",
+          "description": "Trilha cosmética sem poder de combate."
+        },
+        "tr-TR": {
+          "displayName": "Peçe Bileti · Sezon I",
+          "description": "Savaş gücü vermeyen kozmetik sezon yolu."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.slot",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "4,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Charakterplatz",
+          "description": "Ein zusätzlicher permanenter Charakterplatz."
+        },
+        "en-US": {
+          "displayName": "Character Slot",
+          "description": "One additional permanent character slot."
+        },
+        "fr-FR": {
+          "displayName": "Emplacement personnage",
+          "description": "Un emplacement personnage permanent en plus."
+        },
+        "es-ES": {
+          "displayName": "Espacio de personaje",
+          "description": "Un espacio permanente adicional."
+        },
+        "it-IT": {
+          "displayName": "Slot personaggio",
+          "description": "Uno slot personaggio permanente aggiuntivo."
+        },
+        "pt-BR": {
+          "displayName": "Espaço de personagem",
+          "description": "Um espaço permanente adicional."
+        },
+        "tr-TR": {
+          "displayName": "Karakter Yuvası",
+          "description": "Bir ek kalıcı karakter yuvası."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.slots3",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "11,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Drei Charakterplätze",
+          "description": "Drei zusätzliche permanente Charakterplätze."
+        },
+        "en-US": {
+          "displayName": "Three Character Slots",
+          "description": "Three additional permanent character slots."
+        },
+        "fr-FR": {
+          "displayName": "Trois emplacements",
+          "description": "Trois emplacements permanents en plus."
+        },
+        "es-ES": {
+          "displayName": "Tres espacios de personaje",
+          "description": "Tres espacios permanentes adicionales."
+        },
+        "it-IT": {
+          "displayName": "Tre slot personaggio",
+          "description": "Tre slot permanenti aggiuntivi."
+        },
+        "pt-BR": {
+          "displayName": "Três espaços de personagem",
+          "description": "Três espaços permanentes adicionais."
+        },
+        "tr-TR": {
+          "displayName": "Üç Karakter Yuvası",
+          "description": "Üç ek kalıcı karakter yuvası."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.vault",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "3,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Tresorflügel",
+          "description": "Ein zusätzlicher permanenter Tresorflügel."
+        },
+        "en-US": {
+          "displayName": "Vault Wing",
+          "description": "One additional permanent vault wing."
+        },
+        "fr-FR": {
+          "displayName": "Aile de coffre",
+          "description": "Une aile de coffre permanente en plus."
+        },
+        "es-ES": {
+          "displayName": "Ala de bóveda",
+          "description": "Un ala de bóveda permanente adicional."
+        },
+        "it-IT": {
+          "displayName": "Ala del caveau",
+          "description": "Un’ala del caveau permanente aggiuntiva."
+        },
+        "pt-BR": {
+          "displayName": "Ala do cofre",
+          "description": "Uma ala permanente adicional do cofre."
+        },
+        "tr-TR": {
+          "displayName": "Kasa Kanadı",
+          "description": "Bir ek kalıcı kasa kanadı."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.vault2",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "6,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Zwei Tresorflügel",
+          "description": "Zwei zusätzliche permanente Tresorflügel."
+        },
+        "en-US": {
+          "displayName": "Two Vault Wings",
+          "description": "Two additional permanent vault wings."
+        },
+        "fr-FR": {
+          "displayName": "Deux ailes de coffre",
+          "description": "Deux ailes de coffre permanentes en plus."
+        },
+        "es-ES": {
+          "displayName": "Dos alas de bóveda",
+          "description": "Dos alas permanentes adicionales."
+        },
+        "it-IT": {
+          "displayName": "Due ali del caveau",
+          "description": "Due ali permanenti aggiuntive."
+        },
+        "pt-BR": {
+          "displayName": "Duas alas do cofre",
+          "description": "Duas alas permanentes adicionais."
+        },
+        "tr-TR": {
+          "displayName": "İki Kasa Kanadı",
+          "description": "İki ek kalıcı kasa kanadı."
+        }
+      }
+    },
+    {
+      "id": "nyr.collection.blackiron",
+      "kind": "cosmetic",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "11,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Schwarzeisen-Kollektion",
+          "description": "Kosmetikset ohne Kampfwerte."
+        },
+        "en-US": {
+          "displayName": "Black-Iron Collection",
+          "description": "Cosmetic set with no combat stats."
+        },
+        "fr-FR": {
+          "displayName": "Collection Fer-Noir",
+          "description": "Ensemble cosmétique sans stats de combat."
+        },
+        "es-ES": {
+          "displayName": "Colección Hierro Negro",
+          "description": "Conjunto cosmético sin poder de combate."
+        },
+        "it-IT": {
+          "displayName": "Collezione Ferro Nero",
+          "description": "Set cosmetico senza potere di combattimento."
+        },
+        "pt-BR": {
+          "displayName": "Coleção Ferro Negro",
+          "description": "Conjunto cosmético sem atributos de combate."
+        },
+        "tr-TR": {
+          "displayName": "Kara Demir Koleksiyonu",
+          "description": "Savaş özelliği vermeyen kozmetik set."
+        }
+      }
+    }
+  ]
+}

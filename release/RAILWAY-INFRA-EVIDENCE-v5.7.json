@@ -1,0 +1,73 @@
+{
+  "at": "2026-09-24T13:00:00Z",
+  "runtimePatch": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+  "services": [
+    {
+      "name": "nyrathen-state",
+      "status": "SUCCESS",
+      "healthcheck": "/healthz",
+      "public": false,
+      "volumeMount": "/state",
+      "persistentVolumeMB": 500,
+      "deployment": "cc85d906-868a-4ff5-bc34-663dc6c9d231"
+    },
+    {
+      "name": "nyrathen-game-01",
+      "status": "SUCCESS",
+      "healthcheck": "/readyz",
+      "workers": 5,
+      "public": true,
+      "deployment": "d0a77e1b-38a4-4725-9f75-277890951f76"
+    },
+    {
+      "name": "nyrathen-game-02",
+      "status": "SUCCESS",
+      "healthcheck": "/readyz",
+      "workers": 5,
+      "public": true,
+      "deployment": "f0d6ce05-0625-4712-8a77-ec9309b55d32"
+    },
+    {
+      "name": "nyrathen-game-03",
+      "status": "SUCCESS",
+      "healthcheck": "/readyz",
+      "workers": 4,
+      "public": true,
+      "deployment": "ecb0ab14-5703-49c2-83b7-e1084500686f"
+    },
+    {
+      "name": "nyrathen-load-01",
+      "status": "SUCCESS",
+      "healthcheck": "/healthz",
+      "public": true,
+      "deployment": "3a7b7e02-c1ab-4397-a2ef-6aba081d2f05",
+      "mode": "6h-endurance-running"
+    }
+  ],
+  "stateDiskGB": 0.367550464,
+  "stateDiskLimitGB": 0.5,
+  "backupRetention": 1,
+  "certification1008": {
+    "passed": true,
+    "connected": 1008,
+    "workers": 14,
+    "layout": [
+      5,
+      5,
+      4
+    ],
+    "maxP99Ms": 133,
+    "sloMs": 180,
+    "frames": 441305
+  },
+  "canary": {
+    "passed": true,
+    "sequence": [
+      "game-01",
+      "game-02",
+      "game-03",
+      "1008-full-cluster-certification"
+    ],
+    "completedAt": "2026-09-24T11:03:05Z"
+  }
+}

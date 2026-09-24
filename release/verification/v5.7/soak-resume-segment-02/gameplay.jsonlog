@@ -1,0 +1,33 @@
+(node:2527) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "status": "failed",
+  "clients": 24,
+  "error": "Privacy/isolation/identity/transport check failed",
+  "errors": [],
+  "samples": [
+    {
+      "at": 0,
+      "rss": 154636288,
+      "active": 24,
+      "wireBytes": 1502656,
+      "deltaFrames": 151
+    }
+  ],
+  "transport": {
+    "fullFrames": 48,
+    "deltaFrames": 659,
+    "wireBytes": 5413551,
+    "referenceBytes": 19451631,
+    "inputTimeouts": 0,
+    "backpressureSkips": 0,
+    "slowDisconnects": 0
+  },
+  "totalSeconds": 6.75,
+  "limitations": [
+    "Single local Node process with local HTTP/SSE clients; not a mobile radio or TLS benchmark.",
+    "Application SSE bytes include data framing but exclude HTTP/TCP/TLS headers and input HTTP traffic.",
+    "Reference bytes are full snapshots of the same actual frames, not a separate legacy-server run.",
+    "Short soak, not production capacity certification or a physical device test."
+  ]
+}

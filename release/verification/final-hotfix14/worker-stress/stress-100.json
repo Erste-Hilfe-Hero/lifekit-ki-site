@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "clients": 100,
+  "seconds": 5,
+  "rooms": 2,
+  "actions": 100,
+  "inputs": 1885,
+  "inputSkipped": 0,
+  "reconnects": 10,
+  "connected": 100,
+  "frames": {
+    "total": 2029,
+    "delta": 1819,
+    "full": 210,
+    "min": 19,
+    "max": 21
+  },
+  "transport": {
+    "fullFrames": 210,
+    "deltaFrames": 1835,
+    "wireBytes": 39589117,
+    "referenceBytes": 86184804,
+    "inputTimeouts": 0,
+    "backpressureSkips": 0,
+    "slowDisconnects": 0
+  },
+  "observability": {
+    "requests": 2195,
+    "responses4xx": 0,
+    "responses5xx": 0,
+    "sseConnections": 110,
+    "sseDisconnects": 10,
+    "actions": 100,
+    "accountAuth": 0,
+    "rejectedInputs": 0,
+    "rejectedActions": 0,
+    "rateLimited": 0,
+    "clientDiagnostics": 0
+  },
+  "memory": {
+    "startRSS": 40644608,
+    "endRSS": 178823168
+  },
+  "eventLoopMs": {
+    "p50": 13.94,
+    "p95": 61.15,
+    "p99": 121.5,
+    "max": 1263.53
+  },
+  "rates": {
+    "backpressure": 0,
+    "inputTimeout": 0
+  },
+  "slo": {
+    "p99Ms": 180,
+    "maxRssBytes": 805306368,
+    "maxBackpressureRate": 0.01,
+    "maxInputTimeoutRate": 0.02
+  },
+  "failures": [],
+  "starved": [],
+  "totalSeconds": 9.27
+}

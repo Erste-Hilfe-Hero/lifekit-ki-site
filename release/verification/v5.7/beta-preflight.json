@@ -1,0 +1,51 @@
+{
+  "release": "5.7.0",
+  "kind": "closed-beta-preflight",
+  "checks": {
+    ".github/workflows/mobile-beta.yml": true,
+    ".apple-actions/test-information.json": true,
+    "release/beta-v5.7/BETA-README.md": true,
+    "release/beta-v5.7/TESTER-INSTRUCTIONS.md": true,
+    "release/beta-v5.7/device-results.csv": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-de-DE": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-en-US": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-fr-FR": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-es-ES": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-it-IT": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-pt-BR": true,
+    "release/beta-v5.7/google-play/whatsnew/whatsnew-tr-TR": true,
+    "androidPackage": true,
+    "androidTarget36": true,
+    "iosBundle": true,
+    "version57": true,
+    "testflightBundle": true,
+    "testflightLocale": true,
+    "testflightDescription": true
+  },
+  "credentialsConfigured": false,
+  "missingCredentials": [
+    "NYRATHEN_KEYSTORE_BASE64",
+    "NYRATHEN_STORE_PASSWORD",
+    "NYRATHEN_KEY_ALIAS",
+    "NYRATHEN_KEY_PASSWORD",
+    "NYRATHEN_IOS_CERTIFICATE_P12_BASE64",
+    "NYRATHEN_IOS_CERTIFICATE_PASSWORD",
+    "NYRATHEN_IOS_PROVISIONING_PROFILE_BASE64",
+    "NYRATHEN_CI_KEYCHAIN_PASSWORD",
+    "NYRATHEN_DEVELOPMENT_TEAM",
+    "NYRATHEN_GOOGLE_PLAY_SERVICE_ACCOUNT_JSON",
+    "APPSTORE_ISSUER_ID",
+    "APPSTORE_API_KEY_ID",
+    "APPSTORE_API_PRIVATE_KEY"
+  ],
+  "publicUrlsConfigured": false,
+  "missingUrls": [
+    "PUBLIC_SERVER_URL",
+    "NYRATHEN_PRIVACY_URL",
+    "NYRATHEN_TERMS_URL",
+    "NYRATHEN_SUPPORT_URL",
+    "NYRATHEN_DELETE_ACCOUNT_URL"
+  ],
+  "uploadReady": false,
+  "localPreparationReady": true
+}

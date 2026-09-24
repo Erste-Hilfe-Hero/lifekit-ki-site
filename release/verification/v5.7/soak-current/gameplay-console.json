@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "requestedDurationSeconds": 25,
+  "actualSimulationSeconds": 25,
+  "clients": 24,
+  "realms": 2,
+  "actions": 54,
+  "forcedStreamDisconnects": 1,
+  "recoveredStreams": 1,
+  "checks": {
+    "privateInventoriesHidden": true,
+    "worldsIsolated": true,
+    "allClientsReceivedDeltas": true,
+    "identitiesPreserved": true
+  },
+  "transport": {
+    "fullFrames": 98,
+    "deltaFrames": 2513,
+    "wireBytes": 26260077,
+    "referenceBytes": 100574094,
+    "inputTimeouts": 1,
+    "backpressureSkips": 0,
+    "slowDisconnects": 0,
+    "savedPercent": 73.89,
+    "bytesPerClientPerSecond": 43767
+  },
+  "memory": {
+    "startRSS": 41177088,
+    "endRSS": 306302976,
+    "peakSampleRSS": 300433408
+  },
+  "eventLoopMs": {
+    "p50": 38.63,
+    "p99": 161.35,
+    "max": 384.3
+  },
+  "samples": [
+    {
+      "at": 0,
+      "rss": 174460928,
+      "active": 24,
+      "wireBytes": 1983837,
+      "deltaFrames": 382
+    },
+    {
+      "at": 10,
+      "rss": 300433408,
+      "active": 24,
+      "wireBytes": 12604345,
+      "deltaFrames": 1510
+    },
+    {
+      "at": 20,
+      "rss": 298713088,
+      "active": 24,
+      "wireBytes": 20946840,
+      "deltaFrames": 2174
+    }
+  ],
+  "errors": [],
+  "totalSeconds": 28.86,
+  "limitations": [
+    "Single local Node process with local HTTP/SSE clients; not a mobile radio or TLS benchmark.",
+    "Application SSE bytes include data framing but exclude HTTP/TCP/TLS headers and input HTTP traffic.",
+    "Reference bytes are full snapshots of the same actual frames, not a separate legacy-server run.",
+    "Short soak, not production capacity certification or a physical device test."
+  ]
+}

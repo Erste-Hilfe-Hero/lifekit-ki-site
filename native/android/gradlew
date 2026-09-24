@@ -1,0 +1,19 @@
+#!/bin/sh
+# Lightweight bootstrap, not the generated Gradle wrapper. Official ZIP + SHA-256 verification.
+set -eu
+VERSION=8.13
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/nyrathen-gradle"
+GRADLE="$CACHE/gradle-$VERSION/bin/gradle"
+if [ ! -x "$GRADLE" ]; then
+  command -v curl >/dev/null || { echo 'curl is required.' >&2; exit 1; }
+  command -v unzip >/dev/null || { echo 'unzip is required.' >&2; exit 1; }
+  mkdir -p "$CACHE"
+  ZIP="$CACHE/gradle-$VERSION-bin.zip"
+  curl --fail --location --proto '=https' --tlsv1.2 "https://services.gradle.org/distributions/gradle-$VERSION-bin.zip" -o "$ZIP"
+  EXPECTED=$(curl --fail --location --proto '=https' --tlsv1.2 "https://services.gradle.org/distributions/gradle-$VERSION-bin.zip.sha256")
+  if command -v sha256sum >/dev/null; then ACTUAL=$(sha256sum "$ZIP" | cut -d ' ' -f 1); else ACTUAL=$(shasum -a 256 "$ZIP" | cut -d ' ' -f 1); fi
+  [ "$EXPECTED" = "$ACTUAL" ] || { echo 'Gradle checksum mismatch.' >&2; exit 1; }
+  unzip -q -o "$ZIP" -d "$CACHE"
+fi
+cd "$(dirname "$0")"
+exec "$GRADLE" "$@"

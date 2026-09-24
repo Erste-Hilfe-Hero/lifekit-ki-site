@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-09-24T13:17:58Z",
+  "project": "Nyrathen",
+  "environment": "production",
+  "service": "nyrathen-load-01",
+  "deploymentId": "3a7b7e02-c1ab-4397-a2ef-6aba081d2f05",
+  "deploymentStatus": "SUCCESS",
+  "runnerReadyAt": "2026-09-24T12:49:00.266486652Z",
+  "plannedClients": 84,
+  "plannedTargets": 14,
+  "plannedSeconds": 21600,
+  "p99SloMs": 180,
+  "finalLoadReportPresent": false,
+  "certified": false,
+  "reason": "The distributed runner is active, but six hours have not elapsed and no final NYR_LOAD_REPORT exists yet. Release gate remains fail-closed."
+}

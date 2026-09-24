@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "kind": "central-state-authority-account-burst",
+  "accounts": 1000,
+  "concurrency": 100,
+  "nodeCount": 16,
+  "created": 1000,
+  "failed": 0,
+  "elapsedMs": 862.55,
+  "throughputPerSecond": 1159.35,
+  "latencyMs": {
+    "p50": 68.62,
+    "p95": 113.25,
+    "p99": 127.39,
+    "max": 134.29,
+    "sloP99": 750
+  },
+  "heartbeatBatchMs": {
+    "p50": 27.77,
+    "p95": 39.5,
+    "p99": 39.5,
+    "max": 40.39,
+    "requests": 16
+  },
+  "authority": {
+    "accounts": 1000,
+    "nodes": 16,
+    "requests": 177,
+    "rejected": 0,
+    "opCounts": {
+      "session.openBatch": 160,
+      "node.heartbeatBatch": 16
+    }
+  },
+  "errors": []
+}

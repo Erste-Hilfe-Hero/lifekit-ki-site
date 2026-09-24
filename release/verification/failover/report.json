@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "tests": 6,
+  "failed": 0,
+  "openHandleCleanExit": true,
+  "suiteWallSeconds": 0.14,
+  "coverage": [
+    "cluster node registration/heartbeat/removal",
+    "account lease split-brain prevention",
+    "lease expiry takeover/epoch fencing",
+    "stale-holder fencing",
+    "replacement node selection",
+    "mobile endpoint rotation preserving token/generation"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "release": "5.6.0",
+  "generatedAt": "2026-09-23T08:30:36Z",
+  "regression": "347/347",
+  "syntaxCheckedModules": 94,
+  "mobileUi": "50/50",
+  "mobilePreflight": "passed",
+  "stateAuthorityBurst1000": {
+    "status": "passed",
+    "accounts": "1000/1000",
+    "p99Ms": 362.51,
+    "throughputPerSecond": 393.57
+  },
+  "railwayActive300": "passed",
+  "railwayP99MaxMs": 35,
+  "fuzz": "320/320 no 5xx",
+  "security": "225/225 no 5xx",
+  "backupRestore": "passed",
+  "economyRace": "passed",
+  "chaosFailover": "80/80",
+  "productionPreflight1000": "passed",
+  "productionRelease": false,
+  "blockingExternal": [
+    "real 1,000 active players on 14 workers / 5 nodes (Railway free-plan resource limit)",
+    "6\u201324h real multi-node soak at target load",
+    "physical iOS/Android device matrix",
+    "signed AAB/IPA and store-account submission",
+    "APNs/FCM if push is enabled",
+    "external privacy/trademark/age-rating review",
+    "closed beta and post-beta crash/ANR review"
+  ]
+}

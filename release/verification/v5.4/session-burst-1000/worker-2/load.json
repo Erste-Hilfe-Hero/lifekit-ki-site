@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "clients": 250,
+  "created": 250,
+  "failures": 0,
+  "sessionLatencyMs": {
+    "p50": 1043.36,
+    "p95": 1506.35,
+    "p99": 1509.67,
+    "max": 1510.23
+  },
+  "inputBurstMs": 145.29,
+  "totalMs": 10421.54,
+  "rss": 171843584,
+  "transport": {
+    "fullFrames": 0,
+    "deltaFrames": 0,
+    "wireBytes": 0,
+    "referenceBytes": 0,
+    "inputTimeouts": 0,
+    "backpressureSkips": 0,
+    "slowDisconnects": 0
+  },
+  "kind": "real local HTTP session + authoritative input burst; 100-client SSE soak is separate"
+}

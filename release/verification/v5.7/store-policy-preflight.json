@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "checks": {
+    "androidCompile36": true,
+    "androidTarget36": true,
+    "iosPrivacyManifest": true,
+    "xcode26Gate": true,
+    "accountDeletion": true,
+    "ageRatingPrep": true,
+    "dataSafetyDraft": true,
+    "appPrivacyDraft": true,
+    "androidPlayBilling": true,
+    "iosStoreKit2": true,
+    "noPaidPowerOrLootboxes": true,
+    "earnedPrestigeExcludedFromPremium": true
+  },
+  "failed": [],
+  "requirementsSnapshot": {
+    "android": "API 36+",
+    "apple": "Xcode 26+ / iOS 26 SDK"
+  }
+}

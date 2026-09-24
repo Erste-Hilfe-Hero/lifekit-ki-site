@@ -1,0 +1,178 @@
+{
+  "status": "passed",
+  "kind": "synthetic sensitivity analysis; not player telemetry",
+  "curve": {
+    "formula": "102 × (level−1)^2",
+    "cap": 50
+  },
+  "rewards": {
+    "normal": 4,
+    "boss": 55,
+    "dungeonBoss": 105
+  },
+  "normalMix": {
+    "normalKills": 600,
+    "bosses": 12,
+    "dungeonBosses": 3,
+    "normalBosses": 9,
+    "baselineXp": 3060,
+    "accountXp": 3210,
+    "bonusVsNoDungeonPremiumPct": 4.9,
+    "dungeonPremiumShareOfMixPct": 4.67
+  },
+  "levels": [
+    {
+      "level": 5,
+      "xp": 1632,
+      "normalKillOnly": 408,
+      "normalMixUnits": 0.51
+    },
+    {
+      "level": 10,
+      "xp": 8262,
+      "normalKillOnly": 2066,
+      "normalMixUnits": 2.57
+    },
+    {
+      "level": 17,
+      "xp": 26112,
+      "normalKillOnly": 6528,
+      "normalMixUnits": 8.13
+    },
+    {
+      "level": 20,
+      "xp": 36822,
+      "normalKillOnly": 9206,
+      "normalMixUnits": 11.47
+    },
+    {
+      "level": 23,
+      "xp": 49368,
+      "normalKillOnly": 12342,
+      "normalMixUnits": 15.38
+    },
+    {
+      "level": 27,
+      "xp": 68952,
+      "normalKillOnly": 17238,
+      "normalMixUnits": 21.48
+    },
+    {
+      "level": 30,
+      "xp": 85782,
+      "normalKillOnly": 21446,
+      "normalMixUnits": 26.72
+    },
+    {
+      "level": 40,
+      "xp": 155142,
+      "normalKillOnly": 38786,
+      "normalMixUnits": 48.33
+    },
+    {
+      "level": 50,
+      "xp": 244902,
+      "normalKillOnly": 61226,
+      "normalMixUnits": 76.29
+    }
+  ],
+  "paceBands": [
+    {
+      "normalKillsPerHour": 60,
+      "bossPerHour": 1.2,
+      "dungeonBossPerHour": 0.3,
+      "accountXpPerHour": 321,
+      "hours": {
+        "pets": 5.1,
+        "enchanter": 81.3,
+        "forge": 153.8,
+        "crucible": 214.8,
+        "level40": 483.3,
+        "level50": 762.9
+      }
+    },
+    {
+      "normalKillsPerHour": 90,
+      "bossPerHour": 1.8,
+      "dungeonBossPerHour": 0.45,
+      "accountXpPerHour": 481.5,
+      "hours": {
+        "pets": 3.4,
+        "enchanter": 54.2,
+        "forge": 102.5,
+        "crucible": 143.2,
+        "level40": 322.2,
+        "level50": 508.6
+      }
+    },
+    {
+      "normalKillsPerHour": 120,
+      "bossPerHour": 2.4,
+      "dungeonBossPerHour": 0.6,
+      "accountXpPerHour": 642,
+      "hours": {
+        "pets": 2.5,
+        "enchanter": 40.7,
+        "forge": 76.9,
+        "crucible": 107.4,
+        "level40": 241.7,
+        "level50": 381.5
+      }
+    },
+    {
+      "normalKillsPerHour": 180,
+      "bossPerHour": 3.6,
+      "dungeonBossPerHour": 0.9,
+      "accountXpPerHour": 963,
+      "hours": {
+        "pets": 1.7,
+        "enchanter": 27.1,
+        "forge": 51.3,
+        "crucible": 71.6,
+        "level40": 161.1,
+        "level50": 254.3
+      }
+    },
+    {
+      "normalKillsPerHour": 250,
+      "bossPerHour": 5,
+      "dungeonBossPerHour": 1.25,
+      "accountXpPerHour": 1337.5,
+      "hours": {
+        "pets": 1.2,
+        "enchanter": 19.5,
+        "forge": 36.9,
+        "crucible": 51.6,
+        "level40": 116,
+        "level50": 183.1
+      }
+    },
+    {
+      "normalKillsPerHour": 320,
+      "bossPerHour": 6.4,
+      "dungeonBossPerHour": 1.6,
+      "accountXpPerHour": 1712,
+      "hours": {
+        "pets": 1,
+        "enchanter": 15.3,
+        "forge": 28.8,
+        "crucible": 40.3,
+        "level40": 90.6,
+        "level50": 143.1
+      }
+    }
+  ],
+  "deadlockChecks": {
+    "accountXpAvailableBeforePets": true,
+    "dungeonBossRewardDoesNotGateAccountXp": true,
+    "petsUnlockBeforeEnchanter": true,
+    "enchanterBeforeForge": true,
+    "forgeBeforeCrucible": true,
+    "level50Reachable": true
+  },
+  "guardrails": {
+    "balanceChanged": false,
+    "hardCurveChanged": false,
+    "dungeonBossTotal": 105
+  }
+}

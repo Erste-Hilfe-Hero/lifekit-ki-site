@@ -1,0 +1,21 @@
+{
+  "status": "failed",
+  "clients": 250,
+  "error": "The operation was aborted due to timeout",
+  "errors": [],
+  "samples": [],
+  "transport": {
+    "fullFrames": 373,
+    "deltaFrames": 11593,
+    "wireBytes": 18158325,
+    "referenceBytes": 251350021,
+    "inputTimeouts": 0
+  },
+  "totalSeconds": 24.22,
+  "limitations": [
+    "Single local Node process with local HTTP/SSE clients; not a mobile radio or TLS benchmark.",
+    "Application SSE bytes include data framing but exclude HTTP/TCP/TLS headers and input HTTP traffic.",
+    "Reference bytes are full snapshots of the same actual frames, not a separate legacy-server run.",
+    "Short soak, not production capacity certification or a physical device test."
+  ]
+}

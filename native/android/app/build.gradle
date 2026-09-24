@@ -1,0 +1,41 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'game.nyrathen.mobile'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'game.nyrathen.mobile'
+        minSdk 26
+        targetSdk 36
+        versionCode 57
+        versionName '5.7.0'
+    }
+    // Keys stay outside the repository; the release CLI requires all four values.
+    def keyPath = System.getenv('NYRATHEN_KEYSTORE')
+    def storeSecret = System.getenv('NYRATHEN_STORE_PASSWORD')
+    def keyName = System.getenv('NYRATHEN_KEY_ALIAS')
+    def keySecret = System.getenv('NYRATHEN_KEY_PASSWORD')
+    def signingReady = keyPath && storeSecret && keyName && keySecret
+    signingConfigs {
+        if (signingReady) {
+            release {
+                storeFile file(keyPath)
+                storePassword storeSecret
+                keyAlias keyName
+                keyPassword keySecret
+            }
+        }
+    }
+    buildTypes {
+        debug { debuggable true; applicationIdSuffix '.dev'; versionNameSuffix '-dev' }
+        release {
+            minifyEnabled false
+            if (signingReady) signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+// No advertising or third-party analytics SDK. Google Play Billing is used only for player-initiated digital purchases.
+dependencies { implementation 'com.android.billingclient:billing:9.1.0' }

@@ -1,0 +1,21 @@
+{
+  "release": "5.3.0",
+  "qualificationHost": {"logicalCpus": 5, "memoryGiB": 5.81, "platform": "linux", "arch": "x64"},
+  "regression": {"passed": 315, "failed": 0},
+  "mobileUi": {"passed": 50, "failed": 0},
+  "syntaxCheckedModules": 74,
+  "fuzz": {"cases": 320, "server5xx": 0},
+  "disasterRecovery": {"integrity": "ok", "restoreDurationMs": 8.81, "sha256Verified": true},
+  "economyRace": {"duplicateRequests": 8, "itemCopiesEach": 1, "ledgerRows": 1},
+  "hardCrash": {"clients": 80, "recovered": 80, "replayedReceipts": 80, "staleLockRecovered": true},
+  "workerSoak30s": {"clients": 100, "inputs": 11690, "reconnects": 10, "failures": 0, "inputTimeouts": 0, "eventLoopP99Ms": 79.89, "startRssBytes": 40095744, "endRssBytes": 221151232},
+  "clusterFinal": {"clients": 300, "workers": 3, "status": "passed", "maxP99Ms": 111.21},
+  "cluster400Repeat": {"clients": 400, "workers": 4, "status": "slo-failed", "maxP99Ms": 245.63},
+  "capacity": {"nominalPlayersPerWorker": 100, "safePlayersPerWorker": 80, "maxWorkersPerLogicalNode": 3, "p99SloMs": 180},
+  "targets": {
+    "1000": {"workers": 14, "logicalNodes": 5, "safeCapacity": 1120, "localRealtimeCertified": false},
+    "2000": {"workers": 26, "logicalNodes": 9, "safeCapacity": 2080},
+    "5000": {"workers": 64, "logicalNodes": 22, "safeCapacity": 5120},
+    "10000": {"workers": 126, "logicalNodes": 42, "safeCapacity": 10080}
+  }
+}

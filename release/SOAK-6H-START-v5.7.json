@@ -1,0 +1,16 @@
+{
+  "status": "running",
+  "startedAt": "2026-09-24T12:49:00Z",
+  "deployment": "3a7b7e02-c1ab-4397-a2ef-6aba081d2f05",
+  "runtimePatch": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+  "targets": 14,
+  "clientsPerTarget": 6,
+  "totalClients": 84,
+  "seconds": 21600,
+  "sloMs": 180,
+  "completionCheck": "scheduled",
+  "normalCertificationRestore": {
+    "clientsPerTarget": 72,
+    "seconds": 60
+  }
+}

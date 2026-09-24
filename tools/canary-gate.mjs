@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+// SPDX-License-Identifier: LicenseRef-Nyrathen-Proprietary
+import {readFileSync} from 'node:fs';
+import {SLOMonitor,CanaryController,AlertPolicy} from '../server/production.mjs';
+const file=process.argv[2];if(!file)throw new Error('Usage: node tools/canary-gate.mjs METRICS.json');const input=JSON.parse(readFileSync(file,'utf8')),windows=Array.isArray(input)?input:input.windows;if(!Array.isArray(windows)||!windows.length)throw new Error('METRICS.json must contain an array/windows array');const monitor=new SLOMonitor(),canary=new CanaryController(),alerts=new AlertPolicy();const decisions=[];for(const sample of windows){const slo=monitor.evaluate(sample),decision=canary.observe(slo),alert=alerts.observe(slo);decisions.push({slo,decision,alert});if(decision.action==='rollback')break;}const last=decisions.at(-1);console.log(JSON.stringify({ok:last?.decision.action!=='rollback',percent:canary.percent,decisions},null,2));if(last?.decision.action==='rollback')process.exitCode=1;

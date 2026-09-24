@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+// SPDX-License-Identifier: LicenseRef-Nyrathen-Proprietary
+// Aggregate local active-player stress across isolated GameServer workers.
+import {spawn} from 'node:child_process';
+import {resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {dirname} from 'node:path';
+const total=Number(process.env.STRESS_TOTAL||1000),workers=Number(process.env.STRESS_WORKERS||13),seconds=Number(process.env.STRESS_SECONDS||5),slo=Number(process.env.STRESS_P99_SLO_MS||250);
+if(!Number.isInteger(total)||total<10||total>10000||!Number.isInteger(workers)||workers<1||workers>64)throw new Error('Invalid STRESS_TOTAL/STRESS_WORKERS');
+const script=resolve(dirname(fileURLToPath(import.meta.url)),'stress-node.mjs'),base=Math.floor(total/workers),extra=total%workers;
+const run=(index,clients)=>new Promise(resolveRun=>{const child=spawn(process.execPath,[script],{env:{...process.env,STRESS_CLIENTS:String(clients),STRESS_SECONDS:String(seconds),SNAPSHOT_HZ:process.env.SNAPSHOT_HZ||'5'},stdio:['ignore','pipe','pipe']});let out='',err='';child.stdout.on('data',d=>out+=d);child.stderr.on('data',d=>err+=d);const timer=setTimeout(()=>{child.kill('SIGKILL');},Math.max(120000,(seconds+90)*1000));child.on('exit',(code,signal)=>{clearTimeout(timer);let report=null;try{const at=out.lastIndexOf('{');for(let i=Math.max(0,at);i>=0;i=out.lastIndexOf('{',i-1)){try{report=JSON.parse(out.slice(i));break;}catch{}}}catch{}resolveRun({index,clients,code,signal,report,stderr:err.trim().slice(-1000)});});});
+const jobs=Array.from({length:workers},(_,i)=>run(i,base+(i<extra?1:0))),results=await Promise.all(jobs);const bad=results.filter(r=>r.code!==0||r.report?.status!=='passed'),p99=results.map(r=>Number(r.report?.eventLoopMs?.p99||Infinity)),sloBreaches=results.filter(r=>Number(r.report?.eventLoopMs?.p99||Infinity)>slo);
+const report={status:bad.length||sloBreaches.length?'failed':'passed',total,workers,seconds,snapshotHz:Number(process.env.SNAPSHOT_HZ||5),sloP99Ms:slo,clients:results.reduce((n,r)=>n+(r.report?.connected||0),0),frames:results.reduce((n,r)=>n+(r.report?.frames?.total||0),0),p99:{max:Math.max(...p99),avg:p99.reduce((a,b)=>a+b,0)/p99.length},failures:[...bad.map(r=>({worker:r.index,reason:r.report?.failures||r.stderr||r.signal||r.code})),...sloBreaches.map(r=>({worker:r.index,reason:`p99 ${r.report?.eventLoopMs?.p99}ms > ${slo}ms`}))],workersSummary:results.map(r=>({worker:r.index,clients:r.clients,status:r.report?.status||'failed',p99:r.report?.eventLoopMs?.p99,rss:r.report?.memory?.endRSS,frames:r.report?.frames?.total}))};console.log(JSON.stringify(report,null,2));if(report.status!=='passed')process.exitCode=1;

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "release": "5.7.0",
+  "date": "2026-09-24",
+  "status": "segmented-local-soak-passed",
+  "gameplay": {
+    "segments": 2,
+    "clientsPerSegment": [
+      24,
+      24
+    ],
+    "requestedSecondsTotal": 50,
+    "forcedStreamDisconnects": 2,
+    "recoveredStreams": 2,
+    "privateInventoriesHidden": true,
+    "worldsIsolated": true,
+    "identitiesPreserved": true,
+    "allClientsReceivedDeltas": true,
+    "eventLoopP99MaxMs": 161.35,
+    "eventLoopMaxMs": 472.65,
+    "backpressureSkips": 0,
+    "slowDisconnects": 0,
+    "staleInputSafetyStops": 26,
+    "transportSavedPercentCombined": 74.53,
+    "errors": 0
+  },
+  "commerce": {
+    "seconds": 20,
+    "players": 48,
+    "batch": 8,
+    "grants": 5928,
+    "replays": 1186,
+    "revokes": 847,
+    "ledgerRows": 5928,
+    "duplicateTransactionIds": 0,
+    "badProfiles": 0,
+    "ok": true
+  },
+  "limitations": [
+    "Segmented local engineering soak; not an uninterrupted 6–24 hour endurance certification.",
+    "Gameplay runs use local HTTP/SSE in one Node host and are not a mobile-radio/TLS benchmark.",
+    "The server metric named inputTimeouts counts stale-input safety neutralizations after >1 second without fresh input; it is not an HTTP request-timeout count.",
+    "Real Apple/Google billing sandbox/license-test evidence is a separate external gate."
+  ]
+}

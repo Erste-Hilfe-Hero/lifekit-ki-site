@@ -1,0 +1,78 @@
+name: Manual package checks and native test builds
+"on":
+  workflow_dispatch:
+    inputs:
+      android:
+        description: Build debug APK (SDK 36 and accepted SDK licenses required)
+        type: boolean
+        default: false
+      ios_simulator:
+        description: Build unsigned iOS simulator app (NOT an IPA)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - run: npm run build && npm run check && npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-client
+          path: dist/
+          retention-days: 3
+  android:
+    if: ${{ inputs.android }}
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build only with provisioned SDK and licenses
+        run: node tools/build-mobile.mjs android-debug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-debug
+          path: native/android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          retention-days: 3
+  ios-simulator:
+    if: ${{ inputs.ios_simulator }}
+    needs: validate
+    runs-on: macos-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - run: node tools/build-mobile.mjs ios-simulator
+      - run: ditto -c -k --keepParent native/ios/build/Build/Products/Debug-iphonesimulator/Nyrathen.app Nyrathen-Simulator.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator-not-ipa
+          path: Nyrathen-Simulator.zip
+          if-no-files-found: error
+          retention-days: 3

@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Service
+metadata: {name: nyrathen-game-headless, namespace: nyrathen}
+spec:
+  clusterIP: None
+  selector: {app: nyrathen-game}
+  ports: [{name: http, port: 3000, targetPort: http}]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nyrathen-game
+  namespace: nyrathen
+spec:
+  serviceName: nyrathen-game-headless
+  replicas: 14
+  podManagementPolicy: Parallel
+  updateStrategy: {type: RollingUpdate}
+  selector: {matchLabels: {app: nyrathen-game}}
+  template:
+    metadata: {labels: {app: nyrathen-game}}
+    spec:
+      terminationGracePeriodSeconds: 60
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector: {matchLabels: {app: nyrathen-game}}
+      containers:
+        - name: game
+          image: ghcr.io/REPLACE/nyrathen:5.7.0
+          ports: [{containerPort: 3000, name: http}]
+          env:
+            - {name: HOST, value: "0.0.0.0"}
+            - {name: PORT, value: "3000"}
+            - {name: MAX_SESSIONS, value: "100"}
+            - {name: READY_SESSION_PERCENT, value: "80"}
+            - {name: SNAPSHOT_HZ, value: "5"}
+            - {name: READY_TICK_P99_MS, value: "180"}
+            - {name: MAX_SSE_BACKLOG_BYTES, value: "262144"}
+            - {name: STATE_AUTHORITY_URL, value: "http://nyrathen-state:3400"}
+            - name: GAME_NODE_ID
+              valueFrom: {fieldRef: {fieldPath: metadata.name}}
+            - name: STATE_WORLD_NAMESPACE
+              valueFrom: {fieldRef: {fieldPath: metadata.name}}
+            - name: STATE_AUTHORITY_SECRET
+              valueFrom: {secretKeyRef: {name: nyrathen-secrets, key: state-authority-secret}}
+            - name: METRICS_TOKEN
+              valueFrom: {secretKeyRef: {name: nyrathen-secrets, key: metrics-token}}
+            - name: CLUSTER_SHARED_SECRET
+              valueFrom: {secretKeyRef: {name: nyrathen-secrets, key: cluster-shared-secret}}
+            - name: RESUME_TICKET_SECRET
+              valueFrom: {secretKeyRef: {name: nyrathen-secrets, key: resume-ticket-secret}}
+          readinessProbe: {httpGet: {path: /readyz, port: http}, periodSeconds: 5, timeoutSeconds: 2, failureThreshold: 2}
+          livenessProbe: {httpGet: {path: /healthz, port: http}, periodSeconds: 15, timeoutSeconds: 3, failureThreshold: 3}
+          resources:
+            requests: {cpu: "750m", memory: "512Mi"}
+            limits: {cpu: "1", memory: "1Gi"}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            capabilities: {drop: ["ALL"]}

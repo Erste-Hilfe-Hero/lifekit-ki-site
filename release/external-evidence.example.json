@@ -1,0 +1,137 @@
+{
+  "commerceEnabled": false,
+  "distributedStateBackend": {
+    "passed": false,
+    "provider": null,
+    "at": null
+  },
+  "multiNode1000": {
+    "passed": false,
+    "players": 1000,
+    "nodes": 5,
+    "at": null
+  },
+  "chaosAt1000": {
+    "passed": false,
+    "players": 1000,
+    "at": null
+  },
+  "soak": {
+    "passed": false,
+    "hours": 6,
+    "at": null
+  },
+  "productionInfrastructure": {
+    "passed": false,
+    "at": null
+  },
+  "offsiteRestore": {
+    "passed": false,
+    "at": null
+  },
+  "ddosEdgeProtection": {
+    "passed": false,
+    "at": null
+  },
+  "monitoringAlerts": {
+    "passed": false,
+    "at": null
+  },
+  "adminOperations": {
+    "passed": false,
+    "at": null
+  },
+  "externalSecurityReview": {
+    "passed": false,
+    "at": null
+  },
+  "iosDevices": {
+    "passed": false,
+    "count": 0,
+    "at": null
+  },
+  "androidDevices": {
+    "passed": false,
+    "count": 0,
+    "at": null
+  },
+  "signedAndroidAab": {
+    "passed": false,
+    "at": null
+  },
+  "signedIosArchive": {
+    "passed": false,
+    "at": null
+  },
+  "storeAccounts": {
+    "passed": false,
+    "at": null
+  },
+  "pushProduction": {
+    "passed": false,
+    "at": null
+  },
+  "iapProduction": {
+    "passed": false,
+    "at": null
+  },
+  "iapSandbox": {
+    "passed": false,
+    "at": null
+  },
+  "legalPages": {
+    "passed": false,
+    "at": null
+  },
+  "privacyReview": {
+    "passed": false,
+    "at": null
+  },
+  "trademarkReview": {
+    "passed": false,
+    "at": null
+  },
+  "ageRatings": {
+    "passed": false,
+    "at": null
+  },
+  "closedBeta": {
+    "passed": false,
+    "count": 0,
+    "at": null
+  },
+  "crashAnrReview": {
+    "passed": false,
+    "crashFreeRate": 0,
+    "at": null
+  },
+  "economyBalanceReview": {
+    "passed": false,
+    "at": null
+  },
+  "liveOpsContent": {
+    "passed": false,
+    "at": null
+  },
+  "supportModeration": {
+    "passed": false,
+    "at": null
+  },
+  "canaryObserved": {
+    "passed": false,
+    "at": null
+  },
+  "futureCapacityBenchmarks": {
+    "passed": false,
+    "tiers": [
+      2000,
+      5000,
+      10000
+    ],
+    "at": null
+  },
+  "rcFrozen": {
+    "passed": false,
+    "at": null
+  }
+}

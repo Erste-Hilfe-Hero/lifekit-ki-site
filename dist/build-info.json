@@ -1,0 +1,33 @@
+{
+  "version": "5.7.0",
+  "build": "94a9fd0f6d3f",
+  "sourceModules": [
+    "shared/data.mjs",
+    "shared/monetization-data.mjs",
+    "shared/endgame-data.mjs",
+    "shared/projectile.mjs",
+    "shared/engine.mjs",
+    "shared/realm-data.mjs",
+    "shared/adventure-data.mjs",
+    "shared/realm.mjs",
+    "shared/social.mjs",
+    "shared/adventure.mjs",
+    "client/i18n.mjs",
+    "client/i18n-extra.mjs",
+    "client/presentation.mjs",
+    "client/art.mjs",
+    "client/renderer.mjs",
+    "client/input.mjs",
+    "client/audio.mjs",
+    "client/protocol.mjs",
+    "shared/snapshot-wire.mjs",
+    "client/network.mjs",
+    "client/commerce.mjs",
+    "client/systems.mjs",
+    "client/main.mjs"
+  ],
+  "bytes": 600868,
+  "releaseTarget": "native-mobile",
+  "browserRelease": false,
+  "nativeBinariesBuilt": false
+}

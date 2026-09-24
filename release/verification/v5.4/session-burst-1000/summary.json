@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "kind": "functional session+authoritative-input burst; not realtime SSE certification",
+  "workers": 4,
+  "perWorker": 250,
+  "total": 1000,
+  "created": 1000,
+  "failures": [],
+  "workersSummary": [
+    {
+      "worker": 0,
+      "created": 250,
+      "failures": 0,
+      "p99": 1518.53,
+      "rss": 185110528,
+      "totalMs": 10096.93
+    },
+    {
+      "worker": 1,
+      "created": 250,
+      "failures": 0,
+      "p99": 1564.05,
+      "rss": 164569088,
+      "totalMs": 9824.82
+    },
+    {
+      "worker": 2,
+      "created": 250,
+      "failures": 0,
+      "p99": 1509.67,
+      "rss": 171843584,
+      "totalMs": 10421.54
+    },
+    {
+      "worker": 3,
+      "created": 250,
+      "failures": 0,
+      "p99": 1623.8,
+      "rss": 155860992,
+      "totalMs": 9907.87
+    }
+  ]
+}

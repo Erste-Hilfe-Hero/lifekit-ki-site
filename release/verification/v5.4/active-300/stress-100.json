@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "clients": 100,
+  "seconds": 5,
+  "rooms": 2,
+  "actions": 100,
+  "inputs": 1784,
+  "inputSkipped": 0,
+  "reconnects": 10,
+  "connected": 100,
+  "frames": {
+    "total": 2826,
+    "delta": 2616,
+    "full": 210,
+    "min": 26,
+    "max": 29
+  },
+  "transport": {
+    "fullFrames": 210,
+    "deltaFrames": 2621,
+    "wireBytes": 46594310,
+    "referenceBytes": 113849958,
+    "inputTimeouts": 0,
+    "backpressureSkips": 0,
+    "slowDisconnects": 0
+  },
+  "observability": {
+    "requests": 2094,
+    "responses4xx": 0,
+    "responses5xx": 0,
+    "sseConnections": 110,
+    "sseDisconnects": 10,
+    "actions": 100,
+    "accountAuth": 0,
+    "rejectedInputs": 0,
+    "rejectedActions": 0,
+    "rateLimited": 0
+  },
+  "memory": {
+    "startRSS": 40243200,
+    "endRSS": 212037632
+  },
+  "eventLoopMs": {
+    "p50": 31.36,
+    "p95": 75.83,
+    "p99": 127.53,
+    "max": 764.94
+  },
+  "failures": [],
+  "starved": [],
+  "totalSeconds": 8.84
+}

@@ -1,0 +1,37 @@
+{
+    email {$ACME_EMAIL}
+    auto_https on
+    servers {
+        protocols h1 h2 h3
+    }
+}
+
+{$NYRATHEN_DOMAIN} {
+    encode zstd gzip
+
+    # Metrics are intentionally not exposed through the public edge.
+    @metrics path /metrics
+    respond @metrics 404
+
+    # The mobile client uses only the API, health and readiness routes.
+    reverse_proxy game:3000 {
+        health_uri /readyz
+        health_interval 15s
+        health_timeout 4s
+        transport http {
+            keepalive 30s
+        }
+    }
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options nosniff
+        Referrer-Policy no-referrer
+        -Server
+    }
+
+    log {
+        output stdout
+        format json
+    }
+}

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: cluster bus registers, heartbeats and removes game nodes
+ok 1 - cluster bus registers, heartbeats and removes game nodes
+  ---
+  duration_ms: 1.207524
+  type: 'test'
+  ...
+# Subtest: account lease prevents split brain ownership
+ok 2 - account lease prevents split brain ownership
+  ---
+  duration_ms: 0.260474
+  type: 'test'
+  ...
+# Subtest: expired account lease can fail over with a higher epoch
+ok 3 - expired account lease can fail over with a higher epoch
+  ---
+  duration_ms: 0.182606
+  type: 'test'
+  ...
+# Subtest: stale lease holder cannot renew or release replacement lease
+ok 4 - stale lease holder cannot renew or release replacement lease
+  ---
+  duration_ms: 0.164819
+  type: 'test'
+  ...
+# Subtest: node directory chooses least loaded healthy replacement
+ok 5 - node directory chooses least loaded healthy replacement
+  ---
+  duration_ms: 0.179751
+  type: 'test'
+  ...
+# Subtest: mobile network rotates to replacement base without changing token or generation
+ok 6 - mobile network rotates to replacement base without changing token or generation
+  ---
+  duration_ms: 5.593918
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 73.572774

@@ -1,0 +1,13 @@
+{
+  "publisherName": "REPLACE ME",
+  "publisherEmail": "support@example.invalid",
+  "publisherPostalAddress": "REPLACE ME",
+  "privacyContact": "privacy@example.invalid",
+  "effectiveDate": "2026-09-22",
+  "productionServerOperator": "REPLACE ME",
+  "privacyUrl": "https://example.invalid/privacy.html",
+  "termsUrl": "https://example.invalid/terms.html",
+  "supportUrl": "https://example.invalid/support.html",
+  "deleteAccountUrl": "https://example.invalid/delete-account.html",
+  "productionServerUrl": "https://api.example.invalid"
+}

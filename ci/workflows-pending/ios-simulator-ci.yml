@@ -1,0 +1,91 @@
+name: iOS simulator CI
+
+"on":
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'native/ios/**'
+      - 'client/**'
+      - 'tools/build.mjs'
+      - 'tools/check.mjs'
+      - 'tools/build-mobile.mjs'
+      - 'tools/native-environment.mjs'
+      - 'tools/ios-simulator-smoke.sh'
+      - 'package.json'
+      - '.github/workflows/ios-simulator-ci.yml'
+  pull_request:
+    paths:
+      - 'native/ios/**'
+      - 'client/**'
+      - 'tools/build.mjs'
+      - 'tools/check.mjs'
+      - 'tools/build-mobile.mjs'
+      - 'tools/native-environment.mjs'
+      - 'tools/ios-simulator-smoke.sh'
+      - 'package.json'
+      - '.github/workflows/ios-simulator-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-simulator-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  simulator-smoke:
+    name: Xcode build + iPhone simulator smoke
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: false
+
+      - name: Verify Xcode 26+
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          MAJOR="$(xcodebuild -version | awk '/Xcode/{split($2,a,"."); print a[1]}')"
+          test "${MAJOR:-0}" -ge 26
+
+      - name: Regression before native build
+        run: npm test
+
+      - name: Build unsigned iOS simulator app
+        run: npm run build:ios
+
+      - name: Boot simulator, install and launch Nyrathen
+        run: bash tools/ios-simulator-smoke.sh
+
+      - name: Package simulator app
+        if: always()
+        shell: bash
+        run: |
+          if [ -d native/ios/build/Build/Products/Debug-iphonesimulator/Nyrathen.app ]; then
+            ditto -c -k --keepParent \
+              native/ios/build/Build/Products/Debug-iphonesimulator/Nyrathen.app \
+              release/ios-ci/Nyrathen-Simulator.zip
+            shasum -a 256 release/ios-ci/Nyrathen-Simulator.zip > release/ios-ci/Nyrathen-Simulator.zip.sha256
+          fi
+
+      - name: Upload iOS evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nyrathen-ios-simulator-evidence
+          path: |
+            release/ios-ci/latest/
+            release/ios-ci/Nyrathen-Simulator.zip
+            release/ios-ci/Nyrathen-Simulator.zip.sha256
+          if-no-files-found: warn
+          retention-days: 14

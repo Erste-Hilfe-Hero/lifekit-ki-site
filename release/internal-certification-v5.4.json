@@ -1,0 +1,31 @@
+{
+  "release": "5.4.0",
+  "generatedAt": "2026-09-22T22:04:19Z",
+  "internalQualification": "passed",
+  "regression": "328/328",
+  "mobileUi": "50/50",
+  "syntaxModules": 82,
+  "checks": {
+    "mobilePreflight": true,
+    "storePolicy2026": true,
+    "fuzz320": true,
+    "security225": true,
+    "backupRestore": true,
+    "economyRace": true,
+    "economyHealth": true,
+    "hardCrash80": true,
+    "clusterActive300": true,
+    "sessionBurst1000": true
+  },
+  "measured": {
+    "cluster300P99MaxMs": 118.95,
+    "cluster300SloMs": 180,
+    "sessionBurst1000Created": 1000
+  },
+  "notClaims": [
+    "1,000 simultaneous realtime SSE players on five real nodes",
+    "six-hour 1,000-player production-like soak",
+    "physical-device/store/beta/provider evidence"
+  ],
+  "externalEvidenceGate": "fail-closed"
+}

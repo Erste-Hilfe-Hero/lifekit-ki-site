@@ -1,0 +1,510 @@
+{
+  "product": "Nyrathen",
+  "version": "5.7.0",
+  "buildNumber": 57,
+  "target": "mobile-only",
+  "platforms": [
+    "Android",
+    "iOS"
+  ],
+  "browserRelease": false,
+  "build": "c386de46dd81",
+  "regression": {
+    "passed": 405,
+    "failed": 0
+  },
+  "mobileUi": {
+    "passed": 50,
+    "failed": 0
+  },
+  "syntaxCheckedModules": 120,
+  "internalReleaseCandidate": {
+    "ready": true,
+    "productionReleased": false,
+    "reason": "Hotfix 14 gameplay/runtime is live and 1008-player certified. Local release closure is 405/405 with infrastructure/admin/canary evidence complete. A six-hour distributed endurance run is active. Final public mobile release remains fail-closed on signed native builds/physical devices, authenticated stores, real publisher/legal identity, human beta/reviews, off-site restore, DDoS edge evidence and future-capacity benchmarks."
+  },
+  "qualification": {
+    "protocolFuzz": {
+      "cases": 480,
+      "server5xx": 0,
+      "status": "passed"
+    },
+    "adversarialSecurity": {
+      "cases": 325,
+      "server5xx": 0,
+      "status": "passed"
+    },
+    "backupRestore": {
+      "sqliteIntegrity": "ok",
+      "status": "passed"
+    },
+    "economyRace": {
+      "duplicateRequests": 8,
+      "ledgerRows": 1,
+      "status": "passed"
+    },
+    "economyHealth": {
+      "transactions": 1000,
+      "sourceSinkRatio": 1.14985,
+      "dailyInflation": 0.02997,
+      "duplicateReceipts": 0,
+      "status": "passed"
+    },
+    "hardCrashRecovery": {
+      "recovered": "80/80",
+      "replayed": "80/80",
+      "status": "passed"
+    },
+    "stateAuthorityBurst1000": {
+      "accounts": "1000/1000",
+      "concurrency": 100,
+      "throughputPerSecond": 1135.9,
+      "p99Ms": 172.12,
+      "sloMs": 750,
+      "status": "passed"
+    },
+    "railwayActive300": {
+      "players": 300,
+      "nodes": 3,
+      "connected": "300/300",
+      "p99MaxMs": 35,
+      "sloMs": 180,
+      "status": "passed"
+    },
+    "functionalSessionBurst1000": {
+      "created": "1000/1000",
+      "workers": 4,
+      "status": "passed",
+      "note": "Functional session + authoritative-input burst. Kept separate from the external realtime-active-player certification."
+    },
+    "commerceSoakSmoke": {
+      "seconds": 5,
+      "players": 24,
+      "cycles": 1536,
+      "grants": 1536,
+      "revokes": 220,
+      "duplicateTransactionIds": 0,
+      "status": "passed",
+      "note": "Smoke run for the new 6–24h parallel commerce/entitlement soak harness."
+    },
+    "railwayActive1008": {
+      "players": 1008,
+      "workers": 14,
+      "workerLayout": [
+        5,
+        5,
+        4
+      ],
+      "connected": "1008/1008",
+      "frames": 456497,
+      "p99MaxMs": 134,
+      "sloMs": 180,
+      "status": "passed",
+      "deployment": "e9e7dbca-97cc-40b0-a065-1b5c1e2ddb58",
+      "patch": "v5.7.0-prod-hotfix14-dungeon-boss-reward"
+    },
+    "disasterRecoveryLatest": {
+      "sqliteIntegrity": "ok",
+      "restoreDurationMs": 16.42,
+      "status": "passed",
+      "at": "2026-09-24T08:17:51Z"
+    },
+    "chaosRecoveryLatest": {
+      "clients": 80,
+      "recovered": "80/80",
+      "replayed": "80/80",
+      "staleLockRecovered": true,
+      "status": "passed"
+    },
+    "economyRaceLatest": {
+      "duplicateRequests": 8,
+      "ledgerRows": 1,
+      "status": "passed"
+    },
+    "localization": {
+      "runtimeLocales": [
+        "de",
+        "en",
+        "fr",
+        "es",
+        "it",
+        "pt",
+        "tr"
+      ],
+      "storeLocales": [
+        "de-DE",
+        "en-US",
+        "fr-FR",
+        "es-ES",
+        "it-IT",
+        "pt-BR",
+        "tr-TR"
+      ],
+      "canonicalStrings": 315,
+      "chromiumLocales": "7/7",
+      "status": "passed"
+    },
+    "legalRoutes": {
+      "paths": [
+        "/legal/privacy",
+        "/legal/terms",
+        "/legal/support",
+        "/legal/delete-account",
+        "/legal/imprint"
+      ],
+      "behaviorWithoutIdentity": "HTTP 503 fail-closed",
+      "completeIdentityTemplateTest": "5/5 render",
+      "status": "implemented-fail-closed"
+    },
+    "gameplayFinalpass": {
+      "status": "passed-hard-progression-sample",
+      "characterLevel": 20,
+      "normalKills": 600,
+      "bossKills": 12,
+      "accountXP": 3060,
+      "accountLevel": 6,
+      "forgeUnlocked": false,
+      "enchanterUnlocked": false,
+      "note": "Expected by design: long-term account unlocks remain far beyond short character-level progression."
+    },
+    "cadenceResets": {
+      "daily": "passed",
+      "weekly": "passed",
+      "season": "passed",
+      "seasonalStashArchive": "passed",
+      "claimsOutsideSeason": "blocked"
+    },
+    "progressionLock": {
+      "status": "passed-and-locked",
+      "originalCurve": "85*(level-1)^2",
+      "finalCurve": "102*(level-1)^2",
+      "difficultyIncreaseVsOriginal": 0.2,
+      "normalKillAccountXP": 4,
+      "bossAccountXP": 55,
+      "dungeonBossBonusAccountXP": 50,
+      "dungeonBossTotalAccountXP": 105,
+      "representativeMixAcceleration": 0.049,
+      "thresholds": {
+        "level5": 1632,
+        "level10": 8262,
+        "enchanter17": 26112,
+        "forge23": 49368,
+        "crucible27": 68952,
+        "level50": 244902
+      },
+      "characterLevel1To20Changed": false,
+      "guard": "automated regression test"
+    },
+    "localWorkerStressLatest": {
+      "clients": 100,
+      "seconds": 5,
+      "connected": "100/100",
+      "p99Ms": 121.5,
+      "inputTimeouts": 0,
+      "backpressureSkips": 0,
+      "responses4xx": 0,
+      "responses5xx": 0,
+      "status": "passed"
+    },
+    "localQualificationLatest": {
+      "regression": "405/405",
+      "mobileUi": "50/50",
+      "syntaxModules": 120,
+      "status": "passed",
+      "note": "Includes admin-status robustness and push-disabled evidence-gate regression coverage."
+    },
+    "adminOperations": {
+      "status": "passed",
+      "freshDbStatus": true,
+      "banUnbanAudit": true,
+      "commerceReport": true
+    },
+    "sixHourEndurance": {
+      "status": "running",
+      "clients": 84,
+      "workers": 14,
+      "seconds": 21600,
+      "sloMs": 180,
+      "startedAt": "2026-09-24T12:49:00Z"
+    }
+  },
+  "distributedState": {
+    "mode": "central-authority",
+    "status": "implemented-and-staging-certified",
+    "splitBrainProtection": "account leases + epochs + dead-node heartbeat takeover",
+    "idempotency": "action receipts + economy ledger",
+    "socialConsistency": "revision CAS + global social lock",
+    "railwayPersistence": "private state service + 500 MB persistent volume"
+  },
+  "railway": {
+    "status": "healthy-live-v5.7-hotfix14-certified",
+    "provider": "Railway",
+    "project": "Nyrathen",
+    "environment": "production",
+    "projectId": "6eb56b81-1e89-4da3-9ed4-bcdb95a2c642",
+    "runtimePatchRevision": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+    "stateAuthority": {
+      "service": "nyrathen-state",
+      "deployment": "cc85d906-868a-4ff5-bc34-663dc6c9d231",
+      "status": "SUCCESS",
+      "public": false,
+      "persistentVolumeMB": 500,
+      "currentDiskGB": 0.367550464,
+      "diskNote": "Backup retention reduced to 1; six-hour endurance watch active."
+    },
+    "gameServers": [
+      {
+        "service": "nyrathen-game-01",
+        "deployment": "d0a77e1b-38a4-4725-9f75-277890951f76",
+        "url": "https://nyrathen-game-01-production.up.railway.app",
+        "workers": 5
+      },
+      {
+        "service": "nyrathen-game-02",
+        "deployment": "f0d6ce05-0625-4712-8a77-ec9309b55d32",
+        "url": "https://nyrathen-game-02-production.up.railway.app",
+        "workers": 5
+      },
+      {
+        "service": "nyrathen-game-03",
+        "deployment": "ecb0ab14-5703-49c2-83b7-e1084500686f",
+        "url": "https://nyrathen-game-03-production.up.railway.app",
+        "workers": 4
+      }
+    ],
+    "loadService": {
+      "service": "nyrathen-load-01",
+      "deployment": "3a7b7e02-c1ab-4397-a2ef-6aba081d2f05",
+      "status": "SUCCESS",
+      "mode": "six-hour-endurance-running",
+      "clients": 84
+    },
+    "certification1008": {
+      "status": "passed",
+      "patch": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+      "players": 1008,
+      "connected": 1008,
+      "workers": 14,
+      "layout": "5/5/4",
+      "frames": 441305,
+      "eventLoopP99MaxMs": 133,
+      "sloMs": 180,
+      "activeSeconds": 60,
+      "postCleanupHealthy": true
+    },
+    "monitoring": "Hourly ChatGPT condition watch configured for unhealthy services, State disk pressure, persistence/state faults, failed deployments, and p99 >180 ms.",
+    "sourceParity": "Gameplay/runtime behavior remains Hotfix 14. ReleaseClosure contains local-only admin/evidence tooling hardening that is not required by the live game runtime."
+  },
+  "capacityContract": {
+    "maxSessionsPerWorker": 96,
+    "certifiedPlayersPerWorker": 72,
+    "certifiedWorkers": 14,
+    "gameServices": 3,
+    "workerLayout": [
+      5,
+      5,
+      4
+    ],
+    "certifiedConcurrentPlayers": 1008,
+    "eventLoopP99SloMs": 180,
+    "observedMaxP99Ms": 133,
+    "status": "railway-certified"
+  },
+  "productionPreflight": {
+    "targetPlayers": 1000,
+    "workers": 14,
+    "nodes": 5,
+    "safeCapacity": 1120,
+    "stateBackendMode": "central-authority",
+    "status": "blocked-missing-production-environment",
+    "missing": [
+      "NYRATHEN_DOMAIN",
+      "ACME_EMAIL",
+      "METRICS_TOKEN",
+      "LIVEOPS_SIGNING_SECRET",
+      "CLUSTER_SHARED_SECRET",
+      "RESUME_TICKET_SECRET",
+      "BACKUP_TARGET",
+      "OFFSITE_BACKUP_TARGET",
+      "ALERT_TARGET",
+      "EXPECTED_CONCURRENT_PLAYERS",
+      "GAME_WORKERS",
+      "LOGICAL_NODES",
+      "DEPLOYMENT_MODE",
+      "STATE_BACKEND_MODE"
+    ]
+  },
+  "publicFailoverEndpoints": [
+    "https://nyrathen-game-01-production.up.railway.app",
+    "https://nyrathen-game-02-production.up.railway.app",
+    "https://nyrathen-game-03-production.up.railway.app"
+  ],
+  "storePolicy": {
+    "android": "compile/target API 36",
+    "ios": "Xcode 26+ / iOS 26 SDK gate",
+    "status": "machine-checked"
+  },
+  "externalEvidence": {
+    "strictGate": "REQUIRE_EXTERNAL_EVIDENCE=true npm run release:evidence",
+    "status": "Production infrastructure/admin/canary complete; 6h endurance running; signed devices/store/legal/human/offsite/edge/future-capacity evidence pending",
+    "source": "release/external-evidence-status.json"
+  },
+  "generatedAt": "2026-09-24T15:00:00+02:00",
+  "monetization": {
+    "status": "implemented-fail-closed",
+    "philosophy": "cosmetics + collection + convenience + season content; no combat power, paid revive or lootboxes",
+    "premiumCurrency": "Nyr-Splitter",
+    "shop": "Der Schwarze Tresen",
+    "storeKit2": true,
+    "googlePlayBilling": "9.1.0",
+    "serverReceiptVerification": true,
+    "entitlementLedger": true,
+    "wishlist": true,
+    "weeklyRotation": true,
+    "seasonPremiumTrack": true,
+    "starterFounderBundles": true,
+    "accountSlotsVault": true,
+    "externalBeforeRealMoney": [
+      "App Store Connect product creation",
+      "Google Play product creation",
+      "Apple verifier root/config",
+      "Google Play service account",
+      "Apple sandbox purchase",
+      "Google test purchase",
+      "refund/pending/restore external evidence"
+    ],
+    "pendingCrashReplayRegression": false,
+    "noPaidPowerReleaseGate": true,
+    "storePolicyPreflight": "passed",
+    "automaticUnfinishedTransactionRecovery": true,
+    "productContract": "13 IDs frozen and machine-checked; 7 store locales",
+    "commerceFuzzSecurity": "480 fuzz / 325 adversarial cases, 0 server 5xx",
+    "earnedPrestigePolicyGate": true,
+    "storeLocales": [
+      "de-DE",
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "it-IT",
+      "pt-BR",
+      "tr-TR"
+    ]
+  },
+  "designRefresh": {
+    "status": "implemented",
+    "direction": "Black Iron / Rift Archive",
+    "feedbackTarget": "remove generic AI-card/glow/glass UI language",
+    "changes": [
+      "asymmetric main menu",
+      "class insignia rail",
+      "field-kit inventory",
+      "etched stat ledger",
+      "system-specific material accents",
+      "in-world Black Counter shop",
+      "reduced glow/rounding",
+      "distinct shop/forge/season/guild hierarchy"
+    ]
+  },
+  "longSoakHarness": {
+    "status": "implemented",
+    "durationRangeHours": "1–24",
+    "defaultHours": 6,
+    "parallelLoads": [
+      "gameplay",
+      "commerce-entitlements"
+    ],
+    "full6hRun": "pending-uninterrupted-endurance-run; segmented gameplay/commerce soak and 1008 realtime certification pass"
+  },
+  "nativeBuild": {
+    "android": "source/manifest/billing contract passed; full build blocked on this host by missing Android SDK/API 36 and unavailable dependency DNS",
+    "ios": "Swift parse passed; full build/archive requires macOS/Xcode 26",
+    "webViewAssetsSynchronized": true,
+    "signedArtifactsBuilt": false
+  },
+  "localization": {
+    "runtimeLocales": [
+      "de",
+      "en",
+      "fr",
+      "es",
+      "it",
+      "pt",
+      "tr"
+    ],
+    "storeLocales": [
+      "de-DE",
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "it-IT",
+      "pt-BR",
+      "tr-TR"
+    ],
+    "runtimeCanonicalStrings": 315,
+    "fallback": "English for rare unmapped technical strings",
+    "chromiumVerified": "7/7"
+  },
+  "legal": {
+    "railwayRoutesDeployed": false,
+    "routes": [
+      "/legal/privacy",
+      "/legal/terms",
+      "/legal/support",
+      "/legal/delete-account",
+      "/legal/imprint"
+    ],
+    "failClosedUntilPublisherIdentity": true,
+    "realPublisherIdentityConfigured": false,
+    "publicSubmissionReady": false,
+    "sourcePreparedAndTested": true,
+    "note": "Five fail-closed legal routes including imprint are implemented and tested in source. Activation requires real publisher/company identity, support email and legal postal address.",
+    "completeIdentityTest": "5/5 render"
+  },
+  "externalReleaseBlockers": [
+    "Uninterrupted 6–24h endurance evidence",
+    "Real legal publisher/company identity, support/privacy email, postal address, privacy contact and server operator",
+    "Public activation of Privacy/Terms/Support/Delete Account/Imprint after identity is supplied",
+    "Signed Android release bundle on a host with Android SDK 36 and release signing credentials",
+    "Signed iOS archive on macOS/Xcode with Apple Development Team",
+    "Physical-device matrix and mobile network/suspend/relaunch validation",
+    "Authenticated App Store Connect and Google Play Console product/pricing/territory configuration",
+    "Real sandbox/license purchase, restore, refund and revocation evidence",
+    "Closed beta, crash/ANR review, external security/privacy/legal/trademark review and age-rating submissions",
+    "Off-site restore/DDoS/production infrastructure evidence and large-scale chaos/capacity evidence required by the strict external gate"
+  ],
+  "betaPreparation": {
+    "status": "prepared-fail-closed",
+    "workflow": ".github/workflows/mobile-beta.yml",
+    "android": {
+      "api": 36,
+      "artifact": "AAB",
+      "distribution": "Google Play Internal Testing",
+      "localHostBuild": "blocked-missing-sdk-signing"
+    },
+    "ios": {
+      "requiredXcodeMajor": 26,
+      "artifact": "IPA",
+      "distribution": "TestFlight",
+      "localHostBuild": "blocked-not-macos-xcode-team"
+    },
+    "storeUploadAutomaticOnPush": false,
+    "playReleaseNotesLocales": [
+      "de-DE",
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "it-IT",
+      "pt-BR",
+      "tr-TR"
+    ],
+    "physicalDeviceResults": "release/beta-v5.7/device-results.csv",
+    "localPreflight": "passed",
+    "uploadReady": false,
+    "blockers": [
+      "real signing credentials",
+      "App Store Connect / Google Play credentials and app setup",
+      "public legal identity/pages",
+      "physical devices"
+    ]
+  }
+}

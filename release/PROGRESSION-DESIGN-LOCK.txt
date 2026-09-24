@@ -1,0 +1,12 @@
+NYRATHEN PROGRESSION DESIGN LOCK
+
+DO NOT LOWER THESE VALUES WITHOUT EXPLICIT PRODUCT-OWNER INSTRUCTION.
+
+Account XP curve: 102 * (level - 1)^2
+Normal kill Account XP: 4
+Boss Account XP: 55
+Dungeon-boss extra Account XP: 0
+Character level curve 1-20: unchanged
+
+This equals the original hard account curve (85 * n^2) plus exactly 20% required XP.
+Automated tests enforce the thresholds and rewards.

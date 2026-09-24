@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "seconds": 20,
+  "players": 48,
+  "batch": 8,
+  "cycles": 5928,
+  "grants": 5928,
+  "replays": 1186,
+  "revokes": 847,
+  "events": 6775,
+  "ledgerRows": 5928,
+  "duplicateTransactionIds": 0,
+  "badProfiles": 0,
+  "kpis": {
+    "events": {
+      "purchase_complete": 5928,
+      "purchase_refund": 847
+    },
+    "uniqueShopOpeners": 0,
+    "uniquePayers": 48,
+    "payerConversion": 0,
+    "grantedReceipts": 5081,
+    "refundedReceipts": 847,
+    "viewToPurchase": 0,
+    "startToPurchase": 0,
+    "retention": {
+      "accounts": 0,
+      "d1": {
+        "eligible": 0,
+        "returned": 0,
+        "rate": 0
+      },
+      "d7": {
+        "eligible": 0,
+        "returned": 0,
+        "rate": 0
+      },
+      "d30": {
+        "eligible": 0,
+        "returned": 0,
+        "rate": 0
+      },
+      "active1d": 0,
+      "active7d": 0,
+      "active30d": 0
+    },
+    "payerRetention": {
+      "accounts": 0,
+      "d1": {
+        "eligible": 0,
+        "returned": 0,
+        "rate": 0
+      },
+      "d7": {
+        "eligible": 0,
+        "returned": 0,
+        "rate": 0
+      },
+      "d30": {
+        "eligible": 0,
+        "returned": 0,
+        "rate": 0
+      },
+      "active1d": 0,
+      "active7d": 0,
+      "active30d": 0
+    }
+  }
+}

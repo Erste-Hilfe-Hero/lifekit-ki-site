@@ -1,0 +1,55 @@
+NYRATHEN 5.6.0 – MOBILE-ONLY PRODUCTION-HARDENED BUILD
+=====================================================
+
+DIESES PAKET IST NUR FÜR MOBILE
+- Android-App-Quellprojekt + eingebetteter Spielclient
+- iOS-App-Quellprojekt + eingebetteter Spielclient
+- eigener autoritativer Multiplayer-Server
+- KEIN Browser-/PWA-Spielrelease
+
+ANDROID
+- Projekt: native/android
+- Paket-ID: game.nyrathen.mobile
+- minSdk 26, target/compile SDK 36
+- Version 5.6.0, versionCode 56
+- Release-AAB: npm run build:android:bundle (Android SDK/JDK/Signing erforderlich)
+
+iOS
+- Projekt: native/ios/Nyrathen.xcodeproj
+- Bundle-ID: game.nyrathen.mobile
+- Mindestziel iOS 16.4
+- Version 5.6.0, Build 55
+- PrivacyInfo.xcprivacy enthalten
+- Archiv: npm run build:ios:archive (macOS/Xcode/Development Team erforderlich)
+
+SCHNELLE PRÜFUNG
+- npm run check
+- npm test
+- npm run release:qualify
+- npm run release:preflight
+
+PRODUKTION / SKALIERUNG
+- Kapazitätsplan: npm run capacity:plan
+- Produktions-Gates: npm run production:preflight
+- SLO/Skalierung: docs/PRODUCTION-SCALING-v5.5.md
+- Betriebs-/Recovery-Runbook: docs/OPERATIONS-RUNBOOK-v5.5.md
+- Gemessener Vertrag: 100 nominal / 80 sichere aktive Spieler je GameServer-Worker
+- 1.000 Zielspieler: 14 Worker / mindestens 5 logische Nodes
+- Ein einzelner kleiner Host gilt NICHT als 1.000-Spieler-zertifiziert.
+
+MULTIPLAYER-SERVER (lokal/ein Worker)
+- Windows: START-SERVER-WINDOWS.cmd
+- macOS: START-SERVER-MAC.command
+- Linux: sh START-SERVER-LINUX.sh
+- Produktion: TLS, Orchestrierung, persistente Daten, Offsite-Backup, Monitoring/Alerts und Secrets konfigurieren.
+
+GITHUB-FUNKTIONSABGLEICH
+- Hauptreferenz: jack-zisa/alloy-server, Commit 59f7d377c42b4b605c69ad02c521a50041bd4586 (08.09.2026)
+- Upstream: Zolmex/alloy-server
+- Client-Referenz: NotTheLegend/AlloyClient
+- Details: docs/GITHUB-SERVER-FUNCTION-AUDIT.md
+
+RECHT / IP
+- Keine fremden Spielassets, Karten, Musik, Sounds, Logos oder Marken im Runtime.
+- Kein GPL-Code aus iDilly/sharp im Runtime.
+- Formelle Marken-/Rechtsprüfung vor kommerziellem Store-Launch bleibt erforderlich.

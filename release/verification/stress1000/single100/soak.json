@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "requestedDurationSeconds": 10,
+  "actualSimulationSeconds": 11,
+  "clients": 100,
+  "realms": 2,
+  "actions": 100,
+  "forcedStreamDisconnects": 0,
+  "recoveredStreams": 0,
+  "checks": {
+    "privateInventoriesHidden": true,
+    "worldsIsolated": true,
+    "allClientsReceivedDeltas": true,
+    "identitiesPreserved": true
+  },
+  "transport": {
+    "fullFrames": 300,
+    "deltaFrames": 6781,
+    "wireBytes": 38236703,
+    "referenceBytes": 218941104,
+    "inputTimeouts": 0,
+    "savedPercent": 82.54,
+    "bytesPerClientPerSecond": 38237
+  },
+  "memory": {
+    "startRSS": 39837696,
+    "endRSS": 365805568,
+    "peakSampleRSS": 324276224
+  },
+  "eventLoopMs": {
+    "p50": 56.59,
+    "p99": 551.03,
+    "max": 1032.32
+  },
+  "samples": [
+    {
+      "at": 0,
+      "rss": 324276224,
+      "active": 100,
+      "wireBytes": 14477945,
+      "deltaFrames": 4347
+    }
+  ],
+  "errors": [],
+  "totalSeconds": 26.04,
+  "limitations": [
+    "Single local Node process with local HTTP/SSE clients; not a mobile radio or TLS benchmark.",
+    "Application SSE bytes include data framing but exclude HTTP/TCP/TLS headers and input HTTP traffic.",
+    "Reference bytes are full snapshots of the same actual frames, not a separate legacy-server run.",
+    "Short soak, not production capacity certification or a physical device test."
+  ]
+}

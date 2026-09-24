@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "products": 13,
+  "productLocales": [
+    "de-DE",
+    "en-US"
+  ],
+  "appLocales": [
+    "de-DE",
+    "en-US"
+  ],
+  "appleLimits": {
+    "displayName": 30,
+    "description": 45
+  },
+  "googleLimits": {
+    "title": 55,
+    "description": 200
+  }
+}

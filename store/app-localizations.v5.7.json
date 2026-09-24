@@ -1,0 +1,100 @@
+{
+  "de-DE": {
+    "name": "Nyrathen",
+    "subtitle": "Shards of the Veil",
+    "shortDescription": "Düsteres Koop-Pixel-Action-RPG",
+    "keywords": [
+      "Pixel RPG",
+      "Koop",
+      "Bullet Hell",
+      "Permadeath",
+      "Gilden",
+      "Dungeons"
+    ],
+    "description": "Nyrathen: Shards of the Veil ist ein mobiles Online-Action-RPG. Wähle aus 19 Klassen, kämpfe in gemeinsamen Realms, bezwinge 18 Dungeons und entwickle Charaktere, Tresor, Gilde und saisonalen Fortschritt. Permadeath bleibt Kern der Progression. Optionale Käufe umfassen Cosmetics, Saisoninhalte und Account-Komfort; es gibt keine Echtgeld-Lootboxen, bezahlte Wiederbelebung oder verkaufte Kampfkraft."
+  },
+  "en-US": {
+    "name": "Nyrathen",
+    "subtitle": "Shards of the Veil",
+    "shortDescription": "Dark co-op pixel action RPG",
+    "keywords": [
+      "Pixel RPG",
+      "Co-op",
+      "Bullet Hell",
+      "Permadeath",
+      "Guilds",
+      "Dungeons"
+    ],
+    "description": "Nyrathen: Shards of the Veil is a mobile online action RPG. Choose from 19 classes, fight through shared Realms, conquer 18 dungeons, and develop your characters, vault, guild, and seasonal progression. Permadeath remains a core part of progression. Optional purchases cover cosmetics, seasonal content, and account convenience; there are no paid loot boxes, paid revives, or combat power for sale."
+  },
+  "fr-FR": {
+    "name": "Nyrathen",
+    "subtitle": "Éclats du Voile",
+    "shortDescription": "Action-RPG pixel sombre en coop",
+    "keywords": [
+      "RPG pixel",
+      "Coop",
+      "Bullet Hell",
+      "Permadeath",
+      "Guildes",
+      "Donjons"
+    ],
+    "description": "Nyrathen: Shards of the Veil est un action-RPG mobile en ligne. Choisissez parmi 19 classes, combattez dans des Royaumes partagés, conquérez 18 donjons et développez vos personnages, votre coffre, votre guilde et votre progression saisonnière. La mort permanente reste au cœur de la progression. Les achats optionnels concernent les cosmétiques, le contenu saisonnier et le confort du compte ; aucune loot box payante, résurrection payante ou puissance de combat n’est vendue."
+  },
+  "es-ES": {
+    "name": "Nyrathen",
+    "subtitle": "Fragmentos del Velo",
+    "shortDescription": "RPG de acción pixel oscuro cooperativo",
+    "keywords": [
+      "RPG pixel",
+      "Cooperativo",
+      "Bullet Hell",
+      "Permadeath",
+      "Gremios",
+      "Mazmorras"
+    ],
+    "description": "Nyrathen: Shards of the Veil es un RPG de acción online para móviles. Elige entre 19 clases, lucha en Reinos compartidos, supera 18 mazmorras y desarrolla tus personajes, bóveda, gremio y progreso de temporada. La muerte permanente sigue siendo parte central de la progresión. Las compras opcionales incluyen cosméticos, contenido de temporada y comodidad de cuenta; no hay cajas de botín de pago, resurrecciones de pago ni poder de combate a la venta."
+  },
+  "it-IT": {
+    "name": "Nyrathen",
+    "subtitle": "Schegge del Velo",
+    "shortDescription": "Action RPG pixel dark cooperativo",
+    "keywords": [
+      "RPG pixel",
+      "Coop",
+      "Bullet Hell",
+      "Permadeath",
+      "Gilde",
+      "Dungeon"
+    ],
+    "description": "Nyrathen: Shards of the Veil è un action RPG online per dispositivi mobili. Scegli tra 19 classi, combatti in Regni condivisi, conquista 18 dungeon e sviluppa personaggi, caveau, gilda e progressione stagionale. La morte permanente resta una parte centrale della progressione. Gli acquisti opzionali riguardano cosmetici, contenuti stagionali e comodità dell’account; niente loot box a pagamento, resurrezioni a pagamento o potere di combattimento in vendita."
+  },
+  "pt-BR": {
+    "name": "Nyrathen",
+    "subtitle": "Fragmentos do Véu",
+    "shortDescription": "RPG de ação pixel sombrio cooperativo",
+    "keywords": [
+      "RPG pixel",
+      "Coop",
+      "Bullet Hell",
+      "Permadeath",
+      "Guildas",
+      "Masmorras"
+    ],
+    "description": "Nyrathen: Shards of the Veil é um RPG de ação online para dispositivos móveis. Escolha entre 19 classes, lute em Reinos compartilhados, conquiste 18 masmorras e evolua personagens, cofre, guilda e progressão sazonal. A morte permanente continua sendo parte central da progressão. Compras opcionais incluem cosméticos, conteúdo de temporada e conveniência de conta; não há loot boxes pagas, renascimentos pagos nem poder de combate à venda."
+  },
+  "tr-TR": {
+    "name": "Nyrathen",
+    "subtitle": "Peçenin Parçaları",
+    "shortDescription": "Karanlık ortak pixel aksiyon RYO",
+    "keywords": [
+      "Pixel RYO",
+      "Eşli oyun",
+      "Bullet Hell",
+      "Kalıcı ölüm",
+      "Lonca",
+      "Zindan"
+    ],
+    "description": "Nyrathen: Shards of the Veil, mobil çevrimiçi bir aksiyon RYO oyunudur. 19 sınıftan birini seç, ortak Diyarlarda savaş, 18 zindanı fethet ve karakterlerini, kasanı, loncanı ve sezon ilerlemeni geliştir. Kalıcı ölüm ilerlemenin temel parçalarından biri olmaya devam eder. İsteğe bağlı satın alımlar kozmetik, sezon içeriği ve hesap kolaylıklarını kapsar; ücretli ganimet kutusu, ücretli diriltme veya satılık savaş gücü yoktur."
+  }
+}

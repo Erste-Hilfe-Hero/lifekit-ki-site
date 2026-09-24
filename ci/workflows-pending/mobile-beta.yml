@@ -1,0 +1,183 @@
+name: Nyrathen closed beta
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload_google_play:
+        description: Upload signed AAB to Google Play Internal Testing
+        type: boolean
+        default: false
+      upload_testflight:
+        description: Upload signed IPA to TestFlight
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  PUBLIC_SERVER_URL: ${{ vars.NYRATHEN_PUBLIC_SERVER_URL }}
+  NYRATHEN_PRIVACY_URL: ${{ vars.NYRATHEN_PRIVACY_URL }}
+  NYRATHEN_TERMS_URL: ${{ vars.NYRATHEN_TERMS_URL }}
+  NYRATHEN_SUPPORT_URL: ${{ vars.NYRATHEN_SUPPORT_URL }}
+  NYRATHEN_DELETE_ACCOUNT_URL: ${{ vars.NYRATHEN_DELETE_ACCOUNT_URL }}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: false
+      - name: Validate beta package
+        run: npm run beta:preflight
+      - name: Validate production URLs
+        run: node tools/validate-mobile-urls.mjs
+      - name: Full mobile release gates
+        run: npm run build && npm run check && npm test && npm run test:ui && npm run store:products && npm run store:localization && npm run store:policy
+
+  android-beta:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android API 36
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "platform-tools"
+      - name: Restore signing keystore
+        env:
+          KEYSTORE_B64: ${{ secrets.NYRATHEN_KEYSTORE_BASE64 }}
+        run: |
+          test -n "$KEYSTORE_B64"
+          printf '%s' "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/nyrathen-release.jks"
+          chmod 600 "$RUNNER_TEMP/nyrathen-release.jks"
+      - name: Build signed Android App Bundle
+        env:
+          NYRATHEN_KEYSTORE: ${{ runner.temp }}/nyrathen-release.jks
+          NYRATHEN_STORE_PASSWORD: ${{ secrets.NYRATHEN_STORE_PASSWORD }}
+          NYRATHEN_KEY_ALIAS: ${{ secrets.NYRATHEN_KEY_ALIAS }}
+          NYRATHEN_KEY_PASSWORD: ${{ secrets.NYRATHEN_KEY_PASSWORD }}
+        run: node tools/build-mobile.mjs android-bundle
+      - name: Hash AAB
+        run: sha256sum native/android/app/build/outputs/bundle/release/app-release.aab > Nyrathen-Android-Beta-AAB.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nyrathen-android-beta-aab
+          path: |
+            native/android/app/build/outputs/bundle/release/app-release.aab
+            Nyrathen-Android-Beta-AAB.sha256
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload to Google Play Internal Testing
+        if: ${{ inputs.upload_google_play }}
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.NYRATHEN_GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: game.nyrathen.mobile
+          releaseFiles: native/android/app/build/outputs/bundle/release/app-release.aab
+          tracks: internal
+          status: completed
+          releaseName: Nyrathen 5.7.0 beta 57
+          whatsNewDirectory: release/beta-v5.7/google-play/whatsnew
+
+  ios-beta:
+    needs: validate
+    runs-on: macos-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: false
+      - name: Verify Xcode 26+
+        run: |
+          xcodebuild -version
+          MAJOR=$(xcodebuild -version | awk '/Xcode/{split($2,a,"."); print a[1]}')
+          test "${MAJOR:-0}" -ge 26
+      - name: Import signing identity and provisioning profile
+        env:
+          P12_B64: ${{ secrets.NYRATHEN_IOS_CERTIFICATE_P12_BASE64 }}
+          P12_PASSWORD: ${{ secrets.NYRATHEN_IOS_CERTIFICATE_PASSWORD }}
+          PROFILE_B64: ${{ secrets.NYRATHEN_IOS_PROVISIONING_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.NYRATHEN_CI_KEYCHAIN_PASSWORD }}
+        run: |
+          set -euo pipefail
+          test -n "$P12_B64" && test -n "$P12_PASSWORD" && test -n "$PROFILE_B64" && test -n "$KEYCHAIN_PASSWORD"
+          KEYCHAIN="$RUNNER_TEMP/nyrathen.keychain-db"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          printf '%s' "$P12_B64" | base64 --decode > "$RUNNER_TEMP/signing.p12"
+          security import "$RUNNER_TEMP/signing.p12" -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN"
+          security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" login.keychain-db
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          printf '%s' "$PROFILE_B64" | base64 --decode > "$RUNNER_TEMP/profile.mobileprovision"
+          PROFILE_UUID=$(security cms -D -i "$RUNNER_TEMP/profile.mobileprovision" | /usr/libexec/PlistBuddy -c 'Print UUID' /dev/stdin)
+          cp "$RUNNER_TEMP/profile.mobileprovision" "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+          echo "NYRATHEN_PROFILE_UUID=$PROFILE_UUID" >> "$GITHUB_ENV"
+      - name: Build Xcode archive
+        env:
+          NYRATHEN_DEVELOPMENT_TEAM: ${{ secrets.NYRATHEN_DEVELOPMENT_TEAM }}
+          NYRATHEN_PROVISIONING_PROFILE: ${{ env.NYRATHEN_PROFILE_UUID }}
+        run: node tools/build-mobile.mjs ios-archive
+      - name: Export IPA
+        env:
+          TEAM: ${{ secrets.NYRATHEN_DEVELOPMENT_TEAM }}
+          PROFILE: ${{ env.NYRATHEN_PROFILE_UUID }}
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>provisioningProfiles</key><dict><key>game.nyrathen.mobile</key><string>$PROFILE</string></dict>
+            <key>stripSwiftSymbols</key><true/>
+            <key>uploadSymbols</key><true/>
+          </dict></plist>
+          PLIST
+          xcodebuild -exportArchive -archivePath native/ios/build/Nyrathen.xcarchive -exportPath native/ios/build/export -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist"
+          test -f native/ios/build/export/Nyrathen.ipa
+          shasum -a 256 native/ios/build/export/Nyrathen.ipa > Nyrathen-iOS-Beta-IPA.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nyrathen-ios-beta-ipa
+          path: |
+            native/ios/build/export/Nyrathen.ipa
+            Nyrathen-iOS-Beta-IPA.sha256
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload to TestFlight
+        if: ${{ inputs.upload_testflight }}
+        uses: apple-actions/upload-testflight-build@v5
+        with:
+          app-path: native/ios/build/export/Nyrathen.ipa
+          issuer-id: ${{ vars.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ vars.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+          uses-non-exempt-encryption: 'false'
+          wait-for-processing: 'false'
+          backend: AppStoreAPI

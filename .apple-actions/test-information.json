@@ -1,0 +1,6 @@
+{
+  "bundleId": "game.nyrathen.mobile",
+  "locale": "en-US",
+  "description": "Help test Nyrathen v5.7: multiplayer stability, reconnects, dungeons, progression, inventory, trade and store recovery before public release.",
+  "feedbackEmail": "BETA_FEEDBACK_EMAIL_REQUIRED_IN_APP_STORE_CONNECT"
+}

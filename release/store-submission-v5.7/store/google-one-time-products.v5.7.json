@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "packageName": "game.nyrathen.mobile",
+  "products": [
+    {
+      "id": "nyr.shards.180",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "1,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "180 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "180 Nyr Shards",
+          "description": "Premium currency for optional content."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.500",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "4,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "500 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "500 Nyr Shards",
+          "description": "Premium currency for optional content."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.1100",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "9,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "1.100 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "1,100 Nyr Shards",
+          "description": "Premium currency for optional content."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.2400",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "19,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "2.400 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "2,400 Nyr Shards",
+          "description": "Premium currency for optional content."
+        }
+      }
+    },
+    {
+      "id": "nyr.shards.5200",
+      "kind": "currency",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "39,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "5.200 Nyr-Splitter",
+          "description": "Premiumwährung für optionale Inhalte."
+        },
+        "en-US": {
+          "displayName": "5,200 Nyr Shards",
+          "description": "Premium currency for optional content."
+        }
+      }
+    },
+    {
+      "id": "nyr.bundle.wanderer",
+      "kind": "bundle",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "6,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Wandererpaket",
+          "description": "Kosmetik & Account-Komfort, keine Kampfkraft."
+        },
+        "en-US": {
+          "displayName": "Wanderer Pack",
+          "description": "Cosmetics & account convenience, no power."
+        }
+      }
+    },
+    {
+      "id": "nyr.bundle.founder",
+      "kind": "bundle",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "24,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Gründerpaket",
+          "description": "Kosmetik & Account-Komfort, keine Kampfkraft."
+        },
+        "en-US": {
+          "displayName": "Founder Pack",
+          "description": "Cosmetics & account convenience, no power."
+        }
+      }
+    },
+    {
+      "id": "nyr.season.veil01",
+      "kind": "season",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "8,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Schleierpass · Saison I",
+          "description": "Kosmetischer Saisontrack ohne Kampfkraft."
+        },
+        "en-US": {
+          "displayName": "Veil Pass · Season I",
+          "description": "Cosmetic season track with no combat power."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.slot",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "4,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Charakterplatz",
+          "description": "Ein zusätzlicher permanenter Charakterplatz."
+        },
+        "en-US": {
+          "displayName": "Character Slot",
+          "description": "One additional permanent character slot."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.slots3",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "11,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Drei Charakterplätze",
+          "description": "Drei zusätzliche permanente Charakterplätze."
+        },
+        "en-US": {
+          "displayName": "Three Character Slots",
+          "description": "Three additional permanent character slots."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.vault",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "3,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Tresorflügel",
+          "description": "Ein zusätzlicher permanenter Tresorflügel."
+        },
+        "en-US": {
+          "displayName": "Vault Wing",
+          "description": "One additional permanent vault wing."
+        }
+      }
+    },
+    {
+      "id": "nyr.account.vault2",
+      "kind": "account",
+      "appleType": "consumable",
+      "googleBehavior": "consumable",
+      "repeatable": true,
+      "priceHint": "6,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Zwei Tresorflügel",
+          "description": "Zwei zusätzliche permanente Tresorflügel."
+        },
+        "en-US": {
+          "displayName": "Two Vault Wings",
+          "description": "Two additional permanent vault wings."
+        }
+      }
+    },
+    {
+      "id": "nyr.collection.blackiron",
+      "kind": "cosmetic",
+      "appleType": "non-consumable",
+      "googleBehavior": "entitlement",
+      "repeatable": false,
+      "priceHint": "11,99 €",
+      "localizations": {
+        "de-DE": {
+          "displayName": "Schwarzeisen-Kollektion",
+          "description": "Kosmetikset ohne Kampfwerte."
+        },
+        "en-US": {
+          "displayName": "Black-Iron Collection",
+          "description": "Cosmetic set with no combat stats."
+        }
+      }
+    }
+  ]
+}

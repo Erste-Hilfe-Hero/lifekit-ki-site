@@ -1,0 +1,244 @@
+{
+  "release": "3.2.0",
+  "kind": "Embedded native WebView runtime mobile release checks",
+  "checks": 46,
+  "passed": 46,
+  "failed": 0,
+  "viewports": [
+    "390x844 iPhone-like",
+    "412x915 Android-like"
+  ],
+  "durationSeconds": 2.65,
+  "results": [
+    {
+      "name": "iphone boot",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone version",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone 19 classes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone community gate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone online region",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone no fake server",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone nexus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone viewport #move-stick",
+      "pass": true,
+      "detail": "{'x': 6, 'y': 702, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "iphone viewport #aim-stick",
+      "pass": true,
+      "detail": "{'x': 272, 'y': 702, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "iphone viewport #heal-btn",
+      "pass": true,
+      "detail": "{'x': 240, 'y': 626, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "iphone viewport #ability-btn",
+      "pass": true,
+      "detail": "{'x': 340, 'y': 626, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "iphone viewport #inventory-btn",
+      "pass": true,
+      "detail": "{'x': 148.5, 'y': 739, 'width': 45, 'height': 42}"
+    },
+    {
+      "name": "iphone viewport #journal-btn",
+      "pass": true,
+      "detail": "{'x': 10, 'y': 105, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "iphone viewport #mobile-settings",
+      "pass": true,
+      "detail": "{'x': 336, 'y': 105, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "iphone touch #heal-btn",
+      "pass": true,
+      "detail": "{'x': 240, 'y': 626, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "iphone touch #ability-btn",
+      "pass": true,
+      "detail": "{'x': 340, 'y': 626, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "iphone touch #move-stick",
+      "pass": true,
+      "detail": "{'x': 6, 'y': 702, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "iphone touch #aim-stick",
+      "pass": true,
+      "detail": "{'x': 272, 'y': 702, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "iphone four base slots",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone character selector 19",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone inventory 8",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "iphone no JS errors",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "android boot",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android version",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android 19 classes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android no overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android community gate",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android online region",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android no fake server",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android nexus",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android viewport #move-stick",
+      "pass": true,
+      "detail": "{'x': 6, 'y': 773, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "android viewport #aim-stick",
+      "pass": true,
+      "detail": "{'x': 294, 'y': 773, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "android viewport #heal-btn",
+      "pass": true,
+      "detail": "{'x': 262, 'y': 697, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "android viewport #ability-btn",
+      "pass": true,
+      "detail": "{'x': 362, 'y': 697, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "android viewport #inventory-btn",
+      "pass": true,
+      "detail": "{'x': 159.5, 'y': 810, 'width': 45, 'height': 42}"
+    },
+    {
+      "name": "android viewport #journal-btn",
+      "pass": true,
+      "detail": "{'x': 10, 'y': 105, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "android viewport #mobile-settings",
+      "pass": true,
+      "detail": "{'x': 358, 'y': 105, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "android touch #heal-btn",
+      "pass": true,
+      "detail": "{'x': 262, 'y': 697, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "android touch #ability-btn",
+      "pass": true,
+      "detail": "{'x': 362, 'y': 697, 'width': 44, 'height': 44}"
+    },
+    {
+      "name": "android touch #move-stick",
+      "pass": true,
+      "detail": "{'x': 6, 'y': 773, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "android touch #aim-stick",
+      "pass": true,
+      "detail": "{'x': 294, 'y': 773, 'width': 112, 'height': 112}"
+    },
+    {
+      "name": "android four base slots",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android character selector 19",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android inventory 8",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "android no JS errors",
+      "pass": true,
+      "detail": "[]"
+    }
+  ]
+}

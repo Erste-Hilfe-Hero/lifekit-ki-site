@@ -1,0 +1,19 @@
+{
+  "revision": 1,
+  "id": "emberwatch-01",
+  "name": "Emberwatch",
+  "startsAt": "REPLACE_WITH_UTC_START",
+  "endsAt": "REPLACE_WITH_UTC_END",
+  "events": [
+    {"id":"blackglass-surge","kind":"realm-event","cadenceHours":6,"rewardPool":["green-dust","pet-food","forge-metal"]},
+    {"id":"hollow-moon","kind":"dungeon-rotation","cadenceHours":24,"modifiers":["swift-enemies","scarce-healing"]}
+  ],
+  "missionTree": [
+    {"id":"entry","goal":{"kind":"kills","count":100},"reward":{"greenDust":50}},
+    {"id":"delve","parents":["entry"],"goal":{"kind":"dungeons","count":8},"reward":{"forgeMetal":2}},
+    {"id":"survivor","parents":["delve"],"goal":{"kind":"bosses","count":12},"reward":{"title":"Emberwatch Survivor"}}
+  ],
+  "crucible": {"id":"ember-pressure","modifiers":["reduced-healing","elite-density"],"bonusScore":1.25},
+  "rewardTrackLevels": 30,
+  "notes": "Original Nyrathen live-service seed. No third-party game assets or names."
+}

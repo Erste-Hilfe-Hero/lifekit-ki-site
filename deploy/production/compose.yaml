@@ -1,0 +1,73 @@
+name: nyrathen-production
+services:
+  game:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    init: true
+    expose:
+      - "3000"
+    volumes:
+      - nyrathen-data:/app/.data
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATA_PATH: /app/.data/nyrathen.sqlite
+      BACKUP_DIRECTORY: /app/.data/backups
+      BACKUP_SECONDS: ${BACKUP_SECONDS:-900}
+      BACKUP_RETAIN: ${BACKUP_RETAIN:-32}
+      PUBLIC_URL: https://${NYRATHEN_DOMAIN}
+      ALLOWED_ORIGINS: https://app.nyrathen.local,nyrathen://app
+      TRUSTED_PROXY_IPS: ${TRUSTED_PROXY_IPS:-}
+      METRICS_TOKEN: ${METRICS_TOKEN}
+      SNAPSHOT_HZ: ${SNAPSHOT_HZ:-5}
+      READY_TICK_P99_MS: ${READY_TICK_P99_MS:-180}
+      MAX_SESSIONS: ${MAX_SESSIONS:-100}
+      READY_SESSION_PERCENT: ${READY_SESSION_PERCENT:-80}
+      MAX_SSE_BACKLOG_BYTES: ${MAX_SSE_BACKLOG_BYTES:-262144}
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/readyz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    stop_grace_period: 45s
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1g
+    cpus: 1.0
+
+  caddy:
+    image: caddy:2.10-alpine
+    depends_on:
+      game:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      NYRATHEN_DOMAIN: ${NYRATHEN_DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  nyrathen-data:
+  caddy-data:
+  caddy-config:

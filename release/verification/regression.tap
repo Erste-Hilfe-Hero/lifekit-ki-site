@@ -1,0 +1,1776 @@
+
+> nyrathen@5.0.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# (node:3599) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Named account registration secures existing guest and never returns password hashes
+ok 1 - Named account registration secures existing guest and never returns password hashes
+  ---
+  duration_ms: 442.55266
+  type: 'test'
+  ...
+# Subtest: Password login replaces token while retaining active roster, inventory and profile identity
+ok 2 - Password login replaces token while retaining active roster, inventory and profile identity
+  ---
+  duration_ms: 747.667051
+  type: 'test'
+  ...
+# Subtest: Logging in during combat does not remove an avatar, heal it or reset cooldowns
+ok 3 - Logging in during combat does not remove an avatar, heal it or reset cooldowns
+  ---
+  duration_ms: 760.620164
+  type: 'test'
+  ...
+# Subtest: A second account login terminates the old SSE stream and preserves the body
+ok 4 - A second account login terminates the old SSE stream and preserves the body
+  ---
+  duration_ms: 584.403698
+  type: 'test'
+  ...
+# Subtest: Recovery code changes password once, rotates token, and cannot be reused
+ok 5 - Recovery code changes password once, rotates token, and cannot be reused
+  ---
+  duration_ms: 1063.007623
+  type: 'test'
+  ...
+# Subtest: Invalid credentials, duplicate names, weak passwords and input types are rejected
+ok 6 - Invalid credentials, duplicate names, weak passwords and input types are rejected
+  ---
+  duration_ms: 1091.691393
+  type: 'test'
+  ...
+# Subtest: Authentication rate limits block repeated attempts instead of unlimited password jobs
+ok 7 - Authentication rate limits block repeated attempts instead of unlimited password jobs
+  ---
+  duration_ms: 13.126455
+  type: 'test'
+  ...
+# Subtest: Account logout rotates its credential and account deletion removes login and guild membership
+ok 8 - Account logout rotates its credential and account deletion removes login and guild membership
+  ---
+  duration_ms: 915.101059
+  type: 'test'
+  ...
+# Subtest: Two HTTP clients exchange items; third-party snapshots stay private; both profiles commit
+ok 9 - Two HTTP clients exchange items; third-party snapshots stay private; both profiles commit
+  ---
+  duration_ms: 154.390521
+  type: 'test'
+  ...
+# persistence-fault: simulation paused; restart after fixing storage simulated disk full
+# Subtest: Trade storage failure rolls back SQLite and freezes all world actions until restart
+ok 10 - Trade storage failure rolls back SQLite and freezes all world actions until restart
+  ---
+  duration_ms: 197.662378
+  type: 'test'
+  ...
+# Subtest: Named credentials, four-slot roster and guild survive actual server close and restart
+ok 11 - Named credentials, four-slot roster and guild survive actual server close and restart
+  ---
+  duration_ms: 644.171212
+  type: 'test'
+  ...
+# Subtest: Friend links persist through an actual server close and restart
+ok 12 - Friend links persist through an actual server close and restart
+  ---
+  duration_ms: 70.854079
+  type: 'test'
+  ...
+# Subtest: V5 migrates V2 saves without losing vault, items, health or active character
+ok 13 - V5 migrates V2 saves without losing vault, items, health or active character
+  ---
+  duration_ms: 3.122376
+  type: 'test'
+  ...
+# Subtest: warden: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 14 - warden: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 57.99664
+  type: 'test'
+  ...
+# Subtest: ranger: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 15 - ranger: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 54.551678
+  type: 'test'
+  ...
+# Subtest: weaver: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 16 - weaver: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 43.762482
+  type: 'test'
+  ...
+# Subtest: cleric: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 17 - cleric: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 38.743913
+  type: 'test'
+  ...
+# Subtest: shade: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 18 - shade: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 30.933227
+  type: 'test'
+  ...
+# Subtest: warrior: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 19 - warrior: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 34.166921
+  type: 'test'
+  ...
+# Subtest: paladin: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 20 - paladin: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 13.437595
+  type: 'test'
+  ...
+# Subtest: assassin: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 21 - assassin: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 11.585287
+  type: 'test'
+  ...
+# Subtest: necromancer: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 22 - necromancer: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 12.704718
+  type: 'test'
+  ...
+# Subtest: huntress: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 23 - huntress: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 14.066999
+  type: 'test'
+  ...
+# Subtest: mystic: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 24 - mystic: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 8.410672
+  type: 'test'
+  ...
+# Subtest: trickster: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 25 - trickster: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 24.025465
+  type: 'test'
+  ...
+# Subtest: sorcerer: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 26 - sorcerer: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 8.559417
+  type: 'test'
+  ...
+# Subtest: ninja: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 27 - ninja: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 7.957118
+  type: 'test'
+  ...
+# Subtest: samurai: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 28 - samurai: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 8.301648
+  type: 'test'
+  ...
+# Subtest: bard: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 29 - bard: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 9.417102
+  type: 'test'
+  ...
+# Subtest: summoner: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 30 - summoner: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 10.712839
+  type: 'test'
+  ...
+# Subtest: kensei: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 31 - kensei: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 9.103889
+  type: 'test'
+  ...
+# Subtest: druid: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+ok 32 - druid: actual Adventure ability executes, costs mana, enforces cooldown and round-trips
+  ---
+  duration_ms: 9.806129
+  type: 'test'
+  ...
+# Subtest: Every additional dungeon has different connected geometry and distinct content
+ok 33 - Every additional dungeon has different connected geometry and distinct content
+  ---
+  duration_ms: 277.394102
+  type: 'test'
+  ...
+# Subtest: The new six bosses produce six distinct real projectile and hazard patterns
+ok 34 - The new six bosses produce six distinct real projectile and hazard patterns
+  ---
+  duration_ms: 60.028038
+  type: 'test'
+  ...
+# Subtest: Danger fields warn before damage, then expire instead of persisting forever
+ok 35 - Danger fields warn before damage, then expire instead of persisting forever
+  ---
+  duration_ms: 12.072393
+  type: 'test'
+  ...
+# Subtest: Characters keep separate gear/levels while sharing bank, vault and fame
+ok 36 - Characters keep separate gear/levels while sharing bank, vault and fame
+  ---
+  duration_ms: 23.523246
+  type: 'test'
+  ...
+# Subtest: Four character cap, safe-zone switching, explicit deletion and active-slot protection
+ok 37 - Four character cap, safe-zone switching, explicit deletion and active-slot protection
+  ---
+  duration_ms: 10.060379
+  type: 'test'
+  ...
+# Subtest: Death history and a second living character survive permadeath and serialization
+ok 38 - Death history and a second living character survive permadeath and serialization
+  ---
+  duration_ms: 8.730585
+  type: 'test'
+  ...
+# Subtest: Profile sanitizer removes duplicate item IDs across active character, vault and inactive slots
+ok 39 - Profile sanitizer removes duplicate item IDs across active character, vault and inactive slots
+  ---
+  duration_ms: 0.368447
+  type: 'test'
+  ...
+# Subtest: Shared weapon and armour families equip correctly but class abilities stay exclusive
+ok 40 - Shared weapon and armour families equip correctly but class abilities stay exclusive
+  ---
+  duration_ms: 7.556301
+  type: 'test'
+  ...
+# Subtest: Earned contracts credit once only, persist through death, and cannot be forged remotely
+ok 41 - Earned contracts credit once only, persist through death, and cannot be forged remotely
+  ---
+  duration_ms: 11.609233
+  type: 'test'
+  ...
+# Subtest: Personal quest/character history is not disclosed in another player snapshot
+ok 42 - Personal quest/character history is not disclosed in another player snapshot
+  ---
+  duration_ms: 8.390872
+  type: 'test'
+  ...
+# Subtest: Pet adoption charges earned currency and passive benefits stay owned across characters
+ok 43 - Pet adoption charges earned currency and passive benefits stay owned across characters
+  ---
+  duration_ms: 9.176393
+  type: 'test'
+  ...
+# Subtest: Pets accumulate XP from contributed kills and fire actual server-owned projectiles
+ok 44 - Pets accumulate XP from contributed kills and fire actual server-owned projectiles
+  ---
+  duration_ms: 12.606079
+  type: 'test'
+  ...
+# Subtest: Forge keeps item identity, increments real tier and enforces costs and cap
+ok 45 - Forge keeps item identity, increments real tier and enforces costs and cap
+  ---
+  duration_ms: 11.878399
+  type: 'test'
+  ...
+# Subtest: Purchased dungeon portals are shared, paid once, limited and endgame-gated
+ok 46 - Purchased dungeon portals are shared, paid once, limited and endgame-gated
+  ---
+  duration_ms: 16.4207
+  type: 'test'
+  ...
+# Subtest: Final citadel victory opens the shared void gateway and awards real boss credit
+ok 47 - Final citadel victory opens the shared void gateway and awards real boss credit
+  ---
+  duration_ms: 42.988514
+  type: 'test'
+  ...
+# Subtest: Trade swaps real items only after both confirmations and leaves no duplicate
+ok 48 - Trade swaps real items only after both confirmations and leaves no duplicate
+  ---
+  duration_ms: 23.766063
+  type: 'test'
+  ...
+# Subtest: Changed trade offer clears all confirmations and rejects stale revision packets
+ok 49 - Changed trade offer clears all confirmations and rejects stale revision packets
+  ---
+  duration_ms: 24.176192
+  type: 'test'
+  ...
+# Subtest: Trade rejects forged or duplicate IDs and blocks competing inventory mutations
+ok 50 - Trade rejects forged or duplicate IDs and blocks competing inventory mutations
+  ---
+  duration_ms: 24.541774
+  type: 'test'
+  ...
+# Subtest: Trade enforces capacity, proximity, safe zone, timeout and recipient acceptance
+ok 51 - Trade enforces capacity, proximity, safe zone, timeout and recipient acceptance
+  ---
+  duration_ms: 205.789646
+  type: 'test'
+  ...
+# Subtest: A third party can neither see negotiated inventories nor join the trade
+ok 52 - A third party can neither see negotiated inventories nor join the trade
+  ---
+  duration_ms: 12.983589
+  type: 'test'
+  ...
+# Subtest: Leaving Nexus or disconnecting cancels any pending trade
+ok 53 - Leaving Nexus or disconnecting cancels any pending trade
+  ---
+  duration_ms: 14.117621
+  type: 'test'
+  ...
+# Subtest: Guild membership requires leader approval; permission checks reject spoofed promotions/kicks
+ok 54 - Guild membership requires leader approval; permission checks reject spoofed promotions/kicks
+  ---
+  duration_ms: 10.700161
+  type: 'test'
+  ...
+# Subtest: Guild donation, name uniqueness, private chat and saved membership work across regions
+ok 55 - Guild donation, name uniqueness, private chat and saved membership work across regions
+  ---
+  duration_ms: 21.505028
+  type: 'test'
+  ...
+# Subtest: Guild maximum 30 members is enforced and deleted accounts are removed
+ok 56 - Guild maximum 30 members is enforced and deleted accounts are removed
+  ---
+  duration_ms: 18.889198
+  type: 'test'
+  ...
+# Subtest: Whole adventure roundtrip preserves roster, contracts, pets, guild and dungeon progress
+ok 57 - Whole adventure roundtrip preserves roster, contracts, pets, guild and dungeon progress
+  ---
+  duration_ms: 41.686367
+  type: 'test'
+  ...
+# Subtest: Guild and realm messages use a comparable clock even when regions have different ages
+ok 58 - Guild and realm messages use a comparable clock even when regions have different ages
+  ---
+  duration_ms: 21.629456
+  type: 'test'
+  ...
+# Subtest: Deleting an account with only a pending guild request removes the request as well
+ok 59 - Deleting an account with only a pending guild request removes the request as well
+  ---
+  duration_ms: 10.572567
+  type: 'test'
+  ...
+# Subtest: Friend requests are reciprocal, private and survive social export/import
+ok 60 - Friend requests are reciprocal, private and survive social export/import
+  ---
+  duration_ms: 12.188557
+  type: 'test'
+  ...
+# Subtest: Reciprocal friend requests auto-accept and removal is symmetric
+ok 61 - Reciprocal friend requests auto-accept and removal is symmetric
+  ---
+  duration_ms: 8.512466
+  type: 'test'
+  ...
+# Subtest: Friend actions reject spoofing, self requests and unavailable targets
+ok 62 - Friend actions reject spoofing, self requests and unavailable targets
+  ---
+  duration_ms: 6.531594
+  type: 'test'
+  ...
+# Subtest: Deleting an account removes pending requests and established friend links
+ok 63 - Deleting an account removes pending requests and established friend links
+  ---
+  duration_ms: 10.83831
+  type: 'test'
+  ...
+# Subtest: Direct friend chat is private to both participants and works across worlds in one region
+ok 64 - Direct friend chat is private to both participants and works across worlds in one region
+  ---
+  duration_ms: 9.646909
+  type: 'test'
+  ...
+# Subtest: content expansion exposes 19 original Nyrathen classes and 18 dungeons
+ok 65 - content expansion exposes 19 original Nyrathen classes and 18 dungeons
+  ---
+  duration_ms: 1.293554
+  type: 'test'
+  ...
+# Subtest: account levels gate pets, enchanter, forge and crucible at their configured thresholds
+ok 66 - account levels gate pets, enchanter, forge and crucible at their configured thresholds
+  ---
+  duration_ms: 52.405305
+  type: 'test'
+  ...
+# Subtest: druid builds form energy and gains a temporary wild-form combat buff
+ok 67 - druid builds form energy and gains a temporary wild-form combat buff
+  ---
+  duration_ms: 47.63088
+  type: 'test'
+  ...
+# Subtest: pet eggs, feeding and fusion create persistent rarity progression
+ok 68 - pet eggs, feeding and fusion create persistent rarity progression
+  ---
+  duration_ms: 26.150229
+  type: 'test'
+  ...
+# Subtest: enchantments spend dust, persist on items and modify equipped combat stats
+ok 69 - enchantments spend dust, persist on items and modify equipped combat stats
+  ---
+  duration_ms: 26.627099
+  type: 'test'
+  ...
+# Subtest: dungeon modifier rolls are attached to portals and persist through world export/import
+ok 70 - dungeon modifier rolls are attached to portals and persist through world export/import
+  ---
+  duration_ms: 107.798579
+  type: 'test'
+  ...
+# Subtest: level 20 dungeon victories award capped class ascension to the dungeon stat
+ok 71 - level 20 dungeon victories award capped class ascension to the dungeon stat
+  ---
+  duration_ms: 34.569529
+  type: 'test'
+  ...
+# Subtest: seasonal characters use mission pass, seasonal storage and one-time crucible modes
+ok 72 - seasonal characters use mission pass, seasonal storage and one-time crucible modes
+  ---
+  duration_ms: 22.962599
+  type: 'test'
+  ...
+# Subtest: forge recipes are atomic and preserve special item properties
+ok 73 - forge recipes are atomic and preserve special item properties
+  ---
+  duration_ms: 28.963603
+  type: 'test'
+  ...
+# Subtest: potion vault, gift chest and cosmetics persist as account-wide safe progression
+ok 74 - potion vault, gift chest and cosmetics persist as account-wide safe progression
+  ---
+  duration_ms: 23.062255
+  type: 'test'
+  ...
+# Subtest: Crucible austere mode reduces potion healing while glass changes combat profile
+ok 75 - Crucible austere mode reduces potion healing while glass changes combat profile
+  ---
+  duration_ms: 21.739772
+  type: 'test'
+  ...
+# Subtest: all class ascension maps are complete and sanitized to supported stats
+ok 76 - all class ascension maps are complete and sanitized to supported stats
+  ---
+  duration_ms: 0.407215
+  type: 'test'
+  ...
+# Subtest: all eight pet archetypes are exposed to the progression model
+ok 77 - all eight pet archetypes are exposed to the progression model
+  ---
+  duration_ms: 0.093791
+  type: 'test'
+  ...
+# Subtest: Map is deterministic, all spawn points are walkable and safe zone exists
+ok 78 - Map is deterministic, all spawn points are walkable and safe zone exists
+  ---
+  duration_ms: 23.734195
+  type: 'test'
+  ...
+# Subtest: Projectile descriptor: values, units and presence flags
+ok 79 - Projectile descriptor: values, units and presence flags
+  ---
+  duration_ms: 0.27148
+  type: 'test'
+  ...
+# Subtest: Projectile descriptor rejects infinite, negative and unreasonable parameters
+ok 80 - Projectile descriptor rejects infinite, negative and unreasonable parameters
+  ---
+  duration_ms: 0.385993
+  type: 'test'
+  ...
+# Subtest: Profiles tolerate corrupt/null values and clamp fields
+ok 81 - Profiles tolerate corrupt/null values and clamp fields
+  ---
+  duration_ms: 1.09896
+  type: 'test'
+  ...
+# Subtest: Legacy base engine: original three classes retain independent stats and abilities
+ok 82 - Legacy base engine: original three classes retain independent stats and abilities
+  ---
+  duration_ms: 7.840341
+  type: 'test'
+  ...
+# Subtest: Diagonal speed is normalized and positions cannot be client assigned
+ok 83 - Diagonal speed is normalized and positions cannot be client assigned
+  ---
+  duration_ms: 2.393204
+  type: 'test'
+  ...
+# Subtest: Invalid input and delta time never inject NaN
+ok 84 - Invalid input and delta time never inject NaN
+  ---
+  duration_ms: 0.843504
+  type: 'test'
+  ...
+# Subtest: Stale input times out rather than walking forever
+ok 85 - Stale input times out rather than walking forever
+  ---
+  duration_ms: 1.448547
+  type: 'test'
+  ...
+# Subtest: Movement and dash cannot tunnel through walls
+ok 86 - Movement and dash cannot tunnel through walls
+  ---
+  duration_ms: 1.246092
+  type: 'test'
+  ...
+# Subtest: Gun fire obeys cooldown and cannot fire in sanctuary
+ok 87 - Gun fire obeys cooldown and cannot fire in sanctuary
+  ---
+  duration_ms: 1.800559
+  type: 'test'
+  ...
+# Subtest: Ability costs, sanctuary restriction and cooldown are enforced
+ok 88 - Ability costs, sanctuary restriction and cooldown are enforced
+  ---
+  duration_ms: 1.053721
+  type: 'test'
+  ...
+# Subtest: Health potion requires damage and consumes a limited charge
+ok 89 - Health potion requires damage and consumes a limited charge
+  ---
+  duration_ms: 0.719036
+  type: 'test'
+  ...
+# Subtest: Safe area, invulnerability and shield reduce or prevent damage
+ok 90 - Safe area, invulnerability and shield reduce or prevent damage
+  ---
+  duration_ms: 0.586846
+  type: 'test'
+  ...
+# Subtest: Damage interrupts extraction; successful extraction banks only carried coins
+ok 91 - Damage interrupts extraction; successful extraction banks only carried coins
+  ---
+  duration_ms: 1.103006
+  type: 'test'
+  ...
+# Subtest: Permadeath loses run and equipment, keeps secured bank; rebirth works
+ok 92 - Permadeath loses run and equipment, keeps secured bank; rebirth works
+  ---
+  duration_ms: 0.739617
+  type: 'test'
+  ...
+# Subtest: Eight-slot inventory swap preserves every item
+ok 93 - Eight-slot inventory swap preserves every item
+  ---
+  duration_ms: 1.450661
+  type: 'test'
+  ...
+# Subtest: Loot range and full inventory enforced; coins can be collected once
+ok 94 - Loot range and full inventory enforced; coins can be collected once
+  ---
+  duration_ms: 0.892678
+  type: 'test'
+  ...
+# Subtest: Salvage and potion refill require sanctuary and sufficient bank
+ok 95 - Salvage and potion refill require sanctuary and sufficient bank
+  ---
+  duration_ms: 0.675089
+  type: 'test'
+  ...
+# Subtest: XP is shared only with nearby living allies and capped at level 20
+ok 96 - XP is shared only with nearby living allies and capped at level 20
+  ---
+  duration_ms: 1.13912
+  type: 'test'
+  ...
+# Subtest: Eight kills awaken exactly one boss, with ally scaling
+ok 97 - Eight kills awaken exactly one boss, with ally scaling
+  ---
+  duration_ms: 1.220313
+  type: 'test'
+  ...
+# Subtest: Boss changes phase and telegraphs before releasing projectiles
+ok 98 - Boss changes phase and telegraphs before releasing projectiles
+  ---
+  duration_ms: 1.683723
+  type: 'test'
+  ...
+# Subtest: Boss defeat, relic loot and next-depth interaction work
+ok 99 - Boss defeat, relic loot and next-depth interaction work
+  ---
+  duration_ms: 1.134593
+  type: 'test'
+  ...
+# Subtest: Armor piercing bypasses defense instead of being only a visual flag
+ok 100 - Armor piercing bypasses defense instead of being only a visual flag
+  ---
+  duration_ms: 1.740369
+  type: 'test'
+  ...
+# Subtest: Swept projectiles hit fast crossed targets and multi-hit does not double-damage
+ok 101 - Swept projectiles hit fast crossed targets and multi-hit does not double-damage
+  ---
+  duration_ms: 2.152521
+  type: 'test'
+  ...
+# Subtest: Profile round-trip keeps health, position, gear and cooldowns
+ok 102 - Profile round-trip keeps health, position, gear and cooldowns
+  ---
+  duration_ms: 7.570223
+  type: 'test'
+  ...
+# Subtest: Item instance IDs stay distinct across restarted engines
+ok 103 - Item instance IDs stay distinct across restarted engines
+  ---
+  duration_ms: 3.190128
+  type: 'test'
+  ...
+# Subtest: Snapshots reveal own inventory only and do not mutate world through copies
+ok 104 - Snapshots reveal own inventory only and do not mutate world through copies
+  ---
+  duration_ms: 2.010436
+  type: 'test'
+  ...
+# Subtest: Resource limits and stale loot clean up in long simulations
+ok 105 - Resource limits and stale loot clean up in long simulations
+  ---
+  duration_ms: 12.184226
+  type: 'test'
+  ...
+# (node:3643) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: v5 content contract exposes 19 classes, 18 dungeons, eight pets and six challenge modes
+ok 106 - v5 content contract exposes 19 classes, 18 dungeons, eight pets and six challenge modes
+  ---
+  duration_ms: 1.063336
+  type: 'test'
+  ...
+# Subtest: Journey onboarding is account-wide, one-time and pays only when the goal is met
+ok 107 - Journey onboarding is account-wide, one-time and pays only when the goal is met
+  ---
+  duration_ms: 49.458906
+  type: 'test'
+  ...
+# Subtest: Enchantments upgrade deterministically through rank III and then stop
+ok 108 - Enchantments upgrade deterministically through rank III and then stop
+  ---
+  duration_ms: 32.483249
+  type: 'test'
+  ...
+# Subtest: Echo paths are harder event instances with explicit flags and guaranteed modifiers
+ok 109 - Echo paths are harder event instances with explicit flags and guaranteed modifiers
+  ---
+  duration_ms: 48.495641
+  type: 'test'
+  ...
+# Subtest: Portal-safe loot placement pushes dropped items away from portal interaction space
+ok 110 - Portal-safe loot placement pushes dropped items away from portal interaction space
+  ---
+  duration_ms: 46.021644
+  type: 'test'
+  ...
+# Subtest: No-heal challenge blocks active healing and rush changes the combat profile
+ok 111 - No-heal challenge blocks active healing and rush changes the combat profile
+  ---
+  duration_ms: 15.477315
+  type: 'test'
+  ...
+# Subtest: Dungeon completion records an authoritative best time and event score
+ok 112 - Dungeon completion records an authoritative best time and event score
+  ---
+  duration_ms: 13.069288
+  type: 'test'
+  ...
+# Subtest: New endgame bosses execute distinct multi-phase projectile/hazard signatures
+ok 113 - New endgame bosses execute distinct multi-phase projectile/hazard signatures
+  ---
+  duration_ms: 143.259699
+  type: 'test'
+  ...
+# Subtest: Player snapshot exposes temporary effect timers and current live rotation
+ok 114 - Player snapshot exposes temporary effect timers and current live rotation
+  ---
+  duration_ms: 24.396471
+  type: 'test'
+  ...
+# Subtest: SQLite leaderboards expose fame, dungeon best times and live-event score independently
+ok 115 - SQLite leaderboards expose fame, dungeon best times and live-event score independently
+  ---
+  duration_ms: 15.987465
+  type: 'test'
+  ...
+# Subtest: GitHub parity: character slots start at four, can be expanded to eight, and persist
+ok 116 - GitHub parity: character slots start at four, can be expanded to eight, and persist
+  ---
+  duration_ms: 58.985975
+  type: 'test'
+  ...
+# Subtest: GitHub parity: guild board is leader-controlled and persists through social export/import
+ok 117 - GitHub parity: guild board is leader-controlled and persists through social export/import
+  ---
+  duration_ms: 56.90401
+  type: 'test'
+  ...
+# Subtest: GitHub parity: inventory drop is authoritative, personal, recoverable and not duplicating
+ok 118 - GitHub parity: inventory drop is authoritative, personal, recoverable and not duplicating
+  ---
+  duration_ms: 33.174261
+  type: 'test'
+  ...
+# Subtest: cluster bus registers, heartbeats and removes game nodes
+ok 119 - cluster bus registers, heartbeats and removes game nodes
+  ---
+  duration_ms: 1.195716
+  type: 'test'
+  ...
+# Subtest: account lease prevents split brain ownership
+ok 120 - account lease prevents split brain ownership
+  ---
+  duration_ms: 0.255486
+  type: 'test'
+  ...
+# Subtest: expired account lease can fail over with a higher epoch
+ok 121 - expired account lease can fail over with a higher epoch
+  ---
+  duration_ms: 0.114543
+  type: 'test'
+  ...
+# Subtest: stale lease holder cannot renew or release replacement lease
+ok 122 - stale lease holder cannot renew or release replacement lease
+  ---
+  duration_ms: 0.150808
+  type: 'test'
+  ...
+# Subtest: node directory chooses least loaded healthy replacement
+ok 123 - node directory chooses least loaded healthy replacement
+  ---
+  duration_ms: 0.239032
+  type: 'test'
+  ...
+# Subtest: mobile network rotates to replacement base without changing token or generation
+ok 124 - mobile network rotates to replacement base without changing token or generation
+  ---
+  duration_ms: 4.551734
+  type: 'test'
+  ...
+# (node:3676) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: persistent fame leaderboard sorts by fame then dungeons and kills without exposing account credentials
+ok 125 - persistent fame leaderboard sorts by fame then dungeons and kills without exposing account credentials
+  ---
+  duration_ms: 7.673288
+  type: 'test'
+  ...
+# Subtest: session snapshots include refreshed server-wide leaderboard
+ok 126 - session snapshots include refreshed server-wide leaderboard
+  ---
+  duration_ms: 142.143223
+  type: 'test'
+  ...
+# (node:3677) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: mastery sanitizes every class and computes bounded ranks
+ok 127 - mastery sanitizes every class and computes bounded ranks
+  ---
+  duration_ms: 3.233813
+  type: 'test'
+  ...
+# Subtest: permadeath records best class fame without lowering previous mastery
+ok 128 - permadeath records best class fame without lowering previous mastery
+  ---
+  duration_ms: 40.043136
+  type: 'test'
+  ...
+# Subtest: leaderboard exposes mastery star total without account credentials
+ok 129 - leaderboard exposes mastery star total without account credentials
+  ---
+  duration_ms: 2.206072
+  type: 'test'
+  ...
+# (node:3698) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 24 real network clients concurrently inhabit two realms, receive combat and survive channel changes
+ok 130 - 24 real network clients concurrently inhabit two realms, receive combat and survive channel changes
+  ---
+  duration_ms: 3677.695377
+  type: 'test'
+  ...
+# Subtest: Actual browser-protocol group chat arrives only at the two group members, not a bystander
+ok 131 - Actual browser-protocol group chat arrives only at the two group members, not a bystander
+  ---
+  duration_ms: 241.398527
+  type: 'test'
+  ...
+# Subtest: Server restart restores the same dungeon, boss health, owned loot, fourth equipment slot and vault
+ok 132 - Server restart restores the same dungeon, boss health, owned loot, fourth equipment slot and vault
+  ---
+  duration_ms: 114.020226
+  type: 'test'
+  ...
+# Subtest: World and profile transactions roll back together on failure (no half-committed loot)
+ok 133 - World and profile transactions roll back together on failure (no half-committed loot)
+  ---
+  duration_ms: 1.983145
+  type: 'test'
+  ...
+# Subtest: Public region discovery exposes counts, never guest credentials or account inventories
+ok 134 - Public region discovery exposes counts, never guest credentials or account inventories
+  ---
+  duration_ms: 34.003335
+  type: 'test'
+  ...
+# Subtest: native preflight reports missing SDK without pretending to build
+ok 135 - native preflight reports missing SDK without pretending to build
+  ---
+  duration_ms: 1.730664
+  type: 'test'
+  ...
+# Subtest: SDK path can come from explicit local properties
+ok 136 - SDK path can come from explicit local properties
+  ---
+  duration_ms: 0.673437
+  type: 'test'
+  ...
+# Subtest: release preflight keeps passwords and key paths out of diagnostics
+ok 137 - release preflight keeps passwords and key paths out of diagnostics
+  ---
+  duration_ms: 0.192381
+  type: 'test'
+  ...
+# Subtest: iOS archive requires Mac, Xcode and own team; simulator does not require team
+ok 138 - iOS archive requires Mac, Xcode and own team; simulator does not require team
+  ---
+  duration_ms: 0.212842
+  type: 'test'
+  ...
+# (node:3720) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: config parses only whitelisted keys, comments and matching quotes
+ok 139 - config parses only whitelisted keys, comments and matching quotes
+  ---
+  duration_ms: 1.846179
+  type: 'test'
+  ...
+# Subtest: config does not execute interpolation or replace arbitrary process settings
+ok 140 - config does not execute interpolation or replace arbitrary process settings
+  ---
+  duration_ms: 0.235576
+  type: 'test'
+  ...
+# Subtest: launch config defaults to bounded port and backups
+ok 141 - launch config defaults to bounded port and backups
+  ---
+  duration_ms: 0.350068
+  type: 'test'
+  ...
+# Subtest: public address and host reject unsafe or malformed launch settings
+ok 142 - public address and host reject unsafe or malformed launch settings
+  ---
+  duration_ms: 0.309327
+  type: 'test'
+  ...
+# Subtest: supported runtime version boundary is explicit
+ok 143 - supported runtime version boundary is explicit
+  ---
+  duration_ms: 0.164939
+  type: 'test'
+  ...
+# Subtest: server rejects bad backup configuration before creating a writer lock
+ok 144 - server rejects bad backup configuration before creating a writer lock
+  ---
+  duration_ms: 1.386585
+  type: 'test'
+  ...
+# Subtest: packaged Linux/Node launcher starts a real server and shuts down with a final backup
+ok 145 - packaged Linux/Node launcher starts a real server and shuts down with a final backup
+  ---
+  duration_ms: 167.630691
+  type: 'test'
+  ...
+# Subtest: legacy database without action receipt table opens without losing profiles
+ok 146 - legacy database without action receipt table opens without losing profiles
+  ---
+  duration_ms: 7.56173
+  type: 'test'
+  ...
+# Subtest: database CLI inspects and backs up the explicitly selected database
+ok 147 - database CLI inspects and backs up the explicitly selected database
+  ---
+  duration_ms: 109.937194
+  type: 'test'
+  ...
+# (node:3764) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: server address rejects ftp://example.com
+ok 148 - server address rejects ftp://example.com
+  ---
+  duration_ms: 1.150357
+  type: 'test'
+  ...
+# Subtest: server address rejects http://example.com
+ok 149 - server address rejects http://example.com
+  ---
+  duration_ms: 0.174453
+  type: 'test'
+  ...
+# Subtest: server address rejects https://u:p@example.com
+ok 150 - server address rejects https://u:p@example.com
+  ---
+  duration_ms: 0.241094
+  type: 'test'
+  ...
+# Subtest: server address rejects https://example.com/game
+ok 151 - server address rejects https://example.com/game
+  ---
+  duration_ms: 0.102535
+  type: 'test'
+  ...
+# Subtest: server address rejects https://example.com/?token=x
+ok 152 - server address rejects https://example.com/?token=x
+  ---
+  duration_ms: 0.146231
+  type: 'test'
+  ...
+# Subtest: server address rejects https://example.com/\#x
+ok 153 - server address rejects https://example.com/\#x
+  ---
+  duration_ms: 0.077608
+  type: 'test'
+  ...
+# Subtest: server address rejects javascript:alert(1)
+ok 154 - server address rejects javascript:alert(1)
+  ---
+  duration_ms: 0.116927
+  type: 'test'
+  ...
+# Subtest: server address rejects not a url
+ok 155 - server address rejects not a url
+  ---
+  duration_ms: 1.038699
+  type: 'test'
+  ...
+# Subtest: server address accepts https://game.example
+ok 156 - server address accepts https://game.example
+  ---
+  duration_ms: 0.397109
+  type: 'test'
+  ...
+# Subtest: server address accepts http://localhost:3000
+ok 157 - server address accepts http://localhost:3000
+  ---
+  duration_ms: 0.41091
+  type: 'test'
+  ...
+# Subtest: server address accepts http://127.0.0.1:3000
+ok 158 - server address accepts http://127.0.0.1:3000
+  ---
+  duration_ms: 0.132911
+  type: 'test'
+  ...
+# Subtest: server address accepts http://192.168.1.2:3000
+ok 159 - server address accepts http://192.168.1.2:3000
+  ---
+  duration_ms: 0.063335
+  type: 'test'
+  ...
+# Subtest: server address accepts http://[::1]:3000
+ok 160 - server address accepts http://[::1]:3000
+  ---
+  duration_ms: 0.101413
+  type: 'test'
+  ...
+# Subtest: invite is credential-free and round trips region
+ok 161 - invite is credential-free and round trips region
+  ---
+  duration_ms: 0.974852
+  type: 'test'
+  ...
+# Subtest: SSE parser supports split CRLF, multiline data and multibyte text
+ok 162 - SSE parser supports split CRLF, multiline data and multibyte text
+  ---
+  duration_ms: 0.542339
+  type: 'test'
+  ...
+# Subtest: SSE parser rejects overlong and malformed messages
+ok 163 - SSE parser rejects overlong and malformed messages
+  ---
+  duration_ms: 0.202847
+  type: 'test'
+  ...
+# Subtest: settings constrain zoom and opacity and keep enemy cues independent
+ok 164 - settings constrain zoom and opacity and keep enemy cues independent
+  ---
+  duration_ms: 0.237699
+  type: 'test'
+  ...
+# Subtest: objective ignores dead enemies and directs dungeon players to living boss
+ok 165 - objective ignores dead enemies and directs dungeon players to living boss
+  ---
+  duration_ms: 0.215125
+  type: 'test'
+  ...
+# Subtest: quest indicator respects bounds and has no NaN at screen center
+ok 166 - quest indicator respects bounds and has no NaN at screen center
+  ---
+  duration_ms: 0.165219
+  type: 'test'
+  ...
+# Subtest: untrusted forwarding headers cannot alter rate-limit identity
+ok 167 - untrusted forwarding headers cannot alter rate-limit identity
+  ---
+  duration_ms: 3.371301
+  type: 'test'
+  ...
+# Subtest: out-of-order snapshots and retired generations never roll back view
+ok 168 - out-of-order snapshots and retired generations never roll back view
+  ---
+  duration_ms: 0.390931
+  type: 'test'
+  ...
+# Subtest: live networking reconnects the SAME avatar after stream loss
+ok 169 - live networking reconnects the SAME avatar after stream loss
+  ---
+  duration_ms: 148.520205
+  type: 'test'
+  ...
+# Subtest: replaced stream does NOT auto-reconnect and kick the new client
+ok 170 - replaced stream does NOT auto-reconnect and kick the new client
+  ---
+  duration_ms: 160.546999
+  type: 'test'
+  ...
+# Subtest: lost action response retries same receipt without double consuming potion
+ok 171 - lost action response retries same receipt without double consuming potion
+  ---
+  duration_ms: 56.177614
+  type: 'test'
+  ...
+# Subtest: late action response cannot overwrite a new screen after disconnect
+ok 172 - late action response cannot overwrite a new screen after disconnect
+  ---
+  duration_ms: 0.609631
+  type: 'test'
+  ...
+# Subtest: disconnect cancels scheduled retry without another login attempt
+ok 173 - disconnect cancels scheduled retry without another login attempt
+  ---
+  duration_ms: 10.9057
+  type: 'test'
+  ...
+# Subtest: bounded reconnect attempts finish instead of spinning indefinitely
+ok 174 - bounded reconnect attempts finish instead of spinning indefinitely
+  ---
+  duration_ms: 3.098609
+  type: 'test'
+  ...
+# Subtest: receipt persists across server restart and rejects payload substitution
+ok 175 - receipt persists across server restart and rejects payload substitution
+  ---
+  duration_ms: 89.820778
+  type: 'test'
+  ...
+# persistence-fault: simulation paused; restart after fixing storage injected disk failure
+# Subtest: receipt commit failure pauses simulation rather than silently replaying
+ok 176 - receipt commit failure pauses simulation rather than silently replaying
+  ---
+  duration_ms: 18.356654
+  type: 'test'
+  ...
+# Subtest: database lock rejects concurrent writers and releases on shutdown
+ok 177 - database lock rejects concurrent writers and releases on shutdown
+  ---
+  duration_ms: 4.414577
+  type: 'test'
+  ...
+# Subtest: online WAL backup includes profile, world and credentials tables
+ok 178 - online WAL backup includes profile, world and credentials tables
+  ---
+  duration_ms: 3.033532
+  type: 'test'
+  ...
+# Subtest: backup retention keeps only newest verified snapshots
+ok 179 - backup retention keeps only newest verified snapshots
+  ---
+  duration_ms: 6.324081
+  type: 'test'
+  ...
+# Subtest: restore requires confirmation, respects writer lock and preserves previous DB
+ok 180 - restore requires confirmation, respects writer lock and preserves previous DB
+  ---
+  duration_ms: 8.445856
+  type: 'test'
+  ...
+# Subtest: corrupted backup checksum prevents touching current database
+ok 181 - corrupted backup checksum prevents touching current database
+  ---
+  duration_ms: 3.360646
+  type: 'test'
+  ...
+# Subtest: server health exposes operational state, not credentials or inventory
+ok 182 - server health exposes operational state, not credentials or inventory
+  ---
+  duration_ms: 3.089946
+  type: 'test'
+  ...
+# Subtest: Realm maps are deterministic, distinct from Nexus, and substantially larger
+ok 183 - Realm maps are deterministic, distinct from Nexus, and substantially larger
+  ---
+  duration_ms: 27.608967
+  type: 'test'
+  ...
+# Subtest: tide: dungeon entrance, six rooms and boss are connected
+ok 184 - tide: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 5.709913
+  type: 'test'
+  ...
+# Subtest: grove: dungeon entrance, six rooms and boss are connected
+ok 185 - grove: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 2.849704
+  type: 'test'
+  ...
+# Subtest: crypt: dungeon entrance, six rooms and boss are connected
+ok 186 - crypt: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 5.113222
+  type: 'test'
+  ...
+# Subtest: citadel: dungeon entrance, six rooms and boss are connected
+ok 187 - citadel: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.723243
+  type: 'test'
+  ...
+# Subtest: sewer: dungeon entrance, six rooms and boss are connected
+ok 188 - sewer: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 2.761701
+  type: 'test'
+  ...
+# Subtest: hive: dungeon entrance, six rooms and boss are connected
+ok 189 - hive: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.814721
+  type: 'test'
+  ...
+# Subtest: forge: dungeon entrance, six rooms and boss are connected
+ok 190 - forge: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.899239
+  type: 'test'
+  ...
+# Subtest: frost: dungeon entrance, six rooms and boss are connected
+ok 191 - frost: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 2.48946
+  type: 'test'
+  ...
+# Subtest: temple: dungeon entrance, six rooms and boss are connected
+ok 192 - temple: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.871116
+  type: 'test'
+  ...
+# Subtest: void: dungeon entrance, six rooms and boss are connected
+ok 193 - void: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.964797
+  type: 'test'
+  ...
+# Subtest: blood: dungeon entrance, six rooms and boss are connected
+ok 194 - blood: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.467085
+  type: 'test'
+  ...
+# Subtest: lab: dungeon entrance, six rooms and boss are connected
+ok 195 - lab: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.824015
+  type: 'test'
+  ...
+# Subtest: bastion: dungeon entrance, six rooms and boss are connected
+ok 196 - bastion: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.114313
+  type: 'test'
+  ...
+# Subtest: dusk: dungeon entrance, six rooms and boss are connected
+ok 197 - dusk: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.445222
+  type: 'test'
+  ...
+# Subtest: mirror: dungeon entrance, six rooms and boss are connected
+ok 198 - mirror: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.01366
+  type: 'test'
+  ...
+# Subtest: spore: dungeon entrance, six rooms and boss are connected
+ok 199 - spore: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.261675
+  type: 'test'
+  ...
+# Subtest: storm: dungeon entrance, six rooms and boss are connected
+ok 200 - storm: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.033781
+  type: 'test'
+  ...
+# Subtest: abyss: dungeon entrance, six rooms and boss are connected
+ok 201 - abyss: dungeon entrance, six rooms and boss are connected
+  ---
+  duration_ms: 1.014181
+  type: 'test'
+  ...
+# Subtest: New account starts in a safe Nexus with all four equipment slots and no paid gate
+ok 202 - New account starts in a safe Nexus with all four equipment slots and no paid gate
+  ---
+  duration_ms: 25.796159
+  type: 'test'
+  ...
+# Subtest: All six classes can cast their distinct ability; cooldown and mana are enforced
+ok 203 - All six classes can cast their distinct ability; cooldown and mana are enforced
+  ---
+  duration_ms: 268.845889
+  type: 'test'
+  ...
+# Subtest: Priest heals nearby living allies, not other worlds
+ok 204 - Priest heals nearby living allies, not other worlds
+  ---
+  duration_ms: 8.054254
+  type: 'test'
+  ...
+# Subtest: Warrior grants an actual attack-speed buff to nearby allies
+ok 205 - Warrior grants an actual attack-speed buff to nearby allies
+  ---
+  duration_ms: 7.801026
+  type: 'test'
+  ...
+# Subtest: Rogue invisibility suppresses new targeting but does not make existing bullets harmless
+ok 206 - Rogue invisibility suppresses new targeting but does not make existing bullets harmless
+  ---
+  duration_ms: 17.862416
+  type: 'test'
+  ...
+# Subtest: Instant Nexus return deposits only carried currency and preserves health/cooldowns
+ok 207 - Instant Nexus return deposits only carried currency and preserves health/cooldowns
+  ---
+  duration_ms: 15.624788
+  type: 'test'
+  ...
+# Subtest: Universal dash removed; mana potions are a real separate consumable
+ok 208 - Universal dash removed; mana potions are a real separate consumable
+  ---
+  duration_ms: 11.363943
+  type: 'test'
+  ...
+# Subtest: Realm changes cannot be forged from combat or to nonexistent targets
+ok 209 - Realm changes cannot be forged from combat or to nonexistent targets
+  ---
+  duration_ms: 11.720982
+  type: 'test'
+  ...
+# Subtest: Actual portals enforce distance; two players enter the same dungeon instance
+ok 210 - Actual portals enforce distance; two players enter the same dungeon instance
+  ---
+  duration_ms: 14.257984
+  type: 'test'
+  ...
+# Subtest: Public realms enforce 40 inhabitants without dropping the 41st player from Nexus
+ok 211 - Public realms enforce 40 inhabitants without dropping the 41st player from Nexus
+  ---
+  duration_ms: 13.22995
+  type: 'test'
+  ...
+# Subtest: Realm entities, chat and bullets are isolated between worlds
+ok 212 - Realm entities, chat and bullets are isolated between worlds
+  ---
+  duration_ms: 9.017599
+  type: 'test'
+  ...
+# Subtest: One complete XP reward is given to each nearby ally, never divided
+ok 213 - One complete XP reward is given to each nearby ally, never divided
+  ---
+  duration_ms: 9.732699
+  type: 'test'
+  ...
+# Subtest: Loot belongs to contributing players; bystanders cannot see or steal it
+ok 214 - Loot belongs to contributing players; bystanders cannot see or steal it
+  ---
+  duration_ms: 21.205826
+  type: 'test'
+  ...
+# Subtest: Two contributors get distinct personally owned boss drops
+ok 215 - Two contributors get distinct personally owned boss drops
+  ---
+  duration_ms: 20.709777
+  type: 'test'
+  ...
+# Subtest: All four equipment slots swap atomically even with a full eight-slot backpack
+ok 216 - All four equipment slots swap atomically even with a full eight-slot backpack
+  ---
+  duration_ms: 21.243623
+  type: 'test'
+  ...
+# Subtest: Class-incompatible equipment is rejected, rings are shared across classes
+ok 217 - Class-incompatible equipment is rejected, rings are shared across classes
+  ---
+  duration_ms: 9.414398
+  type: 'test'
+  ...
+# Subtest: Stat potions increment a real stat, are consumed once and stop at the cap
+ok 218 - Stat potions increment a real stat, are consumed once and stop at the cap
+  ---
+  duration_ms: 7.127384
+  type: 'test'
+  ...
+# Subtest: Leveling caps at 20 while character fame continues to accumulate
+ok 219 - Leveling caps at 20 while character fame continues to accumulate
+  ---
+  duration_ms: 6.807021
+  type: 'test'
+  ...
+# Subtest: Vault transfer requires the Nexus chest; capacities and item identity are preserved
+ok 220 - Vault transfer requires the Nexus chest; capacities and item identity are preserved
+  ---
+  duration_ms: 7.205903
+  type: 'test'
+  ...
+# Subtest: Permadeath destroys carried gear and potion bonuses, preserving vault/bank/fame
+ok 221 - Permadeath destroys carried gear and potion bonuses, preserving vault/bank/fame
+  ---
+  duration_ms: 8.756865
+  type: 'test'
+  ...
+# Subtest: Enemy attacks are telegraphed; boss phases progress with health
+ok 222 - Enemy attacks are telegraphed; boss phases progress with health
+  ---
+  duration_ms: 14.519008
+  type: 'test'
+  ...
+# Subtest: Event bosses drop real dungeon portals instead of a fake visual marker
+ok 223 - Event bosses drop real dungeon portals instead of a fake visual marker
+  ---
+  duration_ms: 13.250352
+  type: 'test'
+  ...
+# Subtest: Dungeon boss completion opens a real exit and guaranteed stat potion
+ok 224 - Dungeon boss completion opens a real exit and guaranteed stat potion
+  ---
+  duration_ms: 8.748583
+  type: 'test'
+  ...
+# Subtest: Realm closure moves living players to a shared raid and does not strand dead players
+ok 225 - Realm closure moves living players to a shared raid and does not strand dead players
+  ---
+  duration_ms: 44.421604
+  type: 'test'
+  ...
+# Subtest: Expired dungeon portals disappear; empty instances are eventually collected
+ok 226 - Expired dungeon portals disappear; empty instances are eventually collected
+  ---
+  duration_ms: 13.484415
+  type: 'test'
+  ...
+# Subtest: Teleport enforces same world, living target and ten-second cooldown
+ok 227 - Teleport enforces same world, living target and ten-second cooldown
+  ---
+  duration_ms: 9.509202
+  type: 'test'
+  ...
+# Subtest: Groups have an eight-player cap, private chat and leader succession
+ok 228 - Groups have an eight-player cap, private chat and leader succession
+  ---
+  duration_ms: 10.58761
+  type: 'test'
+  ...
+# Subtest: Chat is bounded, rate limited, retains text rather than interpreting markup
+ok 229 - Chat is bounded, rate limited, retains text rather than interpreting markup
+  ---
+  duration_ms: 9.333266
+  type: 'test'
+  ...
+# Subtest: Snapshot ownership hides other backpacks, vaults and private bags
+ok 230 - Snapshot ownership hides other backpacks, vaults and private bags
+  ---
+  duration_ms: 8.443442
+  type: 'test'
+  ...
+# Subtest: Realm profile sanitizer deduplicates item IDs and preserves valid fourth slot/stats
+ok 231 - Realm profile sanitizer deduplicates item IDs and preserves valid fourth slot/stats
+  ---
+  duration_ms: 0.296288
+  type: 'test'
+  ...
+# Subtest: Profile and world serialization restore dungeon identity, boss damage, vault and personal loot
+ok 232 - Profile and world serialization restore dungeon identity, boss damage, vault and personal loot
+  ---
+  duration_ms: 37.709782
+  type: 'test'
+  ...
+# Subtest: Invalid input cannot move, heal or alter the server-owned bank
+ok 233 - Invalid input cannot move, heal or alter the server-owned bank
+  ---
+  duration_ms: 9.233755
+  type: 'test'
+  ...
+# Subtest: All generated ordinary and boss spawn points are physically walkable
+ok 234 - All generated ordinary and boss spawn points are physically walkable
+  ---
+  duration_ms: 8.373677
+  type: 'test'
+  ...
+# Subtest: mobile release workflow builds signed Android and iOS artifacts without storing secrets in source
+ok 235 - mobile release workflow builds signed Android and iOS artifacts without storing secrets in source
+  ---
+  duration_ms: 2.294295
+  type: 'test'
+  ...
+# Subtest: production compose terminates TLS and never publishes game container directly
+ok 236 - production compose terminates TLS and never publishes game container directly
+  ---
+  duration_ms: 0.641669
+  type: 'test'
+  ...
+# Subtest: publisher renderer refuses placeholders and emits final pages only for real HTTPS config
+ok 237 - publisher renderer refuses placeholders and emits final pages only for real HTTPS config
+  ---
+  duration_ms: 100.534725
+  type: 'test'
+  ...
+# Subtest: release remains mobile-only and uses v5.0 native identifiers
+ok 238 - release remains mobile-only and uses v5.0 native identifiers
+  ---
+  duration_ms: 0.424461
+  type: 'test'
+  ...
+# Subtest: signed store workflow requires public server and in-app legal HTTPS URLs
+ok 239 - signed store workflow requires public server and in-app legal HTTPS URLs
+  ---
+  duration_ms: 66.794268
+  type: 'test'
+  ...
+# Subtest: native shells only open user-activated HTTPS legal links outside the app
+ok 240 - native shells only open user-activated HTTPS legal links outside the app
+  ---
+  duration_ms: 0.274715
+  type: 'test'
+  ...
+# Subtest: manual store build commands gate release archives on production URLs
+ok 241 - manual store build commands gate release archives on production URLs
+  ---
+  duration_ms: 0.130307
+  type: 'test'
+  ...
+# Subtest: mobile release is v5.0 and browser distribution is absent
+ok 242 - mobile release is v5.0 and browser distribution is absent
+  ---
+  duration_ms: 0.837414
+  type: 'test'
+  ...
+# Subtest: GPL sharp integration is removed from shipped runtime
+ok 243 - GPL sharp integration is removed from shipped runtime
+  ---
+  duration_ms: 7.745137
+  type: 'test'
+  ...
+# Subtest: projectile contract uses Nyrathen-only fields
+ok 244 - projectile contract uses Nyrathen-only fields
+  ---
+  duration_ms: 0.308185
+  type: 'test'
+  ...
+# Subtest: native releases carry privacy and secure transport configuration
+ok 245 - native releases carry privacy and secure transport configuration
+  ---
+  duration_ms: 0.22509
+  type: 'test'
+  ...
+# Subtest: store listing avoids third-party game branding
+ok 246 - store listing avoids third-party game branding
+  ---
+  duration_ms: 0.262237
+  type: 'test'
+  ...
+# Subtest: app exposes independent-game notice and mobile-native runtime
+ok 247 - app exposes independent-game notice and mobile-native runtime
+  ---
+  duration_ms: 0.507606
+  type: 'test'
+  ...
+# Subtest: online UGC is gated by explicit community rules acceptance
+ok 248 - online UGC is gated by explicit community rules acceptance
+  ---
+  duration_ms: 0.318801
+  type: 'test'
+  ...
+# Subtest: online account and guest data deletion are exposed in app
+ok 249 - online account and guest data deletion are exposed in app
+  ---
+  duration_ms: 0.27792
+  type: 'test'
+  ...
+# Subtest: store compliance site templates exist without shipping a browser game
+ok 250 - store compliance site templates exist without shipping a browser game
+  ---
+  duration_ms: 0.328216
+  type: 'test'
+  ...
+# (node:3852) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: account blocks persist, filter chat and never hide combat state
+ok 251 - account blocks persist, filter chat and never hide combat state
+  ---
+  duration_ms: 117.106382
+  type: 'test'
+  ...
+# Subtest: self-blocks, unknown accounts and missing confirmation are rejected
+ok 252 - self-blocks, unknown accounts and missing confirmation are rejected
+  ---
+  duration_ms: 52.764259
+  type: 'test'
+  ...
+# Subtest: a report contains only visible server evidence, not fabricated client text
+ok 253 - a report contains only visible server evidence, not fabricated client text
+  ---
+  duration_ms: 35.902162
+  type: 'test'
+  ...
+# Subtest: reports are private; reporters cannot fetch or resolve anyone’s report
+ok 254 - reports are private; reporters cannot fetch or resolve anyone’s report
+  ---
+  duration_ms: 45.397467
+  type: 'test'
+  ...
+# Subtest: reports from invisible accounts or invalid reasons are rejected
+ok 255 - reports from invisible accounts or invalid reasons are rejected
+  ---
+  duration_ms: 59.612682
+  type: 'test'
+  ...
+# Subtest: operator chat mute is enforced by HTTP API and can expire or be lifted
+ok 256 - operator chat mute is enforced by HTTP API and can expire or be lifted
+  ---
+  duration_ms: 24.381763
+  type: 'test'
+  ...
+# Subtest: deleting an account removes blocks and reports through foreign keys
+ok 257 - deleting an account removes blocks and reports through foreign keys
+  ---
+  duration_ms: 1.567678
+  type: 'test'
+  ...
+# Subtest: report retention removes old evidence without touching profiles
+ok 258 - report retention removes old evidence without touching profiles
+  ---
+  duration_ms: 1.775782
+  type: 'test'
+  ...
+# Subtest: safety migrations reopen a pre-existing database and keep blocks
+ok 259 - safety migrations reopen a pre-existing database and keep blocks
+  ---
+  duration_ms: 3.033502
+  type: 'test'
+  ...
+# Subtest: operator CLI requires explicit write confirmation and reviews actual stored report
+ok 260 - operator CLI requires explicit write confirmation and reviews actual stored report
+  ---
+  duration_ms: 253.383843
+  type: 'test'
+  ...
+# Subtest: equipment comparison is derived from real values and respects weapon family
+ok 261 - equipment comparison is derived from real values and respects weapon family
+  ---
+  duration_ms: 0.313704
+  type: 'test'
+  ...
+# Subtest: retention works at restart and without receiving new reports
+ok 262 - retention works at restart and without receiving new reports
+  ---
+  duration_ms: 1.788872
+  type: 'test'
+  ...
+# Subtest: malformed trade target is rejected rather than failing as a server error
+ok 263 - malformed trade target is rejected rather than failing as a server error
+  ---
+  duration_ms: 28.580564
+  type: 'test'
+  ...
+# Subtest: blocking prevents direct friend messages even when friendship already exists
+ok 264 - blocking prevents direct friend messages even when friendship already exists
+  ---
+  duration_ms: 42.321267
+  type: 'test'
+  ...
+# (node:3907) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: HTTP health/readiness and mobile-only status are served; browser game/source/database are not exposed
+ok 265 - HTTP health/readiness and mobile-only status are served; browser game/source/database are not exposed
+  ---
+  duration_ms: 48.026453
+  type: 'test'
+  ...
+# Subtest: Operational metrics require a private bearer token and contain no player names or chat data
+ok 266 - Operational metrics require a private bearer token and contain no player names or chat data
+  ---
+  duration_ms: 84.128111
+  type: 'test'
+  ...
+# Subtest: Guest tokens are independent, random and profile data is private
+ok 267 - Guest tokens are independent, random and profile data is private
+  ---
+  duration_ms: 73.146451
+  type: 'test'
+  ...
+# Subtest: Two real SSE clients see one shared world and synchronized movement
+ok 268 - Two real SSE clients see one shared world and synchronized movement
+  ---
+  duration_ms: 217.399442
+  type: 'test'
+  ...
+# Subtest: Server rejects stale sequence and ignores client-assigned gold or coordinates
+ok 269 - Server rejects stale sequence and ignores client-assigned gold or coordinates
+  ---
+  duration_ms: 30.665663
+  type: 'test'
+  ...
+# Subtest: Missing mana/cooldowns and unavailable actions are validated server-side
+ok 270 - Missing mana/cooldowns and unavailable actions are validated server-side
+  ---
+  duration_ms: 33.323267
+  type: 'test'
+  ...
+# Subtest: Origin checks, protocol checks, invalid room and large payload rejected
+ok 271 - Origin checks, protocol checks, invalid room and large payload rejected
+  ---
+  duration_ms: 8.735994
+  type: 'test'
+  ...
+# Subtest: 64-player region capacity is enforced, another region remains usable
+ok 272 - 64-player region capacity is enforced, another region remains usable
+  ---
+  duration_ms: 998.903128
+  type: 'test'
+  ...
+# Subtest: Room switching cannot bypass combat extraction
+ok 273 - Room switching cannot bypass combat extraction
+  ---
+  duration_ms: 42.952249
+  type: 'test'
+  ...
+# Subtest: Session deletion requires confirmation and destroys the saved guest account
+ok 274 - Session deletion requires confirmation and destroys the saved guest account
+  ---
+  duration_ms: 33.655508
+  type: 'test'
+  ...
+# Subtest: SQLite persists profile on close/restart without storing the bearer token
+ok 275 - SQLite persists profile on close/restart without storing the bearer token
+  ---
+  duration_ms: 50.171302
+  type: 'test'
+  ...
+# Subtest: Duplicate SSE stream replaces the old connection cleanly
+ok 276 - Duplicate SSE stream replaces the old connection cleanly
+  ---
+  duration_ms: 19.820775
+  type: 'test'
+  ...
+# Subtest: SQLite API uses token hashes and handles missing/corrupt records
+ok 277 - SQLite API uses token hashes and handles missing/corrupt records
+  ---
+  duration_ms: 0.80753
+  type: 'test'
+  ...
+# (node:3918) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: delta reconstructs exactly and avoids repeatedly sending inventory
+ok 278 - delta reconstructs exactly and avoids repeatedly sending inventory
+  ---
+  duration_ms: 3.924326
+  type: 'test'
+  ...
+# Subtest: entities can be removed, inserted and reordered without ghosts
+ok 279 - entities can be removed, inserted and reordered without ghosts
+  ---
+  duration_ms: 1.372282
+  type: 'test'
+  ...
+# Subtest: deleted entity attributes and root fields disappear
+ok 280 - deleted entity attributes and root fields disappear
+  ---
+  duration_ms: 0.765546
+  type: 'test'
+  ...
+# Subtest: duplicate chat identifiers fall back to replacement rather than losing messages
+ok 281 - duplicate chat identifiers fall back to replacement rather than losing messages
+  ---
+  duration_ms: 0.427335
+  type: 'test'
+  ...
+# Subtest: periodic keyframes and world/epoch changes reset transport
+ok 282 - periodic keyframes and world/epoch changes reset transport
+  ---
+  duration_ms: 1.609792
+  type: 'test'
+  ...
+# Subtest: out-of-order, missing baseline and duplicate patches cannot silently corrupt client
+ok 283 - out-of-order, missing baseline and duplicate patches cannot silently corrupt client
+  ---
+  duration_ms: 0.521598
+  type: 'test'
+  ...
+# Subtest: consumer mutations cannot poison encoder or assembler baselines
+ok 284 - consumer mutations cannot poison encoder or assembler baselines
+  ---
+  duration_ms: 0.255716
+  type: 'test'
+  ...
+# Subtest: prototype keys and unknown collection names are rejected atomically
+ok 285 - prototype keys and unknown collection names are rejected atomically
+  ---
+  duration_ms: 0.403119
+  type: 'test'
+  ...
+# Subtest: real 400-step game snapshots round-trip without simulation mutation
+ok 286 - real 400-step game snapshots round-trip without simulation mutation
+  ---
+  duration_ms: 1639.870595
+  type: 'test'
+  ...
+# Subtest: real client negotiates delta transport and retains private inventory boundaries
+ok 287 - real client negotiates delta transport and retains private inventory boundaries
+  ---
+  duration_ms: 423.730662
+  type: 'test'
+  ...
+# Subtest: server stops stale movement while an SSE connection remains alive
+ok 288 - server stops stale movement while an SSE connection remains alive
+  ---
+  duration_ms: 1267.70971
+  type: 'test'
+  ...
+# Subtest: neutral release bypasses an in-flight input and stale responses cannot unlock its lease
+ok 289 - neutral release bypasses an in-flight input and stale responses cannot unlock its lease
+  ---
+  duration_ms: 0.452243
+  type: 'test'
+  ...
+# Subtest: unchanged input is coalesced but changes and urgent stops are sent immediately
+ok 290 - unchanged input is coalesced but changes and urgent stops are sent immediately
+  ---
+  duration_ms: 0.381927
+  type: 'test'
+  ...
+1..290
+# tests 290
+# suites 0
+# pass 290
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9302.234976

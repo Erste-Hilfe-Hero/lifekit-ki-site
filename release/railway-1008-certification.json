@@ -1,0 +1,23 @@
+{
+  "provider": "Railway",
+  "environment": "production",
+  "patch": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+  "status": "passed",
+  "clients": 1008,
+  "connected": 1008,
+  "workers": 14,
+  "workerLayout": [
+    5,
+    5,
+    4
+  ],
+  "frames": 456497,
+  "activeSeconds": 60,
+  "targetRampMs": 90000,
+  "sessionRampMs": 30000,
+  "maxEventLoopP99Ms": 134,
+  "sloMs": 180,
+  "postCleanup": "all 14 workers ready, storageHealthy=true, stateBackendHealthy=true, sessions=0",
+  "sourceDeployment": "e9e7dbca-97cc-40b0-a065-1b5c1e2ddb58",
+  "certifiedAt": "2026-09-24T10:43:56Z"
+}

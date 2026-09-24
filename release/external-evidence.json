@@ -1,0 +1,188 @@
+{
+  "commerceEnabled": false,
+  "distributedStateBackend": {
+    "passed": true,
+    "provider": "Nyrathen central State Authority on Railway persistent volume",
+    "at": "2026-09-24T02:50:41Z"
+  },
+  "multiNode1000": {
+    "passed": true,
+    "players": 1008,
+    "nodes": 3,
+    "workers": 14,
+    "layout": [
+      5,
+      5,
+      4
+    ],
+    "p99Ms": 134,
+    "sloMs": 180,
+    "connected": 1008,
+    "frames": 456497,
+    "deployment": "e9e7dbca-97cc-40b0-a065-1b5c1e2ddb58",
+    "patch": "v5.7.0-prod-hotfix14-dungeon-boss-reward",
+    "at": "2026-09-24T10:43:56Z",
+    "note": "Railway realtime-active-player certification on Hotfix 14; 14/14 workers passed; post-cleanup health green."
+  },
+  "chaosAt1000": {
+    "passed": false,
+    "players": 1000,
+    "at": null
+  },
+  "soak": {
+    "passed": false,
+    "hours": 6,
+    "at": null,
+    "status": "running",
+    "startedAt": "2026-09-24T12:49:00Z",
+    "plannedClients": 84,
+    "targets": 14,
+    "clientsPerTarget": 6,
+    "sloMs": 180,
+    "note": "Six-hour distributed Railway endurance run is currently active; an automation will validate the final report and restore normal certification settings. Do not count as passed until final evidence exists."
+  },
+  "productionInfrastructure": {
+    "passed": true,
+    "at": "2026-09-24T12:55:00Z",
+    "provider": "Railway production",
+    "services": [
+      "nyrathen-state",
+      "nyrathen-game-01",
+      "nyrathen-game-02",
+      "nyrathen-game-03",
+      "nyrathen-load-01"
+    ],
+    "gameWorkers": 14,
+    "layout": [
+      5,
+      5,
+      4
+    ],
+    "statePersistentVolumeMB": 500,
+    "statePrivate": true,
+    "healthchecks": [
+      "state:/healthz",
+      "game:/readyz",
+      "load:/healthz"
+    ],
+    "note": "Connected Railway production inspected directly: all five services SUCCESS; State uses a private /state persistent volume; three game services expose dedicated public HTTPS endpoints; Hotfix 14 runtime is active."
+  },
+  "offsiteRestore": {
+    "passed": false,
+    "at": null
+  },
+  "ddosEdgeProtection": {
+    "passed": false,
+    "at": null,
+    "note": "Railway provides platform L4 mitigation and on-demand L7 WAF/Under Attack Mode, but Nyrathen has not yet produced observed application-specific WAF/edge-protection evidence. Gate remains fail-closed."
+  },
+  "monitoringAlerts": {
+    "passed": true,
+    "at": "2026-09-24T12:29:36Z",
+    "note": "Hourly Nyrathen Production Watch created for Railway service health, failed deployments, State disk >=0.460 GB, persistence/state-authority faults and p99 >180 ms."
+  },
+  "adminOperations": {
+    "passed": true,
+    "at": "2026-09-24T12:55:00Z",
+    "note": "Synthetic offline GM operations drill passed: status on fresh DB, attributed ban/unban writes, audit log verification and commerce-report read path. Admin status was hardened to tolerate optional economy/admin tables before first use."
+  },
+  "externalSecurityReview": {
+    "passed": false,
+    "at": null
+  },
+  "iosDevices": {
+    "passed": false,
+    "count": 0,
+    "at": null
+  },
+  "androidDevices": {
+    "passed": false,
+    "count": 0,
+    "at": null
+  },
+  "signedAndroidAab": {
+    "passed": false,
+    "at": null
+  },
+  "signedIosArchive": {
+    "passed": false,
+    "at": null
+  },
+  "storeAccounts": {
+    "passed": false,
+    "at": null
+  },
+  "pushProduction": {
+    "passed": false,
+    "at": null
+  },
+  "iapProduction": {
+    "passed": false,
+    "at": null
+  },
+  "iapSandbox": {
+    "passed": false,
+    "at": null
+  },
+  "legalPages": {
+    "passed": false,
+    "at": null
+  },
+  "privacyReview": {
+    "passed": false,
+    "at": null
+  },
+  "trademarkReview": {
+    "passed": false,
+    "at": null
+  },
+  "ageRatings": {
+    "passed": false,
+    "at": null
+  },
+  "closedBeta": {
+    "passed": false,
+    "count": 0,
+    "at": null
+  },
+  "crashAnrReview": {
+    "passed": false,
+    "crashFreeRate": 0,
+    "at": null
+  },
+  "economyBalanceReview": {
+    "passed": true,
+    "at": "2026-09-24T12:33:00Z",
+    "note": "Internal engineering review: hard progression sensitivity analysis + economy health/race + commerce soak. Closed-beta real-player balance telemetry is still pending and may supersede assumptions."
+  },
+  "liveOpsContent": {
+    "passed": true,
+    "at": "2026-09-23T08:25:07Z",
+    "note": "Season 01 launch seed and signed-revision pipeline included."
+  },
+  "supportModeration": {
+    "passed": true,
+    "at": "2026-09-23T08:25:07Z",
+    "note": "GM/admin tooling and support/moderation runbooks included and regression-tested."
+  },
+  "canaryObserved": {
+    "passed": true,
+    "at": "2026-09-24T11:03:05Z",
+    "note": "Observed staged Hotfix 14 Railway rollout: game-01 deployed and validated before game-02, then game-03; full-cluster 1008-client certification followed and passed with 14/14 workers and max p99 133 ms."
+  },
+  "futureCapacityBenchmarks": {
+    "passed": false,
+    "tiers": [
+      2000,
+      5000,
+      10000
+    ],
+    "at": null
+  },
+  "rcFrozen": {
+    "passed": true,
+    "at": "2026-09-24T13:18:00Z",
+    "note": "ReleaseClosure hardened checkpoint frozen after 407/407 regression, 50/50 mobile UI, 121-module check and strict six-hour soak end-report validation. Gameplay/runtime remains Hotfix 14."
+  },
+  "pushEnabled": false
+}

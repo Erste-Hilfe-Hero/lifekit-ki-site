@@ -1,0 +1,174 @@
+{
+  "release": "5.4.0",
+  "generatedAt": "2026-09-22T22:04:19Z",
+  "items": [
+    {
+      "id": 1,
+      "name": "1,000 simultaneous realtime players",
+      "status": "external-evidence",
+      "detail": "Topology/capacity plan + 1,000 session burst ready; requires >=5 real nodes and certified shared state backend."
+    },
+    {
+      "id": 2,
+      "name": "1,000-player chaos/failover",
+      "status": "external-evidence",
+      "detail": "80-client hard-crash recovery passes locally; 1,000-player chaos requires real multi-node staging."
+    },
+    {
+      "id": 3,
+      "name": "6\u201324h soak",
+      "status": "external-evidence",
+      "detail": "24h-capable fail-closed soak harness included; long real-infrastructure run must be executed externally."
+    },
+    {
+      "id": 4,
+      "name": "Production infrastructure",
+      "status": "external-evidence",
+      "detail": "Kubernetes topology, drain, readiness, HPA/PDB/network policy prepared; provider provisioning/TLS/DNS external."
+    },
+    {
+      "id": 5,
+      "name": "Production database / DR",
+      "status": "external-evidence",
+      "detail": "Local SQLite restore drill passes; multi-node is blocked until shared transactional state backend + offsite restore evidence."
+    },
+    {
+      "id": 6,
+      "name": "DDoS / edge protection",
+      "status": "external-evidence",
+      "detail": "Rate limits/backpressure in app; provider edge/WAF/DDoS must be configured externally."
+    },
+    {
+      "id": 7,
+      "name": "Monitoring / alerting",
+      "status": "external-evidence",
+      "detail": "Prometheus rules and private metrics included; real alert delivery route must be proven."
+    },
+    {
+      "id": 8,
+      "name": "Admin / GM operations",
+      "status": "prepared",
+      "detail": "Auditable offline admin/GM tooling, status/economy views and runbook included; production drill remains evidence-gated."
+    },
+    {
+      "id": 9,
+      "name": "External security test",
+      "status": "external-evidence",
+      "detail": "Local deterministic security audit 225/225 + fuzz 320/320; external staging assessment remains gated."
+    },
+    {
+      "id": 10,
+      "name": "Physical iOS devices",
+      "status": "external-evidence",
+      "detail": "Device matrix policy/runbook prepared; requires real devices."
+    },
+    {
+      "id": 11,
+      "name": "Physical Android devices",
+      "status": "external-evidence",
+      "detail": "Device matrix policy/runbook prepared; requires real devices."
+    },
+    {
+      "id": 12,
+      "name": "Signed AAB / iOS archive",
+      "status": "external-evidence",
+      "detail": "Build/signing gates prepared; requires publisher signing credentials/toolchains."
+    },
+    {
+      "id": 13,
+      "name": "App Store Connect / Play Console",
+      "status": "external-evidence",
+      "detail": "Store requirements/checklists ready; account-side configuration external."
+    },
+    {
+      "id": 14,
+      "name": "Production push",
+      "status": "external-evidence",
+      "detail": "Push outbox/provider adapter prepared; APNs/FCM credentials and delivery proof external."
+    },
+    {
+      "id": 15,
+      "name": "Production IAP",
+      "status": "waived-until-enabled",
+      "detail": "Commerce is off by default; entitlement adapters/gates exist and become mandatory when enabled."
+    },
+    {
+      "id": 16,
+      "name": "Sandbox purchases/refunds",
+      "status": "waived-until-enabled",
+      "detail": "Commerce-off release waives IAP evidence; becomes required when commerceEnabled=true."
+    },
+    {
+      "id": 17,
+      "name": "Published legal/support pages",
+      "status": "external-evidence",
+      "detail": "Templates and renderer are ready; final publisher identity + HTTPS hosting external."
+    },
+    {
+      "id": 18,
+      "name": "Privacy/GDPR production review",
+      "status": "external-evidence",
+      "detail": "Privacy data map and deletion controls included; final production/legal review external."
+    },
+    {
+      "id": 19,
+      "name": "Nyrathen trademark clearance",
+      "status": "external-evidence",
+      "detail": "Preliminary screening note included; formal DPMA/EUIPO/TMview/professional clearance external."
+    },
+    {
+      "id": 20,
+      "name": "Age ratings / UGC questionnaires",
+      "status": "external-evidence",
+      "detail": "Preparation included; final Apple/Google/IARC submission external."
+    },
+    {
+      "id": 21,
+      "name": "TestFlight / Play closed beta",
+      "status": "external-evidence",
+      "detail": "Beta/device matrix prepared; real testers/store channels external."
+    },
+    {
+      "id": 22,
+      "name": "Crash / ANR beta review",
+      "status": "external-evidence",
+      "detail": "Operational telemetry gates prepared; real beta crash/ANR data required."
+    },
+    {
+      "id": 23,
+      "name": "Economy balancing with real players",
+      "status": "external-evidence",
+      "detail": "Synthetic economy health passes; real-player inflation/progression review external."
+    },
+    {
+      "id": 24,
+      "name": "Initial LiveOps content",
+      "status": "prepared",
+      "detail": "Original Emberwatch launch seed, mission tree, Crucible and reward track included."
+    },
+    {
+      "id": 25,
+      "name": "Support / moderation process",
+      "status": "prepared",
+      "detail": "Support/moderation runbook and audit tooling included; live drill external-evidence gated."
+    },
+    {
+      "id": 26,
+      "name": "Observed canary / rollback",
+      "status": "external-evidence",
+      "detail": "Canary controller and rollback policy implemented; observed production-like traffic external."
+    },
+    {
+      "id": 27,
+      "name": "2k / 5k / 10k capacity",
+      "status": "external-evidence",
+      "detail": "Planner/topologies implemented; real benchmark evidence required for each tier."
+    },
+    {
+      "id": 28,
+      "name": "Final release candidate freeze",
+      "status": "prepared",
+      "detail": "v5.4 internal RC will be frozen by package manifest + clean-unpack verification; signed store RC remains external."
+    }
+  ]
+}

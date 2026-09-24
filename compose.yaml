@@ -1,0 +1,26 @@
+# Local single-server recipe only. Start manually; never runs on its own.
+# docker compose up --build -d
+# Stops with: docker compose down  (do NOT add --volumes unless deleting accounts).
+services:
+  game:
+    build: .
+    init: true
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - nyrathen-data:/app/.data
+    environment:
+      BACKUP_SECONDS: "900"
+      BACKUP_RETAIN: "8"
+    stop_grace_period: 45s
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1g
+volumes:
+  nyrathen-data:

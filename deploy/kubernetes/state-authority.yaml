@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata: {name: nyrathen-state, namespace: nyrathen}
+spec:
+  clusterIP: None
+  selector: {app: nyrathen-state}
+  ports: [{name: state, port: 3400, targetPort: state}]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: {name: nyrathen-state, namespace: nyrathen}
+spec:
+  serviceName: nyrathen-state
+  replicas: 1
+  selector: {matchLabels: {app: nyrathen-state}}
+  template:
+    metadata: {labels: {app: nyrathen-state}}
+    spec:
+      terminationGracePeriodSeconds: 90
+      containers:
+        - name: state
+          image: ghcr.io/REPLACE/nyrathen:5.7.0
+          command: ["node", "server/state-authority.mjs"]
+          ports: [{containerPort: 3400, name: state}]
+          env:
+            - {name: STATE_AUTHORITY_HOST, value: "0.0.0.0"}
+            - {name: STATE_AUTHORITY_PORT, value: "3400"}
+            - {name: STATE_AUTHORITY_DATA_PATH, value: "/state/nyrathen-state.sqlite"}
+            - {name: STATE_AUTHORITY_BACKUP_DIRECTORY, value: "/state/backups"}
+            - name: STATE_AUTHORITY_SECRET
+              valueFrom: {secretKeyRef: {name: nyrathen-secrets, key: state-authority-secret}}
+          readinessProbe: {httpGet: {path: /healthz, port: state}, periodSeconds: 5, timeoutSeconds: 2, failureThreshold: 2}
+          livenessProbe: {httpGet: {path: /healthz, port: state}, periodSeconds: 15, timeoutSeconds: 3, failureThreshold: 3}
+          volumeMounts: [{name: state-data, mountPath: /state}]
+          resources:
+            requests: {cpu: "1", memory: "1Gi"}
+            limits: {cpu: "2", memory: "2Gi"}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            capabilities: {drop: ["ALL"]}
+  volumeClaimTemplates:
+    - metadata: {name: state-data}
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources: {requests: {storage: 20Gi}}
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: {name: nyrathen-state, namespace: nyrathen}
+spec:
+  minAvailable: 1
+  selector: {matchLabels: {app: nyrathen-state}}

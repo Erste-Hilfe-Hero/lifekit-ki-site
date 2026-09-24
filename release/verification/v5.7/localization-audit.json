@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "locales": [
+    "de",
+    "en"
+  ],
+  "runtime": "DOM + dynamic UI observer",
+  "languageSelector": true,
+  "classes": 19,
+  "dungeons": 18
+}
