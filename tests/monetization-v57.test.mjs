@@ -131,6 +131,26 @@ test('v5.7 long-soak harness includes parallel commerce and entitlement churn',(
   assert.match(soak,/commerce-soak\.mjs/);assert.match(soak,/Promise\.all/);assert.match(commerce,/purchase_complete/);assert.match(commerce,/purchase_refund/);assert.match(commerce,/duplicateTransactionIds/);assert.equal(pkg.scripts['test:commerce-soak'],'node tools/commerce-soak.mjs');
 });
 
+test('Android StoreBridge requires non-blank accountId and calls setObfuscatedAccountId(hash(accountId))',()=>{
+  const android=text('native/android/app/src/main/java/game/nyrathen/mobile/StoreBridge.java');
+  assert.match(android,/accountId\s*=\s*request\.optString\s*\(\s*"accountId"/);
+  assert.match(android,/if\s*\(\s*accountId\s*\.\s*isBlank\s*\(\s*\)\s*\)\s*{\s*emitError/);
+  assert.match(android,/setObfuscatedAccountId\s*\(\s*hash\s*\(\s*accountId\s*\)\s*\)/);
+});
+
+test('iOS GameViewController parses accountId as UUID and passes appAccountToken to purchase()',()=>{
+  const ios=text('native/ios/Nyrathen/GameViewController.swift');
+  assert.match(ios,/UUID\s*\(\s*uuidString:\s*accountId\s*\)/);
+  assert.match(ios,/product\.purchase\s*\(\s*options:\s*\[.*appAccountToken/i);
+});
+
+test('server/commerce.mjs verifies Google appAccountToken presence and App Store appAccountToken match',()=>{
+  const server=text('server/commerce.mjs');
+  assert.match(server,/j\.obfuscatedExternalAccountId.*!==.*commerceAccountHash/);
+  assert.match(server,/appToken.*payload\.appAccountToken.*payload\.appaccounttoken/i);
+  assert.match(server,/appToken.*!==.*playerId.*account mismatch.*409/);
+});
+
 test('earned-only prestige cosmetics are explicitly separated from every premium catalog',()=>{
   const src=text('shared/monetization-data.mjs');assert.match(src,/EARNED_ONLY_COSMETICS/);assert.match(src,/Realmjäger/);assert.match(src,/ashen/);
   const premium=src.slice(0,src.indexOf('export const EARNED_ONLY_COSMETICS'));assert.doesNotMatch(premium,/['\"]Realmjäger['\"]/);assert.doesNotMatch(premium,/['\"]ashen['\"]/);

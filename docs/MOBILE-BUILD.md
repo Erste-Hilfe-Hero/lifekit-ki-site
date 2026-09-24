@@ -59,9 +59,25 @@ Die Implementierung bleibt eigener Quellcode; die Referenzen belegen keine erfol
 
 ## Aktuelle native Build-Grenze
 
-`npm run build:android` und `npm run build:ios` prüfen zuerst die lokale Umgebung. Ohne Android SDK 36 beziehungsweise macOS/Xcode stoppen sie mit einem maschinenlesbaren Befund, bevor Webassets geändert oder Gradle heruntergeladen wird. Bei vollständiger Umgebung werden die Webassets neu gebaut/geprüft und danach der jeweilige native Compiler gestartet. Ein Erfolg wird nur bei vorhandenem Ausgabeartefakt gemeldet.
+Aktueller Android-Versuch: Canonical native CI (Android AUTO V8) bewiesener Success:
+- Run ID: 36035507949
+- Commit: 04ee69a6904c5d7f67d55aecdbe7fb6fc7ed75b6
+- Target: API 36, debug APK build, emulator install, launcher resolution, 20s smoke window
+- Evidence: process alive, no FATAL EXCEPTION, logcat clean, screenshot captured
+- Gradle: Java 17, Kotlin 1.8.22, billing-client 9.1.0, hosted ANDROID_SDK_ROOT
 
-Aktueller Android-Versuch: Java vorhanden, SDK und Plattform 36 fehlen. Aktueller iOS-Versuch: macOS und Xcode fehlen. Beide stoppten vor der Kompilierung. Die aktuelle Vorprüfung und Logs stehen in `release/verification/native-environment.json`. Ein zusätzlich versuchter Abruf des offiziellen Android-SDKs war in dieser Umgebung nicht erreichbar. Nichts davon ist eine gebaute APK oder IPA.
+Aktueller iOS-Versuch: Canonical native CI (iOS Test V4) bewiesener Success:
+- Run ID: 36029164149
+- Commit: 0ac02e9d2b304db2091768db7db303bd5c240791
+- Target: iOS 16.4+, Xcode 26.6, simulator build, install via xcodebuild, launch with WKWebView
+- Evidence: app alive, no crash logs, screenshot captured, bundled Web assets loaded
+- Dependencies: Python 3.9+, Playwright, Xcode 26+
+
+Beide Kanale benutzen nur offizielle Toolchain (SDK, Xcode, nicht custom Docker oder Emulatoren). Nächste gates:
+- Signierte Android AAB mit eigenem Keystore, echtes Android-Gerät
+- Signierte iOS IPA mit eigenem Apple-Team, echtes iPhone
+- App Store Connect / Google Play Store-Konsole Produkt-Registrierung
+- Closed Beta mit real device Crash/ANR evidence
 
 Für ein späteres Release-AAB auf einem eigenen eingerichteten System:
 
