@@ -1,0 +1,168 @@
+name: Nyrathen Bootstrap + iOS Simulator
+
+"on":
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nyrathen-bootstrap-ios
+  cancel-in-progress: false
+
+jobs:
+  bootstrap:
+    name: Replace LifeKit with Nyrathen
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      backup_branch: ${{ steps.replace.outputs.backup_branch }}
+      new_head: ${{ steps.replace.outputs.new_head }}
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decode payload, back up LifeKit and replace repository
+        id: replace
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BOOTSTRAP=".github/workflows/nyrathen-bootstrap-ios.yml"
+          ARCHIVE="$RUNNER_TEMP/nyrathen_repo_payload.tar.xz"
+
+          if [ -f "nyrathen_repo_payload.tar.xz" ]; then
+            cp nyrathen_repo_payload.tar.xz "$ARCHIVE"
+          elif [ -f "nyrathen_repo_payload.png" ]; then
+            python3 -m pip install --quiet pillow
+            python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          import hashlib, struct, sys
+
+          p = Path("nyrathen_repo_payload.png")
+          img = Image.open(p).convert("RGB")
+          raw = img.tobytes()
+
+          if raw[:8] != b"NYRPKG1\0":
+              raise SystemExit("invalid Nyrathen PNG payload header")
+
+          size = struct.unpack(">Q", raw[8:16])[0]
+          expected = raw[16:48]
+          payload = raw[48:48+size]
+
+          if len(payload) != size:
+              raise SystemExit("truncated Nyrathen PNG payload")
+          if hashlib.sha256(payload).digest() != expected:
+              raise SystemExit("Nyrathen PNG payload SHA-256 mismatch")
+
+          Path("/tmp/nyrathen_repo_payload.tar.xz").write_bytes(payload)
+          print("decoded", size, "bytes")
+          PY
+            cp /tmp/nyrathen_repo_payload.tar.xz "$ARCHIVE"
+          else
+            echo "Missing nyrathen_repo_payload.tar.xz or nyrathen_repo_payload.png"
+            exit 1
+          fi
+
+          OLD_SHA="$(
+            git rev-list HEAD | while read -r sha; do
+              if ! git cat-file -e "$sha:nyrathen_repo_payload.tar.xz" 2>/dev/null &&
+                 ! git cat-file -e "$sha:nyrathen_repo_payload.png" 2>/dev/null &&
+                 ! git cat-file -e "$sha:Nyrathen-GitHub-Bootstrap-iOS.yml" 2>/dev/null &&
+                 ! git cat-file -e "$sha:$BOOTSTRAP" 2>/dev/null; then
+                echo "$sha"
+                break
+              fi
+            done
+          )"
+          test -n "$OLD_SHA"
+
+          BACKUP_BRANCH="backup/lifekit-before-nyrathen-${GITHUB_RUN_ID}"
+          git branch "$BACKUP_BRANCH" "$OLD_SHA"
+          git push origin "$BACKUP_BRANCH"
+
+          TMP="$(mktemp -d)"
+          tar -xJf "$ARCHIVE" -C "$TMP"
+
+          test -f "$TMP/package.json"
+          test -d "$TMP/native/ios"
+          test -f "$TMP/tools/ios-simulator-smoke.sh"
+
+          cp "$BOOTSTRAP" "$RUNNER_TEMP/nyrathen-bootstrap-ios.yml"
+
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          rsync -a "$TMP"/ ./
+
+          if [ -d ".github/workflows" ]; then
+            mkdir -p ci/workflows-pending
+            cp -a .github/workflows/. ci/workflows-pending/
+          fi
+
+          rm -rf .github/workflows
+          mkdir -p .github/workflows
+          cp "$RUNNER_TEMP/nyrathen-bootstrap-ios.yml" "$BOOTSTRAP"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace LifeKit with Nyrathen v5.7 iOS CI Ready"
+          git push origin HEAD:main
+
+          NEW_HEAD="$(git rev-parse HEAD)"
+          echo "backup_branch=$BACKUP_BRANCH" >> "$GITHUB_OUTPUT"
+          echo "new_head=$NEW_HEAD" >> "$GITHUB_OUTPUT"
+
+  ios-simulator:
+    name: Xcode build + iPhone simulator smoke
+    needs: bootstrap
+    runs-on: macos-latest
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout new Nyrathen main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: false
+
+      - name: Verify Xcode 26+
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          MAJOR="$(xcodebuild -version | awk '/Xcode/{split($2,a,"."); print a[1]}')"
+          test "${MAJOR:-0}" -ge 26
+
+      - name: Full regression
+        run: npm test
+
+      - name: Mobile UI checks
+        run: npm run test:ui
+
+      - name: Build unsigned iOS simulator app
+        run: npm run build:ios
+
+      - name: Boot simulator, install and launch Nyrathen
+        run: bash tools/ios-simulator-smoke.sh
+
+      - name: Upload iOS evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nyrathen-ios-simulator-evidence
+          path: |
+            release/ios-ci/latest/
+            release/ios-ci/Nyrathen-Simulator.zip
+            release/ios-ci/Nyrathen-Simulator.zip.sha256
+          if-no-files-found: warn
+          retention-days: 14
