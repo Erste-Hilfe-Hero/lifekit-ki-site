@@ -21,6 +21,7 @@ Live gameplay/runtime: `v5.7.0-prod-hotfix14-dungeon-boss-reward`
 - Six-hour distributed Railway endurance run started with 84 clients over all 14 workers; exact current deployment is live and healthy, but final PASS remains pending until real elapsed-time evidence exists.
 - Endurance release gate hardened: a PASS now requires the real `NYR_LOAD_REPORT`, at least six elapsed hours, 14/14 targets, 84/84 connected clients, p99 <= 180 ms and healthy post-cleanup State/storage on every target.
 - `release:soak-evidence` added to validate and ingest the final report without allowing manual `hours: 6` shortcuts.
+- **Native CI is now run and proven, not merely written.** Android CI run **`36035507949`** (`.github/workflows/nyrathen-android-auto-v8.yml`) built the Android app for API 36, installed and launched it on a hosted emulator — Build/Install/Launch **SUCCESS**. iOS CI run **`36029164149`** (`.github/workflows/nyrathen-ios-test-V4.yml`) built the app with Xcode 26.6, installed and launched it on an iPhone Simulator — Build/Install/Launch **SUCCESS**. The native-CI workflow suite was consolidated to these two canonical, proven workflows; all obsolete/duplicate Android and iOS variants were removed from `.github/workflows/`. See `release/ANDROID-GITHUB-CI-STATUS-v5.7.md` and `release/IOS-GITHUB-CI-STATUS-v5.7.md` for full run detail.
 
 ## Live production remains unchanged
 

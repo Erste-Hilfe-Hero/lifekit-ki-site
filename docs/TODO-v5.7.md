@@ -113,7 +113,7 @@ Basis: v5.7.0 — Build `c386de46dd81`, 396/396 Regression, 50/50 Mobile-UI, 114
 - [x] vollständige Regression grün;
 - [x] Mobile UI vollständig grün;
 - [x] Echtgeld-Shop lokal technisch vollständig;
-- [ ] native Billing-Bridges kompilieren; **EXTERN/BUILD-HOST:** hier fehlen Android SDK/API 36 sowie macOS/Xcode 26.
+- [x] native Billing-Bridges kompilieren; **COMPLETED — Nachweis:** Android CI Run `36035507949` (`nyrathen-android-auto-v8.yml`, API 36 Build/Install/Launch **SUCCESS**) und iOS CI Run `36029164149` (`nyrathen-ios-test-V4.yml`, Xcode 26.6 Simulator Build/Install/Launch **SUCCESS**). Zwei-Phasen-Modell: (1) native Kompilierung/Emulator-Smoke = abgeschlossen; (2) signiertes AAB/IPA + physische Geräte/Store-Freigabe = weiterhin **OFFEN**, separates Gate.
 - [x] serverseitige Receipt-Verifikation fail-closed;
 - [x] keine Pay-to-Win-/Lootbox-Produkte;
 - [x] Shop und Haupt-UI visuell klar nicht-generisch;
@@ -186,3 +186,12 @@ Basis: v5.7.0 — Build `c386de46dd81`, 396/396 Regression, 50/50 Mobile-UI, 114
 - [ ] Signierte Android/iOS Builds + physische Geräte + Stores. **EXTERN/DEVICE/STORE.**
 - [ ] Closed Beta / Crash-ANR / externe Reviews. **EXTERN/HUMAN.**
 - [ ] 2k/5k/10k echte Capacity-Benchmarks. **EXTERN/CAPACITY.**
+
+## Native CI — Konsolidierung und Nachweis (aktuell)
+
+Die native-CI-Workflow-Suite wurde auf zwei kanonische, geprüfte Workflows konsolidiert. Alle übrigen Android-V2/V3/V4/V6/V7-, `auto`-, `test`- sowie iOS-Bootstrap/V2/V3/`test`-Varianten wurden entfernt.
+
+- [x] `nyrathen-android-auto-v8.yml` (`.github/workflows/`): Android CI Run **`36035507949`** — API 36 Build, Emulator-Install und -Launch **SUCCESS**.
+- [x] `nyrathen-ios-test-V4.yml` (`.github/workflows/`): iOS CI Run **`36029164149`** — Xcode 26.6 Simulator Build, Install und Launch **SUCCESS**.
+- [x] Zwei-Phasen-Modell für native Builds bestätigt: Phase 1 (native Kompilierung + Emulator/Simulator-Smoke) ist **abgeschlossen** für beide Plattformen. Phase 2 (signiertes AAB/IPA, physisches Gerät, Store-Freigabe) bleibt ein **separates, weiterhin offenes Gate** — siehe `EXTERN/BUILD-HOST/DEVICE`- und `EXTERN/DEVICE/STORE`-Einträge oben.
+- [x] `ci/workflows-pending/` (Store-Submissions-Workflows) bleibt bewusst **PENDING** und wurde nicht nach `.github/workflows/` verschoben oder aktiviert.

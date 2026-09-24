@@ -2,6 +2,10 @@
 
 Nyrathen wird nur als iOS-/Android-App ausgeliefert. Die GitHub-Actions-Datei `.github/workflows/mobile-store-release.yml` erzeugt nach erfolgreichem Testlauf signierbare Store-Artefakte, sobald die privaten Store-Zugangsdaten als Repository-Secrets gesetzt sind.
 
+## Native CI ist bereits bewiesen
+
+Die unsignierte native Kompilierung ist kein offenes Risiko mehr: Android CI Run **`36035507949`** (`.github/workflows/nyrathen-android-auto-v8.yml`) hat einen API-36-Build erzeugt, auf einem Emulator installiert und erfolgreich gestartet. iOS CI Run **`36029164149`** (`.github/workflows/nyrathen-ios-test-V4.yml`) hat mit Xcode 26.6 einen iOS-Simulator-Build erzeugt, installiert und erfolgreich gestartet. Beide Läufe sind **SUCCESS** und belegen, dass die native Billing-Bridge auf beiden Plattformen kompiliert, installiert und startet. Dieses Dokument beschreibt den nächsten Schritt — den **signierten** Build für Store/Gerät — der weiterhin ein separates, offenes Gate ist.
+
 ## Android / Google Play
 
 Erforderliche Secrets:
