@@ -3,23 +3,24 @@
 Stand: 24.09.2026
 Base: ProductionRC Hotfix14 ReleaseClosure Hardened
 
-## Neu in diesem Stand
+## Status: iOS native build COMPLETED
 
-- `.github/workflows/ios-simulator-ci.yml`
-  - macOS GitHub-hosted runner
-  - Xcode 26+ hard gate
-  - Node.js 22
-  - full regression before native build
-  - unsigned iOS simulator build (`npm run build:ios`)
-  - boots a real iPhone Simulator runtime through `simctl`
-  - installs `Nyrathen.app`
-  - launches bundle `game.nyrathen.mobile`
-  - verifies that the app process survives the smoke window
-  - captures an actual simulator screenshot and Nyrathen simulator logs
-  - uploads simulator app + SHA-256 + evidence as GitHub Actions artifacts
+- Workflow: `.github/workflows/nyrathen-ios-test-V4.yml`
+- Run 36029164149 — Xcode 26.6, iOS Simulator: build, install and launch all confirmed successful.
+- macOS GitHub-hosted runner
+- Xcode 26+ hard gate
+- Node.js 22
+- full regression before native build
+- unsigned iOS simulator build (`npm run build:ios`)
+- boots a real iPhone Simulator runtime through `simctl`
+- installs `Nyrathen.app`
+- launches bundle `game.nyrathen.mobile`
+- verifies that the app process survives the smoke window
+- captures an actual simulator screenshot and Nyrathen simulator logs
+- uploads simulator app + SHA-256 + evidence as GitHub Actions artifacts
 - `tools/ios-simulator-smoke.sh` contains the reusable simulator boot/install/launch/evidence flow.
 - `tests/ios-simulator-ci-v57.test.mjs` prevents the workflow from silently becoming a signed/TestFlight gate.
-- Legacy manual workflow action majors normalized to stable v4 action releases already used by the release workflows.
+- All obsolete duplicate iOS workflow variants have been removed; `nyrathen-ios-test-V4.yml` is the single proven workflow.
 
 ## Local verification after integration
 
@@ -30,9 +31,9 @@ Base: ProductionRC Hotfix14 ReleaseClosure Hardened
 - YAML structure parses successfully.
 - iOS CI contract tests: 3/3 PASS.
 
-## What this proves once GitHub runs it
+## What this proves
 
-A successful GitHub Actions run will prove that Nyrathen compiles with Xcode 26+ for an iOS Simulator, can be installed into an iPhone Simulator, launches successfully and remains alive for the smoke window. The run will retain a screenshot and logs for review.
+Run 36029164149 proves that Nyrathen compiles with Xcode 26.6 for an iOS Simulator, was installed into an iPhone Simulator, launched successfully and remained alive for the smoke window. The run retains a screenshot and logs for review.
 
 ## What it intentionally does NOT claim
 
@@ -42,4 +43,4 @@ A successful GitHub Actions run will prove that Nyrathen compiles with Xcode 26+
 - no Apple purchase sandbox test;
 - no proof of push-notification delivery on a real device.
 
-Those gates remain separate until the Apple Developer membership and signing credentials are active.
+Those gates remain open (pending) until the Apple Developer membership, signing credentials and physical device matrix are in place.
