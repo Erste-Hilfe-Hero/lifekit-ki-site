@@ -1,0 +1,102 @@
+name: Nyrathen iOS Test ONLY
+
+"on":
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nyrathen-ios-test-only
+  cancel-in-progress: true
+
+jobs:
+  ios-test:
+    name: Nyrathen Xcode + iPhone Simulator
+    runs-on: macos-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout Nyrathen
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --version
+          npm --version
+          xcodebuild -version
+          MAJOR="$(xcodebuild -version | awk '/Xcode/{split($2,a,"."); print a[1]}')"
+          test "${MAJOR:-0}" -ge 26
+          node -e "const p=require('./package.json'); if(p.name!=='nyrathen') process.exit(1)"
+          test -d native/ios
+          test -f tools/ios-simulator-smoke.sh
+
+      - name: Restore workflow fixtures locally
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d ci/workflows-pending
+          mkdir -p .github/workflows
+          cp -f ci/workflows-pending/*.yml .github/workflows/
+
+          test -f .github/workflows/build-manual.yml
+          test -f .github/workflows/mobile-beta.yml
+          test -f .github/workflows/mobile-store-release.yml
+          test -f .github/workflows/ios-simulator-ci.yml
+
+          echo "Workflow fixtures restored only inside this runner."
+          git status --short
+
+      - name: Full regression
+        run: npm test
+
+      - name: Mobile UI checks
+        run: npm run test:ui
+
+      - name: Build unsigned iOS simulator app
+        run: npm run build:ios
+
+      - name: Boot simulator, install and launch Nyrathen
+        run: bash tools/ios-simulator-smoke.sh
+
+      - name: Package simulator app
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release/ios-ci
+          APP="native/ios/build/Build/Products/Debug-iphonesimulator/Nyrathen.app"
+          if [ -d "$APP" ]; then
+            ditto -c -k --keepParent "$APP" release/ios-ci/Nyrathen-Simulator.zip
+            shasum -a 256 release/ios-ci/Nyrathen-Simulator.zip \
+              > release/ios-ci/Nyrathen-Simulator.zip.sha256
+          fi
+
+      - name: Collect diagnostics
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p release/ios-ci/diagnostics
+          xcodebuild -version > release/ios-ci/diagnostics/xcode-version.txt 2>&1 || true
+          xcrun simctl list devices available > release/ios-ci/diagnostics/simulators.txt 2>&1 || true
+          git rev-parse HEAD > release/ios-ci/diagnostics/commit.txt 2>&1 || true
+
+      - name: Upload iOS evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nyrathen-ios-test-evidence
+          path: |
+            release/ios-ci/
+          if-no-files-found: warn
+          retention-days: 14
