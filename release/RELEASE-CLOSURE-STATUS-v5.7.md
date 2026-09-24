@@ -22,6 +22,13 @@ Live gameplay/runtime: `v5.7.0-prod-hotfix14-dungeon-boss-reward`
 - Endurance release gate hardened: a PASS now requires the real `NYR_LOAD_REPORT`, at least six elapsed hours, 14/14 targets, 84/84 connected clients, p99 <= 180 ms and healthy post-cleanup State/storage on every target.
 - `release:soak-evidence` added to validate and ingest the final report without allowing manual `hours: 6` shortcuts.
 
+## Native mobile CI (v5.7 canonical native CI cleanup)
+
+- Android: `.github/workflows/nyrathen-android-auto-v8.yml` ("Nyrathen Android AUTO V8") — run **36035507949, SUCCESS**, commit `04ee69a6904c5d7f67d55aecdbe7fb6fc7ed75b6`, 410/410 tests, API36 emulator install/launch/crash-smoke.
+- iOS: `.github/workflows/nyrathen-ios-test-V4.yml` ("Nyrathen iOS Test ONLY", V4) — run **36029164149, SUCCESS**, commit `0ac02e9d2b304db2091768db7db303bd5c240791`, 410/410 tests, Mobile UI 50/50, Xcode 26.6, iPhone 17 Pro Max / iOS 26.5 simulator install/launch.
+- Native Billing-Bridges compilation is complete on both platforms via these two canonical, GitHub-hosted workflows; obsolete Android v6/v7 and iOS V2/V3 workflow variants have been removed. See `docs/CANONICAL-CI-WORKFLOWS-v5.7.md` and `release/ANDROID-GITHUB-CI-STATUS-v5.7.md` for details.
+- The native CI phase is now considered complete. Signed builds, physical-device testing, store publication, and in-app-purchase live verification remain **OPEN** external gates — nothing above changes their status.
+
 ## Live production remains unchanged
 
 The gameplay/account-progression runtime remains Hotfix 14:
