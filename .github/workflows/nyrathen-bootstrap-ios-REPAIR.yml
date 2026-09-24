@@ -1,0 +1,147 @@
+name: Nyrathen Bootstrap + iOS Simulator
+
+"on":
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/nyrathen-bootstrap-ios.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nyrathen-bootstrap-ios
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    name: Prepare Nyrathen repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore Nyrathen release workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Current expected state: Nyrathen is already installed.
+          if node -e "const p=require('./package.json'); process.exit(p.name==='nyrathen' ? 0 : 1)" 2>/dev/null \
+             && [ -d native/ios ] \
+             && [ -f tools/ios-simulator-smoke.sh ]; then
+            echo "Nyrathen source detected."
+          else
+            echo "Nyrathen source is not present on main."
+            exit 1
+          fi
+
+          mkdir -p .github/workflows
+
+          if [ -d ci/workflows-pending ]; then
+            cp -f ci/workflows-pending/*.yml .github/workflows/ 2>/dev/null || true
+          fi
+
+          # These files are required by the release regression suite.
+          test -f .github/workflows/mobile-beta.yml
+          test -f .github/workflows/mobile-store-release.yml
+          test -f .github/workflows/ios-simulator-ci.yml
+          test -f .github/workflows/build-manual.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .github/workflows
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Restore Nyrathen release workflows [skip ci]"
+            git push origin HEAD:main
+          else
+            echo "Release workflows are already restored."
+          fi
+
+  ios-simulator:
+    name: Xcode build + iPhone simulator smoke
+    needs: prepare
+    runs-on: macos-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout Nyrathen main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify Xcode 26+
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodebuild -version
+          MAJOR="$(xcodebuild -version | awk '/Xcode/{split($2,a,"."); print a[1]}')"
+          test "${MAJOR:-0}" -ge 26
+
+      - name: Verify Nyrathen source
+        shell: bash
+        run: |
+          set -euo pipefail
+          node -e "const p=require('./package.json'); if(p.name!=='nyrathen') process.exit(1)"
+          test -d native/ios
+          test -f tools/ios-simulator-smoke.sh
+
+      - name: Verify restored release workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f .github/workflows/mobile-beta.yml
+          test -f .github/workflows/mobile-store-release.yml
+          test -f .github/workflows/ios-simulator-ci.yml
+          test -f .github/workflows/build-manual.yml
+
+      - name: Full regression
+        run: npm test
+
+      - name: Mobile UI checks
+        run: npm run test:ui
+
+      - name: Build unsigned iOS simulator app
+        run: npm run build:ios
+
+      - name: Boot simulator, install and launch Nyrathen
+        run: bash tools/ios-simulator-smoke.sh
+
+      - name: Package simulator app
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p release/ios-ci
+          APP="native/ios/build/Build/Products/Debug-iphonesimulator/Nyrathen.app"
+          if [ -d "$APP" ]; then
+            ditto -c -k --keepParent "$APP" \
+              release/ios-ci/Nyrathen-Simulator.zip
+            shasum -a 256 release/ios-ci/Nyrathen-Simulator.zip \
+              > release/ios-ci/Nyrathen-Simulator.zip.sha256
+          fi
+
+      - name: Upload iOS evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nyrathen-ios-simulator-evidence
+          path: |
+            release/ios-ci/latest/
+            release/ios-ci/Nyrathen-Simulator.zip
+            release/ios-ci/Nyrathen-Simulator.zip.sha256
+          if-no-files-found: warn
+          retention-days: 14
