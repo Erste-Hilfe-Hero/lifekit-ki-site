@@ -113,7 +113,7 @@ Basis: v5.7.0 — Build `c386de46dd81`, 396/396 Regression, 50/50 Mobile-UI, 114
 - [x] vollständige Regression grün;
 - [x] Mobile UI vollständig grün;
 - [x] Echtgeld-Shop lokal technisch vollständig;
-- [ ] native Billing-Bridges kompilieren; **EXTERN/BUILD-HOST:** hier fehlen Android SDK/API 36 sowie macOS/Xcode 26.
+- [x] native Billing-Bridges kompilieren; native CI-Builds bestätigt: Android AUTO V8 — GitHub Actions Run 36035507949 PASSED (API36 Build/Install/Launch); iOS Test V4 — GitHub Actions Run 36029164149 PASSED (Xcode 26.6 Simulator Build/Install/Launch). Offen bleiben: signierte AAB/IPA-Produktionsbuilds, Real-Device-Tests und Store-Veröffentlichung (siehe **EXTERN/BUILD-HOST/DEVICE** und **EXTERN/STORE-CONSOLE**-Punkte unten).
 - [x] serverseitige Receipt-Verifikation fail-closed;
 - [x] keine Pay-to-Win-/Lootbox-Produkte;
 - [x] Shop und Haupt-UI visuell klar nicht-generisch;
