@@ -84,3 +84,13 @@ Die Gradle-Signing-Konfiguration und die Archive-Befehle sind Quellcode, nicht d
 Die GitHub-Actions-Datei `.github/workflows/mobile-store-release.yml` wird ausschließlich manuell per `workflow_dispatch` gestartet. Sie validiert Produktions-/Legal-URLs und kann mit eigenen Secrets ein signiertes Android-AAB beziehungsweise iOS-IPA erzeugen. Es wurde in dieser Unterhaltung kein externer Workflow gestartet und keine Signing-Credential gespeichert.
 
 Primärreferenzen, abgerufen am 22.09.2026: Android-Builds https://developer.android.com/build/building-cmdline ; Android-WebView-Ressourcen https://developer.android.com/develop/ui/views/layout/webapps/load-local-content ; Apple-Verteilung https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases ; manuelle Workflows https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows . Diese Quellen belegen die Werkzeugverträge, keinen Build dieses Spiels.
+
+## v5.7 Canonical CI Workflows
+
+Canonical GitHub Actions workflows for v5.7 native CI are:
+- `.github/workflows/nyrathen-android-auto-v8.yml` (Android API 36 emulator, run 36035507949, SUCCESS)
+- `.github/workflows/nyrathen-ios-test-V4.yml` (iOS simulator Xcode 26+, run 36029164149, SUCCESS)
+
+Older variant workflows (v6/v7/auto/test for Android; bootstrap/test V2/V3 for iOS) have been consolidated and removed. New native builds must use these canonical workflows.
+
+Full regression (410/410), Mobile UI checks (50/50) and simulator smoke tests pass before each native build gate.
