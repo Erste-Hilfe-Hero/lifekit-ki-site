@@ -87,6 +87,13 @@ test('purchase retry after client crash is safe and pending purchases cannot be 
   assert.match(server,/if\(old\)/);assert.match(server,/duplicate:true/);assert.match(server,/commerceReceipt/);
 });
 
+test('store account binding hardens purchase against substitution attacks',()=>{
+  const android=text('native/android/app/src/main/java/game/nyrathen/mobile/StoreBridge.java'),ios=text('native/ios/Nyrathen/GameViewController.swift'),server=text('server/server.mjs');
+  assert.match(android,/if\(accountId\.isBlank\(\)/);assert.match(android,/setObfuscatedAccountId\(hash\(accountId\)\)/);
+  assert.match(ios,/appAccountToken/);assert.match(ios,/UUID\(uuidString:/);assert.match(ios,/Product\.PurchaseOption/);
+  assert.match(server,/obfuscatedExternalAccountId.*!==commerceAccountHash/);assert.match(server,/appAccountToken\.toLowerCase/);assert.match(server,/Google Play account mismatch/);assert.match(server,/App Store appAccountToken mismatch/);
+});
+
 test('v5.7 RC exposes premium wallet separately in desktop and mobile HUD',()=>{
   const html=text('client/index.html'),main=text('client/main.mjs'),css=text('client/styles.css');
   assert.match(html,/id="premium-shards"/);assert.match(html,/id="mobile-premium-shards"/);assert.match(html,/NYR-SPLITTER/);

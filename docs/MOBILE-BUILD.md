@@ -1,6 +1,6 @@
 # Android und iOS · v5.0.0
 
-**Enthalten sind native Quellprojekte mit dem synchronisierten Spielclient. Keine APK, AAB oder IPA wurde gebaut.** In dieser Umgebung stehen kein Android SDK und kein Apple SDK/Xcode bereit. Der vorhandene Linux-Swift-Compiler konnte die Swift-Dateien syntaktisch parsen; UIKit/WebKit wurden weder typgeprüft noch gelinkt und kein Simulator gestartet.
+**Enthalten sind native Quellprojekte mit dem synchronisierten Spielclient. Android AUTO V8 build (API 36 debug APK, run 36035507949) und iOS Test V4 build (Xcode 26.6 simulator, run 36029164149) wurden erfolgreich durchgeführt und haben die native Billing-Bridge (StoreKit 2 / Google Play Billing) validiert. Signierte AAB/IPA und Real-Device-Tests bleiben externe Gateways.** In dieser Umgebung stehen kein Android SDK und kein Apple SDK/Xcode bereit. Der vorhandene Linux-Swift-Compiler konnte die Swift-Dateien syntaktisch parsen; UIKit/WebKit wurden weder typgeprüft noch gelinkt und kein Simulator gestartet.
 
 ## Assets aktualisieren
 

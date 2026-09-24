@@ -22,6 +22,23 @@ Live gameplay/runtime: `v5.7.0-prod-hotfix14-dungeon-boss-reward`
 - Endurance release gate hardened: a PASS now requires the real `NYR_LOAD_REPORT`, at least six elapsed hours, 14/14 targets, 84/84 connected clients, p99 <= 180 ms and healthy post-cleanup State/storage on every target.
 - `release:soak-evidence` added to validate and ingest the final report without allowing manual `hours: 6` shortcuts.
 
+## Native CI Proven (2026-09-24)
+
+- ✅ Android AUTO V8 CI: API 36 debug APK → install → launch → Store Bridge init ✅
+- ✅ iOS Test V4 CI: Xcode 26.6 simulator build → install → launch ✅
+- 🔶 Signed AAB/IPA: Awaiting manual Store CI trigger + real-device validation
+- 🔶 Real-device sandbox purchases: External gate
+- 🔶 Store console uploads: External gate
+
+## Definition of Done (Updated)
+
+- [x] Complete regression ✅ (407/407)
+- [x] Mobile UI ✅ (50/50)
+- [x] Native CI proven ✅ (AUTO V8 + Test V4 validated)
+- [ ] Signed AAB/IPA (blocked on Store CI trigger)
+- [ ] Real-device purchase testing (blocked on signed builds)
+- [ ] Production stores live (blocked on device testing)
+
 ## Live production remains unchanged
 
 The gameplay/account-progression runtime remains Hotfix 14:
